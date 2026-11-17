@@ -1,0 +1,823 @@
+\section{Elementary estimates and frequency spacing}\label{app:elementary}
+
+We prove the sampling, derivative, and spacing estimates used below.
+The spacing estimate follows the argument of de Faveri and Pandey.
+Appendix~\ref{app:base} states the zeta and mean-value theorems used in
+the moment bounds.
+
+\begin{lemma}[local sampling]\label{lem:localproof}
+If $p\ge1$, $f\in C^1$, and $I_x=[x-1/3,x+1/3]$, then
+\[
+ |f(x)|^p\ll_p\int_{I_x}(|f(u)|^p+|f'(u)|^p)\,du.
+\]
+Hence the same inequality can be summed over any $1$-separated set,
+with a constant uniform in its cardinality.
+\end{lemma}
+\begin{proof}
+For every $u\in I_x$, the fundamental theorem of calculus gives
+$|f(x)|\le |f(u)|+\int_{I_x}|f'(v)|\,dv$. Raise this inequality to the
+$p$th power, use H\"older on the integral, and average over $u$.
+The intervals $I_x$ for distinct sample points have disjoint interiors.
+\end{proof}
+
+\begin{lemma}[second derivative estimates]\label{lem:secondproof}
+On an interval of length at most $M$, suppose
+$0<\lambda\le |g''|\le C\lambda$. Then
+\[
+ \left|\sum_{n\in I}e(g(n))\right|
+ \ll_C M\sqrt\lambda+\lambda^{-1/2}+1.
+\]
+For an integral with a compactly supported $C^1$ amplitude $a$, if
+$|g''|\ge\lambda>0$, then
+\[
+ \left|\int a(x)e(g(x))\,dx\right|
+ \ll\lambda^{-1/2}(\|a\|_\infty+\|a'\|_1).
+\]
+\end{lemma}
+\begin{proof}
+The integral estimate follows by removing $|g'|\le\sqrt\lambda$, whose
+length is at most $2/\sqrt\lambda$, and integrating by parts on each of
+the two remaining intervals. Since $g'$ is monotone,
+$\int |g''|/|g'|^2\le2/\sqrt\lambda$ there.
+
+For the sum, the statement is trivial for $\lambda\ge1/16$. Otherwise
+put $\delta=\sqrt\lambda$. The range of the monotone function $g'$
+meets $O_C(M\lambda+1)$ integers. Remove the inverse images of the
+$2\delta$-neighborhoods of these integers and the unit intervals meeting
+their endpoints. They contain
+$O_C((M\lambda+1)(\delta/\lambda+1))$ integers. On each complementary
+interval the increments $g(n+1)-g(n)$ are monotone and lie between
+$q+\delta$ and $q+1-\delta$ for one integer $q$. The identity
+\[
+ e(g(n))=\frac{e(g(n+1))-e(g(n))}{e(g(n+1)-g(n))-1}
+\]
+and summation by parts bound its sum by $O(\delta^{-1})$: the total
+variation of the reciprocal denominator along this arc is
+$O(\delta^{-1})$. There are $O_C(M\lambda+1)$ such intervals.
+Adding these estimates and inserting $\delta=\sqrt\lambda$ proves the bound.
+\end{proof}
+
+\begin{lemma}[spacing, after de Faveri--Pandey]\label{lem:spacingproof}
+Let $\phi(x)=\sqrt x+\eta x^{3/2}$. Uniformly for sufficiently small
+$|\eta|$, $0<d<1$, and $v\in\mathbb R$,
+\[
+ \#\{m,n\in(N,2N]:m\ne n,\ |\phi(n/N)-\phi(m/N)-v|\le d\}
+ \ll dN^2+N^{2/3}.
+\]
+\end{lemma}
+\begin{proof}
+For $d\ge c/N$, monotonicity gives $O(1+dN)$ choices for $n$ at each
+$m$, which suffices. Hence suppose $d<c/N$ with $c$ small.
+By interchanging $m,n$, take $v\ge0$. If any pair is counted then
+$v\gg N^{-1}$ and $v\ll1$. Work on the interval where the inverse below
+takes values in a fixed neighborhood of $[1,2]$, and put
+$g_v(x)=\phi^{-1}(\phi(x)+v)$. Direct implicit differentiation gives
+\[
+ g_v'=\frac{\phi'(x)}{\phi'(g_v)},\qquad
+ g_v''=\frac{\phi'(x)^2}{\phi'(g_v)}
+ \left(\frac{\phi''(x)}{\phi'(x)^2}
+       -\frac{\phi''(g_v)}{\phi'(g_v)^2}\right).
+\]
+Now $\phi'>c_1>0$, $\phi''<-c_1<0$, and
+$(\phi''/\phi'^2)'$ is bounded above and below by positive constants
+on this fixed interval. The last statement follows at $\eta=0$ from
+$\phi''/\phi'^2=-x^{-1/2}$, and persists by continuity.
+It follows that $g_v-x\asymp v$, $g_v'-1\asymp v$, and
+$-g_v''\asymp v$. Each admissible $m$ must satisfy
+\[
+ \|f(m)\|\le C dN,\qquad f(u)=N(g_v(u/N)-u/N).
+\]
+Each $m$ has $O(1)$ corresponding $n$.
+
+If $v\le N^{-1/3}$, the values $f(m)$ run through an interval of length
+$O(Nv)$ and are separated by $\gg v$. Thus their number within $CdN$
+of an integer is $O((1+Nv)(1+dN/v))=O(Nv+dN^2)$, as $Nv\gg1$.
+
+For $v>N^{-1/3}$ let $b=C'dN+(v/N)^{1/3}$.
+If $b$ exceeds a fixed small constant, the trivial bound suffices.
+Otherwise periodize a nonnegative smooth bump at scale $b$, equal to at
+least one on $[-CdN,CdN]$. Its Fourier coefficients satisfy
+$|c_h|\ll_A b(1+b|h|)^{-A}$. Since $|f''|\asymp v/N$,
+Lemma~\ref{lem:secondproof} and Fourier expansion give
+\[
+ \#\{m:\|f(m)\|\le CdN\}
+ \ll Nb+\sqrt{Nv}\,b^{-1/2}+\sqrt{N/v}\,b^{1/2}+1.
+\]
+Here $Nb\ll dN^2+N^{2/3}$,
+$\sqrt{Nv/b}\ll N^{2/3}v^{1/3}\ll N^{2/3}$, and
+$\sqrt{Nb/v}\ll\sqrt{N/v}\ll N^{2/3}$.
+The absolutely convergent smooth Fourier series and the proved
+second-derivative bound establish this spacing estimate.
+\end{proof}
+
+\section{The curved multiplier and all even energies}\label{app:energyproof}
+
+\begin{proposition}\label{prop:multproof}
+Lemma~\ref{lem:mult} holds with an ordinary implied constant in place of
+$\prec$. The constants are uniform on fixed support enlargements where
+$|\kappa|W$ is sufficiently small.
+\end{proposition}
+\begin{proof}
+Write $\lambda=\xi_m-\xi_n$, $\nu=\chi_m-\chi_n$,
+$R_\nu=1+B|\nu|$ and $a_\nu(u)=\beta(u/W)e(\nu r_0(u))$.
+On this support,
+\[
+ |W^j r_0^{(j)}(u)|\ll_j B,\qquad
+ r_0''(u)=-2\eta\kappa(1+\kappa u)^{-3},\qquad
+ |\nu|\asymp|\lambda|.
+\]
+The integral part of Lemma~\ref{lem:secondproof}, and the trivial estimate
+when $B|\nu|\le1$, show $|\widehat a_\nu(v)|\ll WR_\nu^{-1/2}$.
+If $W|v|>C R_\nu$, rescale $u=Wx$ and integrate with
+$(2\pi i(\nu W r_0'(Wx)-Wv))^{-1}d/dx$. Its denominator is comparable
+to $W|v|$, and every normalized derivative of the nonlinear part is
+$O_j(B|\nu|)$. Repeating gives
+$|\widehat a_\nu(v)|\ll_J W(1+W|v|)^{-J}$ in this region.
+
+Lemma~\ref{lem:spacingproof} puts $O(N^2/W)$ differences $\lambda$ in
+each interval of length $1/W$, since $W\le N^{4/3}$.
+On $|u-\lambda|\le CR_\nu/W$, the smallness of $B/W$ gives
+\[
+ 1+B|\lambda|\asymp1+B|u|.
+\]
+For example $B||\lambda|-|u||\le C(B/W)(1+B|\lambda|)$ and this term
+can be absorbed in both directions. The near region has
+$O(1+B|u|)$ cells. Multiply their population by
+$W(1+B|u|)^{-1/2}$. The result is $O(N^2\sqrt{1+B|u|})$.
+On the complement use the separate far estimate just proved, summing
+$O(N^2/W)W(1+|j|)^{-J}$ over cells at distance $j/W$ from $u$.
+This contributes $O(N^2)$ and proves the statement.
+\end{proof}
+
+\begin{proposition}[even energy extension]\label{prop:allenergy}
+Under the hypotheses of the curved model, for every fixed integer $j\ge2$
+and $1\le D\le W$,
+\[
+ E_{2j}(S;D)\ll_j
+ \left(\frac NZ\right)^{4j-4}
+ \left(1+\frac BD\right)^{j-1}E_2(S;D)
+ +\frac{ND}{Z^2}r^{2j-1}.
+\]
+The implicit constants depend on the fixed cutoffs and on $j$.
+\end{proposition}
+In particular this proves Proposition~\ref{prop:curv}.
+\begin{proof}
+Set $\mathcal F(u)=\sum_{w\in S}e(wu)$. For each ordered $(2j-1)$-tuple put
+$\tau=w_1+\cdots+w_j-w_{j+1}-\cdots-w_{2j-1}$.
+Multiply its last-point count by $Z^2$ and use
+Lemma~\ref{lem:localproof} on each eligible last point.
+One fixed nonnegative $g\in C_c^\infty$, equal to one on $[-2,2]$,
+majorizes the resulting local intervals by $g((\tau-u)/D)$.
+Since
+\[
+ D_h'(u)=2\pi i\left[\sum a_n\xi_ne(u\xi_n+r_0(u)\chi_n)
+ +r_0'(u)\sum a_n\chi_ne(u\xi_n+r_0(u)\chi_n)\right]
+\]
+and $|r_0'|\ll B/W\ll1$, we obtain three integrals with fixed
+coefficient sequences bounded by an absolute constant.
+Before enlargement all integration points lie in $[-1,W+1]$, because
+they are local neighborhoods of points of $S$. Insert a fixed
+nonnegative cutoff $\beta(u/W)$ equal to one there, supported in
+$[-3W,3W]$, and then enlarge the integrals to the whole line.
+Each coefficient class and the cutoff remain fixed across tuples and $j$.
+
+For each coefficient class the diagonal after opening the square is
+$O_j(NDr^{2j-1})$. For an off-diagonal frequency pair, convolution and
+Fourier inversion give the exact identity
+\[
+ \int g((\tau-u)/D)a_\nu(u)e(\lambda u)\,du
+ =D\int\widehat g(Dv)\widehat a_\nu(v-\lambda)e(\tau v)\,dv.
+\]
+Summing over the $2j-1$ points gives $\mathcal F(v)|\mathcal F(v)|^{2j-2}$.
+Proposition~\ref{prop:multproof} therefore bounds the absolute
+off-diagonal contribution by
+\[
+ CN^2\sqrt{1+B/D}\,D\int\Psi(Dv)|\mathcal F(v)|^{2j-1}\,dv,
+ \qquad \Psi(v)=(1+v^2)^{-J},
+\]
+with $J$ fixed sufficiently large. We used
+$\sqrt{1+B|v|}\le\sqrt{1+B/D}\sqrt{1+D|v|}$ and rapid decay of
+$\widehat g$.
+
+For each fixed $h\ge1$, expansion and Fourier inversion show
+\[
+ D\int\Psi(Dv)|\mathcal F(v)|^{2h}\,dv\ll_h E_{2h}(S;D).
+\]
+For the tail bound, $|\widehat\Psi(u)|\ll_A(1+|u|)^{-A}$ follows by integration
+by parts. Split the tuple discrepancies into dyadic shells and use
+Lemma~\ref{lem:enlarge} on the multiset of $h$-fold sums. The shell at
+radius $2^aD$ contributes $O(2^{-(A-1)a}E_{2h}(S;D))$.
+H\"older with exponents $2j-2$ and $(2j-2)/(2j-3)$ now yields
+\[
+ Z^2E_{2j}\ll_j NDr^{2j-1}
+ +N^2\sqrt{1+B/D}\,
+ E_2^{1/(2j-2)}E_{2j}^{(2j-3)/(2j-2)}.
+\]
+If the first term is at least half the left side, it gives the stated
+diagonal bound. Otherwise divide by the last power of $E_{2j}$ and
+raise to $2j-2$. This proves the statement, including all ordered tuples.
+\end{proof}
+
+\section{Exact oscillatory integrals and their parameters}\label{app:phaseproof}
+
+\begin{lemma}[two pairs with finitely many derivatives]\label{lem:smoothpairs}
+For a fixed compact interval and $f\in C^2$ on a slightly larger interval,
+\[
+ |f(v_1)+f(v_2)-f(v_3)-f(v_4)|
+ \ll\|f\|_{C^2}(|P_v|+|Q_v|).
+\]
+The statement applies to any fixed parameter derivative of $f$ provided
+that derivative has a bounded $C^2$ norm.
+\end{lemma}
+\begin{proof}
+Write a pair as $s/2\pm r$ and put $\rho=r^2$.
+For $G(s,\rho)=f(s/2+r)+f(s/2-r)$,
+\[
+ G_s=\tfrac12(f'(s/2+r)+f'(s/2-r)),\quad
+ G_\rho=\tfrac12\int_{-1}^1 f''(s/2+vr)\,dv.
+\]
+These formulas include $r=0$ by continuity. Extend $f$ smoothly to a
+larger fixed interval if necessary and use the segment between the two
+points $(s,\rho)$ in the half-plane $\rho\ge0$.
+For the two pairs, $s-s'=P_v$ and
+$\rho-\rho'=Q_v/2-(s^2-s'^2)/4$.
+The mean value theorem proves the estimate.
+Applying the same argument to a parameter derivative proves uniformity.
+\end{proof}
+
+\begin{lemma}[exact Morse and Fresnel identity]\label{lem:exactmorse}
+Let $p$ range in a fixed compact parameter set. Suppose $f(p,x)$ has,
+on a fixed interval containing the support of a smooth amplitude $a$,
+a unique critical point $x_0(p)$, and $s f_{xx}\ge c>0$ there for one
+$s\in\{-1,1\}$. Suppose also that $f$ and $a$ have bounded derivatives
+of all fixed orders under consideration. If $Y\ge1$, then exactly
+\[
+ \int a(p,x)e(Yf(p,x))\,dx
+ =Y^{-1/2}e(Yf(p,x_0(p)))\,b(p,Y),
+\]
+where $(Y\partial_Y)^h\partial_p^\alpha b\ll_{h,\alpha}1$.
+The support of the amplitude is allowed to contain $x_0$ or lie away from it.
+\end{lemma}
+\begin{proof}
+The implicit function theorem and differentiation of $f_x(p,x_0)=0$
+give bounded derivatives of $x_0$. Taylor's integral formula gives
+\[
+ v=(x-x_0)\left(s\int_0^1(1-u)f_{xx}(p,x_0+u(x-x_0))\,du\right)^{1/2}.
+\]
+It has bounded derivatives and an inverse with bounded derivatives;
+the identity $2v v_x=s f_x$ and the lower curvature bound show
+$v_x\asymp1$, also at $x_0$. The phase becomes
+$f(p,x_0)+s v^2$. The transformed amplitude $c(p,v)$ is smooth and
+compactly supported in a fixed interval, also after extension by zero.
+Fourier inversion and the Gaussian integral give
+\[
+ b(p,Y)=\frac{e(s/8)}{\sqrt2}
+ \int_{\mathbb R}\widehat c(p,\xi)e(-s\xi^2/(4Y))\,d\xi.
+\]
+One may first insert $e^{-\epsilon v^2}$, evaluate the ordinary Gaussian
+integral, and pass to the limit by Schwartz domination on the Fourier
+side; this justifies the oscillatory Gaussian identity.
+Each $Y\partial_Y$ inserts a polynomial in $\xi^2/Y$.
+Parameter derivatives fall on $\widehat c$. Its Schwartz bounds prove
+all the stated estimates. The construction uses an interval containing both the support and $x_0$.
+It also covers the case $a(x_0)=0$.
+\end{proof}
+
+\begin{proposition}[critical value and tuple derivatives]\label{prop:exactphaseproof}
+Lemma~\ref{lem:phase} and \eqref{eq:psi} hold. More explicitly, if
+$L=NM$, $t=m/M$ is in a fixed interval away from zero, $v_i=w_i/L$
+are bounded and $\gamma=\kappa L$, then
+\[
+ \Phi(t,x)=\frac Q{4Lt}-\frac{Px}{2}+C(t,x),\qquad
+ |\partial_t^a\partial_x^b C|\ll_{a,b}|\eta|(|P|+F),
+\]
+and
+\[
+ C_{xx}=\frac{3\eta Q}{2Lt}-3\eta Px+E(t,x),\qquad
+ |\partial_t^a\partial_x^b E|
+ \ll_{a,b}(|\gamma|+|\eta|)|\eta|(|P|+F).
+\]
+All estimates are on fixed compact $x$ intervals, with their smallness
+constants chosen after those intervals.
+\end{proposition}
+\begin{proof}
+The pair phase before Poisson integration is
+\[
+ y\{\Delta u^{1/2}+\eta_{\rm eff}\Delta u^{3/2}-u\},\quad
+ y=Nm,\quad \Delta=(z-w)/y.
+\]
+Writing $r=\sqrt u$ in its critical equation gives
+$3\eta_{\rm eff}\Delta r^2-2r+\Delta=0$.
+The root remaining in a fixed positive interval as $\eta\to0$ is
+$r=\Delta/(1+\sqrt{1-3\eta_{\rm eff}\Delta^2})$.
+The other root is outside the fixed integration support. On the
+stationary range $\Delta$ is positive and bounded above and below,
+and $|\eta_{\rm eff}\Delta^2|<1/4$ follows from smallness of $|\eta|$.
+Substitution, using $\frac34\tau\Omega^2-\Omega+1=0$, gives exactly
+\[
+ \Theta=\frac{y\Delta^2}{12}\Omega(4-\Omega).
+\]
+The analytic expansion at $\tau=0$ is
+\[
+ \Theta=\frac{y\Delta^2}{4}
+       +\frac{y\eta_{\rm eff}\Delta^4}{8}
+       +y\eta_{\rm eff}^2\Delta^6\Psi(\tau),
+ \qquad \Psi(0)=\frac9{64}.
+\]
+This identity keeps the full analytic remainder function in the phase.
+
+At $z=Ltx$ its leading term sums to $Q/(4Lt)-Px/2$.
+The next term sums to
+\[
+ \frac{\eta L}{8t^3(1+\gamma tx)}
+ \sum_i\epsilon_i\frac{(tx-v_i)^4}{1+\gamma v_i}.
+\]
+The remainder is $\eta^2L$ times the signed two-pair difference of a
+uniformly smooth function of $v_i$, also after any fixed $t,x$
+derivatives. Lemma~\ref{lem:smoothpairs} bounds it by
+$O_{a,b}(\eta^2(|P|+F))$. The same lemma bounds the quartic term by
+$O_{a,b}(|\eta|(|P|+F))$.
+Replacing $\gamma$ by zero in its second $x$ derivative costs
+$O_{a,b}(|\gamma\eta|(|P|+F))$ by the mean value theorem in $\gamma$
+and the two-pair estimate. At $\gamma=0$ direct differentiation gives
+$3\eta Q/(2Lt)-3\eta Px$. This proves every claimed derivative bound.
+\end{proof}
+
+\begin{proposition}[tuple Morse formula]\label{prop:tuplemorseproof}
+Lemma~\ref{lem:morse} holds. The nonstationary and small-$H$ statements
+used in Proposition~\ref{prop:kernel} also hold with bounded derivatives
+of every fixed required order.
+\end{proposition}
+\begin{proof}
+Let $H=|\eta|F$. When $|P|>C(1+H)$, the first $x$ derivative has
+magnitude $\asymp|P|$. Factor $e(Q/(4Lt))$ and integrate by parts in
+$x$. Every fixed $t$ derivative costs at most a fixed power of
+$|P|+H$; choosing that many extra integrations gives
+$O_{a,J}((1+|P|)^{-J})$ for the remaining amplitude and its derivatives.
+For $H\le1$ and $|P|\le C(1+H)$ all derivatives of $\psi$ are bounded,
+so $e(\psi)$ is a bounded smooth amplitude.
+
+Suppose $H\ge1$ and $|P|\le CH$. The preceding proposition gives
+\[
+ \psi_{xx}/H=\operatorname{sgn}(\eta Q)\frac3{2t}
+             +O(|\eta|+|\kappa|L)
+\]
+for positive $t$; the sign is adjusted for negative $t$.
+Moreover $\psi_x/H$ is an affine function of $x$ with bounded intercept
+and slope separated from zero, plus $O(|\eta|+|\kappa|L)$ in every
+fixed derivative on a fixed interval. For the intercept one uses
+$|\sum\epsilon_iw_i^3|\ll L|Q|+L^2|P|$, from
+Lemma~\ref{lem:smoothpairs}. Choose a fixed larger interval containing
+the amplitude support and all roots of these affine functions, then
+choose the small constants. The derivative has opposite signs at the
+ends, so there is exactly one critical point and its derivatives are
+bounded. Apply Lemma~\ref{lem:exactmorse} with $Y=H$ and $f=\psi/H$.
+Here $H$ is fixed as $t$ varies. It yields
+$H^{-1/2}b(t)e(Q/(4Lt)+\psi(t,x_0(t)))$, with
+$b^{(a)}\ll_a1$ and $(d/dt)^a\psi(t,x_0(t))\ll_aH$.
+The construction includes critical points outside the amplitude support.
+\end{proof}
+
+\section{A complete signed duality calculation}\label{app:dualityproof}
+
+Put $L=NM$. We write the bound as a sum over height blocks. Partition $S$ into
+intervals of length $CL$, independently of $m$, where $C$ is fixed
+sufficiently large. For each outer block $S_j$ and neighboring inner
+block $S_{j+h}$, $h\in\{-1,0,1\}$, translate by its fixed origin $u_j$.
+Let $\mathcal B_{M,j,h}$ be the translated inner set. Then
+$|w|\ll L$ in $\mathcal B_{M,j,h}$. The parameters become
+\[
+ \eta_j=\eta(1+\kappa u_j)^{-2},\qquad
+ \kappa_j=\kappa(1+\kappa u_j)^{-1}.
+\]
+The common phase at $u_j$ cancels in the pair difference, since
+$h(u_j+v)-h(u_j)=\eta_jv/(1+\kappa_jv)$. Thus the translation can be
+performed after the global duality step with its coefficients preserved.
+
+\begin{proposition}[signed blocks]\label{prop:dualityproof}
+There are smooth amplitudes in the two fixed Sobolev classes and in
+each sign of $m$ for which
+\begin{equation}\label{eq:preciseduality}
+ r^2Z^2\ll N^2r+
+ \sum_{M,h,\pm,\ell}N^{7/4}M^{1/2}
+ \sum_j |S_j|^{3/4}\mathcal T_{M,j,h,\pm,\ell}^{1/4},
+\end{equation}
+where $\ell=0,1$, $\mathcal T\ge0$, and
+\[
+ \mathcal T_{M,j,h,\pm,\ell}
+ =\sum_{\mathbf w\in\mathcal B_{M,j,h}^4}
+ b_{w_1}b_{w_2}\overline{b_{w_3}b_{w_4}}
+ \sum_{m\text{ in the fixed sign}}\int A_{\ell,\mathbf w}(m/M,x)
+ e(\Phi(m/M,x))\,dx.
+\]
+All normalized derivatives of the amplitudes are bounded. In particular
+$\mathcal T\le\sum_{\mathbf w}|K_{M,j,h,\pm,\ell}(\mathbf w)|$.
+The number of neighbors and signs is bounded independently of $N,W,r$.
+\end{proposition}
+\begin{proof}
+Choose $b_w$ of modulus one so that $b_wD_h(w)=|D_h(w)|$.
+Cauchy's inequality only in the $n$ variable gives
+\[
+ r^2Z^2\le N\sum_n\varphi(n/N)
+ \left|\sum_{w\in S}b_w
+ e(w\sqrt{n/N}+h(w)(n/N)^{3/2})\right|^2,
+\]
+where $\varphi\ge1$ on $[1,2]$ and has fixed compact positive support.
+Poisson summation changes the right side exactly to
+\[
+ N^2\sum_{z,w\in S}b_z\overline b_w\sum_{m\in\mathbb Z}
+ \int\varphi(u)e((z-w)\sqrt u+(h(z)-h(w))u^{3/2}-Nm u)\,du.
+\]
+Poisson follows, for this smooth compact support, by periodizing the
+summand and taking its absolutely convergent Fourier series.
+For $m=0$ the derivative is comparable to $z-w$ unless $z=w$;
+integration by parts and $1$-spacing give $O(N^2r)$.
+
+For $m\ne0$, stationary support requires $\Delta=(z-w)/(Nm)$ in a
+fixed compact subinterval of $(0,\infty)$. Choose a smooth cutoff in
+$\Delta$ equal to one on a neighborhood of all such ratios. Off that
+cutoff, repeated integration by parts bounds the integral by
+$O_A((1+|z-w|+N|m|)^{-A})$.
+For each fixed $z$, $1$-spacing implies
+$\sum_w(1+|z-w|+N|m|)^{-A}\ll(1+N|m|)^{1-A}$.
+Summing in $m$ bounds this part by $O(N^2r)$.
+
+On the cutoff use the exact identity
+$h(z)-h(w)=\eta(z-w)/((1+\kappa z)(1+\kappa w))$.
+The pair phase divided by $|Nm|$ has one nondegenerate critical point
+in a fixed positive enlargement of the $u$ support. Its second
+derivative has constant sign there, bounded away from zero. Apply
+Lemma~\ref{lem:exactmorse} with $Y=|Nm|$.
+The integral is \emph{exactly}
+\[
+ (N|m|)^{-1/2}a_m(z,w)e(\Theta_m(z,w)).
+\]
+This exact representation keeps the full stationary integral. Smooth cutoffs in
+$\Delta$ are included in $a_m$. Its normalized derivatives in
+$m/M,z/L,w/L$ are bounded: derivatives of $Y$ are controlled by the
+$Y\partial_Y$ estimates, and derivatives of the remaining parameters
+cost bounded powers of $|\kappa|L$.
+
+Fix one dyadic scale, neighbor and sign. The contribution is bounded by
+\[
+ N^{3/2}M^{-1/2}
+ \sum_j\sum_m\omega(m/M)\sum_{z\in S_j}|f_{m,0}(z-u_j)|,
+\]
+where $\omega$ is a fixed nonnegative smooth dyadic weight and
+\[
+ f_{m,0}(z)=\sum_{w\in\mathcal B_{M,j,h}}b_w a_{m,0}(z,w)e(\Theta_m(z,w)).
+\]
+Weighted H\"older in $(m,z)$ gives the factor
+$(M|S_j|)^{3/4}$ and the fourth root of
+\[
+\sum_m\omega(m/M)\sum_{z\in S_j-u_j}|f_{m,0}(z)|^4.
+\]
+By Lemma~\ref{lem:localproof} the latter is bounded by
+\[
+ \sum_m\omega(m/M)\int\chi_j(z/L)
+ (|f_{m,0}(z)|^4+|f_{m,1}(z)|^4)\,dz,
+ \quad f_{m,1}=\partial_zf_{m,0}.
+\]
+The derivative amplitude is
+$a_{m,1}=\partial_z a_{m,0}+2\pi i(\partial_z\Theta_m)a_{m,0}$.
+At the critical point the envelope identity gives
+$\partial_z\Theta_m=\sqrt{u_0}+h'(z)u_0^{3/2}=O(1)$,
+with all normalized derivatives bounded. Thus both classes qualify.
+
+Set $z=Nmx$. The Jacobian is $N|m|=L|m|/M$.
+Its smooth factor $|m|/M$, and the cutoff $\chi_j((m/M)x)$, belong in
+$A_{\ell,\mathbf w}$. Opening each fourth power before taking absolute
+values produces exactly $\mathcal T$ above. It is nonnegative because
+it was the integral of a fourth power against nonnegative weights.
+The remaining external factor is
+\[
+ N^{3/2}M^{-1/2}(M|S_j|)^{3/4}L^{1/4}
+ =N^{7/4}M^{1/2}|S_j|^{3/4}.
+\]
+Both $b_w$ and the translation remain fixed across $m$. This proves
+\eqref{eq:preciseduality} and accounts for both signs, both derivative
+classes, all neighboring blocks and all nonstationary modes.
+\end{proof}
+
+\begin{corollary}[the energy bound]\label{cor:blockconsumer}
+Define
+\[
+ \mathfrak K_M=\sum_j\sum_{\mathbf w\in\mathcal B_{M,j,h}^4}
+ |K_{M,j,h,\pm,\ell}(\mathbf w)|,
+\]
+separately for each finite class, and
+$\cJ=\max_{M,h,\pm,\ell}(M/\Mst)^3M^{-1}\mathfrak K_M$.
+Then \eqref{eq:rJ} and \eqref{eq:Jbound} hold with this definition.
+\end{corollary}
+\begin{proof}
+H\"older in $j$ bounds the block sum in
+\eqref{eq:preciseduality} by $r^{3/4}\mathfrak K_M^{1/4}$.
+Dyadic summation loses only $O(\log N)$.
+For each fixed $h$, the inner blocks partition $S$; hence
+\[
+ \sum_jE_4(S_{j+h};D)\le E_4(S;D),\qquad
+ \sum_j|S_{j+h}|E_2(S_{j+h};H_0)\le rE_2(S;H_0).
+\]
+The discrepancies $P$ are translation invariant. The local $Q$, hence
+$F$, is calculated after its block's fixed translation; the small-$F$
+proof is applied there before going back to the translation invariant
+close-pair counts. Each block keeps its own translated $Q$.
+The pointwise kernel bounds are uniform over the translated parameters,
+so energy bounds can be applied after summing the block tuple counts.
+The remainder of the calculation is exactly the algebra in
+Proposition~\ref{prop:model}, with $\mathfrak K_M$ in place of a single
+block kernel. This proves both stated inequalities.
+\end{proof}
+
+\section{The reduction to the zeta function}\label{app:transferproof}
+
+\begin{lemma}[partial summation and interval completion]\label{lem:completionproof}
+The first phase truncation in Lemma~\ref{lem:atkinson} changes a partial
+sum by at most a constant times the maximum of the partial sums with
+the truncated phase. For finitely many blocks and any phase $p_j(w,n)$,
+the sum over sample points of these maxima is bounded by
+$C\log(2N)$ times the sum of full sums after multiplying every
+coefficient by one common factor $e(hn/(2N))$ for a suitable integer $h$.
+\end{lemma}
+\begin{proof}
+For $A(x)=\sum_{N<n\le x}c_n$ and $v(n)=e(r_t(n))$, Abel summation gives
+\[
+ \sum_{N<n\le y}c_nv(n)=A(y)v(y)-\int_N^y A(x)v'(x)\,dx.
+\]
+The factor is at most $1+2\pi\int_N^{2N}|r_t'(x)|dx=O(1)$ when
+$N^{5/2}T^{-3/2}\ll1$.
+For interval completion, expand the indicator of $1\le n-N\le\Delta$
+on $\mathbb Z/(2N)\mathbb Z$. Its coefficient at $h$, $-N<h\le N$,
+is bounded by $C/(1+|h|)$, directly from the finite geometric sum.
+Thus each maximum is bounded by
+\[
+ C\sum_{-N<h\le N}\frac1{1+|h|}
+ \left|\sum_{n\sim N}a_{j,n}e(hn/(2N))e(p_j(w,n))\right|.
+\]
+Sum this inequality over the blocks and sample points. Choosing the
+$h$ with the largest resulting sum proves the statement.
+This argument applies to every phase $p_j(w,n)$. Nonintegral endpoints are
+handled by their integer parts or by a cyclic group of length $\asymp N$.
+\end{proof}
+
+\begin{proposition}[refined pair count from sparse fourth moments]
+\label{prop:pairproof}
+Assume the sparse fourth-moment input \eqref{eq:basefourth} and the
+global fourth moment. Let $t_1,\ldots,t_R$ be $2G$-separated, and assume
+\[
+\int_{t_j-G}^{t_j+G}|\zeta(1/2+iu)|^4du\ge A\ge1.
+\]
+Then for all $H\ge1$,
+\[
+ E_2(\{t_j\};H)\prec R+RH/A+T\sqrt R/A^{3/2}.
+\]
+\end{proposition}
+\begin{proof}
+Disjointness and the fourth moment give $RA\prec T$.
+For $H<G$ there are only diagonal pairs; for $H\ge T$ use
+$R^2\prec RT/A$. Otherwise partition into cells of length $H$ with
+occupancies $m_j$. Adjacent-cell Cauchy gives $E_2\le3\sum_jm_j^2$.
+It suffices to treat cells of occupancy in $[m,2m)$, their number being
+$J$, since there are $O(\log T)$ scales. We have $Jm\le R$.
+Fix a small $\delta>0$.
+If $mA\le T^\delta\max(H,\sqrt T)$, then
+\[
+ Jm^2\le Rm\ll T^\delta(RH/A+R\sqrt T/A)
+ \prec T^\delta(RH/A+T\sqrt R/A^{3/2}).
+\]
+In the other case set $L=\min(mAT^{-\delta},T)>\max(H,\sqrt T)$.
+The $G$-neighborhoods of the points in these $J$ cells can be covered
+by $O(J)$ intervals of length $L$, with a bounded number of disjoint
+families. Endpoint pieces can be handled on enlarged dyadic height
+intervals. Therefore the sparse fourth moment gives
+\[
+ JmA\prec JL+T\sqrt{J/L}.
+\]
+Choose its arbitrary-small-power loss smaller than $\delta/2$ to
+absorb $JL$. Squaring and using $mA\prec T$ gives
+$Jm^3\prec T^{2+O(\delta)}A^{-3}$.
+Thus $Jm^2=\sqrt{Jm}\sqrt{Jm^3}\prec
+T^{1+O(\delta)}\sqrt R A^{-3/2}$.
+As $\delta$ is arbitrary the proposition follows.
+\end{proof}
+
+\begin{proposition}[clustering from the stated zeta theorems]
+\label{prop:clusterproof}
+Proposition~\ref{in:dfp}, with $1/10<\sigma\le1/8$, follows from
+\eqref{eq:baselocal}, \eqref{eq:baseatkinson},
+\eqref{eq:basefourth} and the global fourth moment. The same conclusion
+holds for $1/10<\sigma<1/6$ when the corresponding parameter conditions
+for the curved model are satisfied.
+\end{proposition}
+\begin{proof}
+Start with any $1$-separated zeta large-value set of size $R$, and put
+$G=V^2(\log T)^{-100}$. Partition into cells of length $2G/3$.
+Dyadic occupancy selection and one residue class modulo four give
+a $2G$-separated set $\mathcal S$ of representatives, of size
+$\succ R/F_c$, each representing $\asymp F_c\ge1$ original points.
+By the local inequality \eqref{eq:baselocal}, their $G$-neighborhoods
+carry second and fourth moments at least $\succ F_cV^2$ and
+$\succ F_cV^4$, respectively.
+
+The term $G\log T$ in \eqref{eq:baseatkinson} is smaller than the
+second-moment lower bound. Select one dyadic $N$ for at least a
+logarithmic fraction of the representatives. Then
+\[
+ T^{1/3}\ll N\prec T/V^4,\qquad
+ \max_\Delta|S_t(\Delta,N)|\succ F_c(TN)^{1/4}.
+\]
+Since $\sigma>1/10$, the strict margin gives $N<T^{3/5}$ after all
+logarithmic factors. Divide the ordinates into blocks of length
+$\asymp W\sqrt{T/N}$. There are $O(1+\sqrt{TN}/W)$ blocks.
+The coordinate in Lemma~\ref{lem:atkinson} sends each to $[0,CW]$;
+fixed constants in $W$ may be chosen to obtain $[0,W]$.
+The exact rational height increment, partial summation, the divisor
+bound and Lemma~\ref{lem:completionproof} give a sum of absolute full
+model values at least $\succ R(TN)^{1/4}$.
+
+Discard values below a sufficiently small arbitrary-small-power
+multiple of $F_c(TN)^{1/4}$; their total is less than half this last
+sum. Dyadic selection among the remaining values gives $Z$ and sets
+of total size $R_1$ with $Z\succ F_c(TN)^{1/4}$ and
+$ZR_1\succ R(TN)^{1/4}$. This argument uses the summed inequality after selecting one common
+Fourier index; the set and its level $Z$ are then selected together.
+
+The transformed spacing is $\gg G\sqrt{N/T}$. Color the points of
+each block in their order into $O(1+G^{-1}\sqrt{T/N})$ classes so each
+class is $1$-separated. Because $N\prec T/V^4$ and $W\le\sqrt{TN}$,
+the total number of classes is $\prec T/(V^2W)$.
+Each point occurs once. For two points in a single class,
+$|w-w'|\le D$ implies $|t-t'|\ll D\sqrt{T/N}$.
+Apply Proposition~\ref{prop:pairproof} to the entire selected set of
+ordinates $t$ with $A\succ F_cV^4$.
+This proves \eqref{eq:paircount} for every $D\ge1$, including its
+large-radius regime. The $1$-spacing bound is independent and remains
+available simultaneously.
+\end{proof}
+
+\section{The upper-amplitude range}
+\label{app:upperproof}
+
+\begin{proposition}\label{prop:curvatureline}
+Subject to the zeta inputs of Proposition~\ref{prop:clusterproof},
+\[
+ \cN(T,T^\sigma)\prec T^{(94-500\sigma)/67},
+ \qquad 1/8\le\sigma\le5/38.
+\]
+\end{proposition}
+This statement follows from the direct oscillatory-integral estimates.
+\begin{proof}
+Proposition~\ref{prop:tuplemorseproof}, applied at each fixed $m$, gives
+$|I_m|\ll D^{-1/2}(1+D/U)^{-A}$ for every $M$ and every tuple.
+Use this pointwise bound on all tuples, including the small-$F$ range. The signed-block calculation and the curved energy bound give
+\[
+ r\prec N^2/Z^2+N^{8/5}W^{3/5}Z^{-12/5}A_0(S)^{1/5}
+ +N^{5/2}W^{3/2}Z^{-5}U^{1/4}
+ +B^{1/4}N^2W^{3/4}Z^{-3}.
+\]
+The weighted pair argument with weight $D^{-1/2}$ is valid also for
+$k=0$. Thus the reduction to the zeta function gives exactly the terms
+$B_1,\ldots,B_6$ with
+$\lambda=\mu=1$ and $k=0$. Put
+\[
+ \omega(\sigma)=\frac{36+48\sigma}{67},\qquad
+ q=\frac{\omega(\sigma)}{1-4\sigma},\qquad W=N^q.
+\]
+Here $84/67\le q\le4/3$. All six exponents increase with
+$\nu=\log_TN$. At $\nu=1-4\sigma$, terms 4 and 5 equal
+$E_c=(94-500\sigma)/67$. The margins for terms 1, 2, 3 and 6 are
+\[
+ \frac{4(21\sigma-1)}{67},\quad
+ \frac{5-38\sigma}{134},\quad
+ \frac{9-55\sigma}{67},\quad
+ \frac{5-38\sigma}{268},
+\]
+which are nonnegative throughout the closed interval.
+For the model ranges and pair absorption the exponents of $T$ in
+$|\kappa|W$, $|\eta|N^2/W$, $|\eta|N^{1/8}$,
+$N^{5/2}T^{-3/2}$ and $W\sqrt{N/T}V^{-4}$ are, respectively,
+\[
+ \frac{-31+182\sigma}{67},\quad
+ \frac{98-852\sigma}{67},\quad
+ \frac18-\frac92\sigma,\quad
+ 1-10\sigma,\quad
+ \frac{36-354\sigma}{67}.
+\]
+They are strictly negative at both endpoints. These quantities also
+have positive $\nu$ slopes for fixed $q$, except the separately treated
+$\sqrt{T/N}$ term, which is at most $T^{1/3}<V^4$.
+The endpoint $q=4/3$ is permitted in the spacing estimate.
+This proves the proposition. Its contribution to $M_6$ is at most
+$T^{327/268+\varepsilon}$, attained at $\sigma=1/8$.
+\end{proof}
+
+\input{appendix_inputs}
+
+\section{Theorems used}\label{app:base}
+
+The preceding appendices derive the parts of \cite{B38} used here and
+the reductions of de Faveri and Pandey. The analytic input theorems
+and the arguments supplied here are identified individually below.
+
+\subsection{Local zeta values and global moments}
+Proposition~\ref{prop:localzetaproof} proves the local zeta estimate
+\eqref{eq:baselocal}, including the functional-equation and growth
+facts used in the proof. Proposition~\ref{prop:momentbaseproof} deduces
+both $M_4(T)\prec T$ and $M_{12}(T)\prec T^2$ from the single sparse
+fourth-moment input \eqref{eq:basefourth}. This cited theorem gives
+the common analytic input for both global moments.
+
+\subsection{Atkinson's short second moment}
+With $T^\epsilon\le G\le T^{1/2-\epsilon}$ and
+$S_t(\Delta,N)=\sum_{N<n\le N+\Delta}(-1)^nd(n)e(f(t,n))$, the input is
+\begin{equation}\label{eq:baseatkinson}
+ \begin{split}
+ \int_{t-G}^{t+G}|\zeta(1/2+iu)|^2du
+ &\ll G\log T\\
+ &\quad+G\sum_{\substack{T^{1/3}\le N\ll T G^{-2}(\log T)^{1+\epsilon}\\
+                         N\text{ dyadic}}}
+ (TN)^{-1/4}\max_{0\le\Delta\le N}|S_t(\Delta,N)|.
+ \end{split}
+\end{equation}
+This is the upper-bound consequence of \cite[Lemma 7.1]{dFP}.
+Proposition~\ref{prop:atkinsondirect} proves it directly from the
+double Dirichlet series, Euler summation, and Gaussian smoothing.
+The estimate uses the exact phase at the center $t$ and includes all
+Fourier indices and both nonstationary endpoints. For $t\asymp T$, changing
+between the two comparable scales in this display costs only fixed
+constants in the dyadic range.
+
+\subsection{Sparse fourth moments}
+For disjoint intervals $I_1,\ldots,I_J\subset[T,2T]$ of common length
+$\sqrt T\le L\le T$, the input used in the pair count is
+\begin{equation}\label{eq:basefourth}
+ \sum_{j\le J}\int_{I_j}|\zeta(1/2+it)|^4dt
+ \prec JL+T\sqrt{J/L}.
+\end{equation}
+It is Iwaniec's theorem \cite[Theorem~4]{Iwa80}, as stated in \cite[Proposition 8.1]{dFP}.
+Proposition~\ref{prop:pairproof} derives the pair-count consequence
+of this cited theorem.
+
+\subsection{Heath-Brown's pair and Vinogradov mean values}
+The pair in Lemma~\ref{lem:hb} is Theorem 2 of \cite{HB17}, following
+there from Theorems 1 and 3. The underlying derivative estimate is
+\begin{equation}\label{eq:basederivative}
+ \left|\sum_{m\in I}e(g(m))\right|
+ \ll_{d,\epsilon}M^{1+\epsilon}
+ \left(F^{1/[d(d-1)]}M^{-1/(d-1)}
+       +M^{-1/[d(d-1)]}+F^{-2/[d^2(d-1)]}\right),
+\end{equation}
+when $|g^{(d)}|\asymp FM^{-d}$ on an interval $I\subset(M,2M]$.
+Proposition~\ref{prop:hbderivativeproof} proves this estimate from the
+precise optimal Vinogradov mean-value input \eqref{eq:vmvtinput}.
+The coefficient-box count, localization, all powers of the shift length
+and the endpoint terms are included in that proof. The mean-value
+input is the optimal Vinogradov mean-value theorem \cite{BDG16,Woo16}.
+
+The finite-derivative conditions can then be settled explicitly
+for the pair needed in this paper. For $F\ge M^{85/8}$ the target
+$M^{1-a}F^{1/245}$ is at least $M$, so the trivial bound suffices.
+For $M\le F\le M^2$, Weyl differencing and
+Lemma~\ref{lem:secondproof}, with differencing length
+$\asymp M F^{-1/3}$, give
+$O(M^{1/2}F^{1/6}+M F^{-1/6})$; both terms are smaller than the
+target. The differencing inequality follows by averaging the $H$
+translates of the sum and applying Cauchy; in its usual form it is
+\[
+ |S|^2\ll M^2/H+(M/H)\sum_{h\le H}
+ \left|\sum_m e(g(m+h)-g(m))\right|.
+\]
+For the reciprocal perturbations here the differenced second derivative
+has size $hF/M^3$, so substitution proves the stated bound, including
+end intervals. Constants in $H$ can be fixed to keep $m+h$ on a fixed
+enlargement.
+
+For $2\le\tau=\log F/\log M\le85/8$, apply
+\eqref{eq:basederivative} with the integer $d\in\{3,\ldots,12\}$
+whose interval
+\[
+ d-2+2/d\le\tau\le d-1+2/(d+1)
+\]
+contains $\tau$. The intervals are consecutive.
+On it the maximum of the three relative exponents in
+\eqref{eq:basederivative} is at most the chord joining
+$-1/[d(d-1)]$ and $-1/[d(d+1)]$ at its two endpoints.
+Its slope is $2/((d-1)^2(d+2))$. These slopes decrease with $d$,
+so the resulting continuous piecewise linear function is concave and
+lies below the line of its $d=8$ segment. That line is
+\[
+ \frac{\tau}{245}+\frac{269}{280}-\frac1{245}-1.
+\]
+This proves the desired exponent-pair estimate from
+\eqref{eq:basederivative}, using derivatives only through order 12.
+The exact phase estimates in Proposition~\ref{prop:exactphaseproof}
+and Proposition~\ref{prop:tuplemorseproof} give them with relative
+errors $O_d(|\eta|)$ through the specified finite derivative order.
+
+The sixth-moment proof uses \eqref{eq:basefourth} and
+\eqref{eq:vmvtinput}. Mean values of degree at most 11 cover the
+chosen exponent pair.
+
+The additional estimates in \cite{Supp} use direct differencing for
+an alternative eighth-moment bound. The sixth-moment proof here uses
+the two stated input theorems.

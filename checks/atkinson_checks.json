@@ -1,0 +1,74 @@
+{
+  "symbolic_checks": {
+    "elementary_sixth": "143/116",
+    "sixth_exponent_cost": "509/1990560",
+    "stationary_point": true,
+    "curvature": true,
+    "parameter_log_derivative": true,
+    "exact_phase": true,
+    "Laurent_normalization": true
+  },
+  "quadrature_checks": [
+    {
+      "T": 12.0,
+      "G": 2.0,
+      "partials": [
+        {
+          "N": 32,
+          "lhs": 5.081835337273538,
+          "rhs": 5.078883853223461,
+          "difference": 0.002951484050076836
+        },
+        {
+          "N": 64,
+          "lhs": 5.081835337273538,
+          "rhs": 5.081844473095551,
+          "difference": -9.135822013561778e-06
+        },
+        {
+          "N": 128,
+          "lhs": 5.081835337273538,
+          "rhs": 5.08183601813615,
+          "difference": -6.808626125121009e-07
+        },
+        {
+          "N": 256,
+          "lhs": 5.081835337273538,
+          "rhs": 5.081835332685987,
+          "difference": 4.58755078369677e-09
+        }
+      ]
+    },
+    {
+      "T": 30.0,
+      "G": 3.0,
+      "partials": [
+        {
+          "N": 32,
+          "lhs": 13.782843301351338,
+          "rhs": 13.782585570507024,
+          "difference": 0.0002577308443143522
+        },
+        {
+          "N": 64,
+          "lhs": 13.782843301351338,
+          "rhs": 13.782842863415125,
+          "difference": 4.379362135153997e-07
+        },
+        {
+          "N": 128,
+          "lhs": 13.782843301351338,
+          "rhs": 13.78284330170751,
+          "difference": -3.56171980797626e-10
+        },
+        {
+          "N": 256,
+          "lhs": 13.782843301351338,
+          "rhs": 13.78284330124195,
+          "difference": 1.0938805417026742e-10
+        }
+      ]
+    }
+  ],
+  "scope": "Algebra and finite numerical consistency; convergence and uniform bounds are proved in the paper."
+}

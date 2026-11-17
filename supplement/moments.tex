@@ -1,0 +1,77 @@
+\documentclass[11pt]{amsart}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\hypersetup{pdftitle={Additional estimates for zeta moments},pdfauthor={Min Chae}}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\Mst}{M_{*}}
+\DeclareMathOperator{\sgn}{sgn}
+
+
+\externaldocument[six-]{../sixth-moment/moments}[../sixth-moment/moments.pdf]
+\externaldocument[p-]{../paper/moments}[../paper/moments.pdf]
+\title[Additional estimates for zeta moments]{Additional estimates for zeta moments}
+\author{Min Chae}
+\date{17 November 2026}
+\begin{document}
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+\renewcommand{\arraystretch}{1.35}
+\begin{abstract}
+We give an eighth-moment bound with exponent $357082/242699$ using
+direct derivative estimates and the sparse fourth-moment theorem.
+We also give mixed-energy estimates and two reductions for the sparse
+fourth moment. The common curved-phase proofs are in the supporting
+paper, and the thin-energy proofs are in the eighth-moment paper.
+\end{abstract}
+\maketitle
+\enlargethispage{6pt}
+We use $e(x)=e^{2\pi ix}$ and the notation of \cite{Weighted,Thin}.
+Numbered references to those papers use the included versions.
+
+\input{elementary_eighth}
+\input{energy_bounds}
+\input{sparse_fourth_steps}
+\section*{Computations}
+The files \path{checks/elementary_pair_checks.py} and
+\path{checks/derive_ten_terms.py} check the rational calculations.
+
+\section*{Use of AI tools}
+AI tools were used for proof search, calculations, and writing.
+
+\begin{thebibliography}{99}
+\bibitem{Weighted} M.~Chae,
+\emph{Weighted pair energy and the sixth moment of the Riemann zeta function},
+supporting paper, 17 November 2026, \href{https://github.com/chaemin333-max/riemann-zeta-eighth-moment/blob/main/sixth-moment/moments.pdf}{PDF}.
+\bibitem{Thin} M.~Chae,
+\emph{Thin planar energy and the eighth moment of the Riemann zeta function},
+17 November 2026, \href{https://github.com/chaemin333-max/riemann-zeta-eighth-moment/blob/main/paper/moments.pdf}{PDF}.
+\bibitem{dFP} A.~de Faveri and M.~Pandey,
+\emph{The sixth moment of the Riemann zeta function},
+arXiv:2610.01035v1 (2026).
+\bibitem{Jut91} M.~Jutila,
+\emph{Mean value estimates for exponential sums with applications to
+$L$-functions}, Acta Arith. \textbf{57} (1991), 93--114,
+\url{https://doi.org/10.4064/aa-57-2-93-114}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,143 @@
+\section{Other energy bounds}
+\label{app:optimal}
+
+This section uses the notation and parameter intersection of the
+eighth-moment paper~\cite{Thin}. Thus $\sigma_R,\omega_R,E_R$ refer to
+\cite[(\ref*{p-eq:contact})]{Thin} in that paper. We compare the mixed-term bounds
+and identify the two terms that set its final exponent.
+
+\subsection{Direct summation of the pair profile}
+Before the weighted Cauchy step in \cite[Appendix A]{Thin}, the mixed expression for
+one set is
+\[
+ \frac{N^{5/2}}{Z^3}r^{3/2}S_k(S;B),\qquad
+ S_k(S;B)=\sum_{1\le H\lesssim B}H^k\sqrt{E_2(S;CH)}.
+\]
+We apply \cite[(\ref*{p-eq:pairbound})]{Thin} to the sum over the same classes.
+
+\begin{proposition}[direct mixed-term bound]
+For $0<k<1/2$, the global pair profile \cite[(\ref*{p-eq:pairbound})]{Thin} gives
+\begin{equation}
+ \sum_i S_k(S_i;B)
+ \prec \sqrt{KR_1}\,B^k\min(B,C_g)^{1/2}.
+ \label{eq:mixed1}
+\end{equation}
+The mixed branch of the signed duality is hence bounded by the
+following two zeta count terms, after dropping negative powers of
+the cluster multiplicity:
+\begin{equation}
+ \lambda^{1/3}T^{1/12}N^{5/4}V^{-2}B^{k/3},
+ \qquad
+ \bigl(\lambda^4T^3N^{15}V^{-36}B^{4k}\bigr)^{1/13}.
+ \label{eq:mixed2}
+\end{equation}
+Their cluster factors before dropping them are respectively
+$F_c^{-8/3}$ and $F_c^{-34/13}$.
+\end{proposition}
+\begin{proof}
+For each $H$, concavity gives
+$\sum_i\sqrt{E_2(S_i;CH)}\le\sqrt{K\sum_iE_2(S_i;CH)}$.
+The remaining sum is evaluated directly:
+\[
+ \sum_{H\lesssim B}H^k\sqrt{\min(H,C_g)}
+ \ll_k B^k\min(B,C_g)^{1/2}.
+\]
+If $B\le C_g$, it is a geometric sum with exponent $k+1/2$.
+If $B>C_g$, the parts below and above $C_g$ have sizes at most
+$C_g^{k+1/2}$ and $B^k C_g^{1/2}$. The latter dominates.
+This proves \eqref{eq:mixed1} by direct summation across the $H$ scales.
+
+For the mixed branch alone, signed duality gives
+\[
+ r_i^{7/2}\prec\lambda N^{13/2}W^3Z^{-11}S_k(S_i;B).
+\]
+Sum its $2/7$ power over the same $K$ classes and use \eqref{eq:mixed1}.
+Replacing $\min(B,C_g)$ by $C_g$ gives
+\begin{equation}
+ R_1\prec K\lambda^{1/3}N^{13/6}WZ^{-11/3}
+                     B^{k/3}C_g^{1/6}.
+ \label{eq:mixed3}
+\end{equation}
+The constant part of $C_g=1+A_g$ gives the first term of \eqref{eq:mixed2}, by
+$\cN\prec ZR_1(TN)^{-1/4}$,
+$Z\succ F_c(TN)^{1/4}$, and $K\prec T/(V^2W)$.
+For the other part use
+$A_g=T F_c^{-3/2}V^{-6}R_1^{-1/2}$ in \eqref{eq:mixed3}.
+It gives $R_1^{13/12}$ on the left. Raising to the twelfth power,
+then converting to $\cN^{13}$, leaves $Z^{-31}$ and $F_c^{-3}$.
+The lower bound on $Z$ therefore gives $F_c^{-34}$, and the remaining
+term is $\lambda^4T^3N^{15}V^{-36}B^{4k}$. This proves the bound.
+As in the main argument, when several branches are present one keeps
+a branch containing a fixed positive fraction of the total points;
+we apply the pair estimate to the full selected set.
+\end{proof}
+
+For $B>C_g$, \eqref{eq:mixed1} improves the bound obtained by the earlier weighted
+Cauchy step by the factor
+\[
+ (C_g/B)^{(1-k)/2}.
+\]
+For nonnegative counts $P_H\le R_1\min(H,C_g)$, this exponent is
+sharp. The sum increases with each $P_H$, so its maximum occurs at
+$P_H=R_1\min(H,C_g)$.
+
+At the intersection \cite[(\ref*{p-eq:contact})]{Thin}, with $F_c=1$ and the threshold value of $Z$,
+put $b=\log_T B$ and $g=\log_T A_g$. Then
+\[
+b-g=-\frac{1563}{34452616}<0.
+\]
+Thus $B<C_g$, and the direct summation and weighted Cauchy estimate
+have the same exponent at this intersection.
+The exponents of the two terms \eqref{eq:mixed2} lie below $E_R$ by
+\[
+\frac{17188577}{1782922878},\qquad
+\frac{3015835}{351181779},
+\]
+respectively. Both terms lie below the final exponent.
+
+\subsection{Exact elimination of the scalar energy inequality}
+For a fixed $H$, the ordinary energy proof gives an inequality of the form
+\[
+ Z^2E\le A\sqrt E+D,
+ \qquad A,D\ge0,
+\]
+after fixed implied constants have been included in $A,D$.
+Its exact positive-root solution is
+\begin{equation}
+ \sqrt E\le\frac{A+\sqrt{A^2+4Z^2D}}{2Z^2}.
+ \label{eq:mixed4}
+\end{equation}
+This right side lies between
+$\max(A/Z^2,\sqrt D/Z)$ and $A/Z^2+\sqrt D/Z$.
+Hence exact scalar elimination and the two-term bound have the
+same power exponents. Equality in the scalar quadratic attains \eqref{eq:mixed4}, fixing the exponent of this relaxation.
+Also, equality holds in $2\sqrt{XY}\le X+Y$ when $X=Y$.
+The final exponent is set by the largest terms after the zeta reduction.
+
+\subsection{The two active terms}
+At $\sigma=\sigma_R$, $\nu=1-4\sigma_R$, keep only $e_4,e_5$.
+Their $\omega$ slopes are
+\[
+ \partial_\omega e_4=\frac{197}{280}>0,\qquad
+ \partial_\omega e_5=-\frac{241}{883}<0.
+\]
+Both equal $E_R$ at $\omega=\omega_R$. For $\omega>\omega_R$ the first exceeds $E_R$;
+for $\omega<\omega_R$ the second exceeds it. Therefore
+\begin{equation}
+ \min_\omega\max(e_4,e_5)=E_R.
+ \label{eq:mixed5}
+\end{equation}
+The terms $e_4$ and $e_5$ set the minimum in \eqref{eq:mixed5}.
+A smaller final exponent requires a better bound for one of these terms
+or a different estimate at this amplitude.
+
+The earlier Cauchy step in the planar proof has an exact remainder. If $f=|\mathcal F|$ on the Fourier rectangle and $I_j=\int f^j$, its
+exact defect is
+\begin{equation}
+ I_2I_4-I_3^2
+ =\frac12\iint f(x)^2f(y)^2(f(x)-f(y))^2\,dx\,dy.
+ \label{eq:mixed6}
+\end{equation}
+Equality holds for a constant function on a measurable set.
+For the exponential sum in \cite[Section 2]{Thin}, the right side of \eqref{eq:mixed6}
+measures the gain in this Cauchy step.

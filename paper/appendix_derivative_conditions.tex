@@ -1,0 +1,64 @@
+\section{Derivative conditions for the kernel}
+\label{app:finitepairs}
+
+For each fixed $s>0$, the exponent-pair convention of
+\cite[Section 1.1]{TY}, stated in
+\cite[Definition~\ref*{six-def:pair}]{Weighted}, specifies a finite
+derivative order $d_0$ and a positive tolerance $\epsilon_0$. For a phase
+on $I\subset(M,2M]$, the first $d_0$ derivatives must be
+relatively $\epsilon_0$-close to
+the derivatives of a function with derivative $ym^{-s}$, $y\ge M^s$.
+The resulting bound is $(yM^{-s})^kM^\ell$.
+
+The exact reciprocal phase of
+\cite[Proposition~\ref*{six-prop:kernel}]{Weighted} has the form $c_Q/m$ with
+relative derivative errors $O_j(|\eta|)$ for every fixed $j$.
+Here $|c_Q|\asymp FM$. Taking a complex conjugate when required,
+use $s=2$ and $y=|c_Q|$. The exponent-pair bound gives
+\[
+ \sum_{m\in I}e(f(m))\prec F^kM^{\ell-k}
+\]
+in the range $F\ge c_1M$ for a sufficiently large fixed $c_1$.
+Choose $d_0$ first. Since $|\eta|$ is a fixed negative power of $T$,
+the derivative errors then satisfy the required bound for large $T$.
+The estimate holds on every subinterval. Partial summation gives the
+bound for both Sobolev amplitude classes.
+The smaller-$F$ region has the separate second-derivative and
+small-discrepancy bounds of
+\cite[Proposition~\ref*{six-prop:kernel} and
+Lemma~\ref*{six-lem:smallF}]{Weighted}.
+
+Bourgain's Theorem 6~\cite{Bou17} gives $(13/84,55/84)$ with
+arbitrarily small losses. The finite-order convention and the pair
+$A^2(13/84,55/84)=(13/414,359/414)$ are explicit in
+\cite[Theorem 1.3]{TY}. All phase parameters are polynomial in
+$T$, so the small losses are assigned to the final $\varepsilon$.
+
+For the Heath-Brown pair, write $F=M^\tau$. The desired bound is
+\[
+ M^{1+\tau/56-31/280+\varepsilon}.
+\]
+For $\tau\ge31/5$ the length bound suffices. On $1\le\tau\le2$ use
+the classical pair $(1/6,2/3)$. On the remaining range use the derivative
+estimate of \cite[Theorem 1]{HB17}, rederived from the Vinogradov
+mean-value theorem in
+\cite[Proposition~\ref*{six-prop:hbderivativeproof}]{Weighted}. With a derivative of order $d$ and
+$f^{(d)}\asymp FM^{-d}$, its three normalized costs are
+\[
+ \frac{\tau-d}{d(d-1)},\qquad
+ -\frac1{d(d-1)},\qquad
+ -\frac{2\tau}{d^2(d-1)}.
+\]
+Each is at most $\tau/56-31/280$ on the corresponding interval below:
+\[
+\begin{array}{c|ccccc}
+d&3&4&5&6&7\\\hline
+\tau&[2,5/2]&[5/2,17/5]&[17/5,13/3]&[13/3,37/7]&[37/7,31/5].
+\end{array}
+\]
+The comparisons are affine in $\tau$, so their endpoint inequalities
+prove the full interval statements. They are included in
+\path{checks/finite_derivative_checks.json}.
+Thus derivatives through order seven suffice for the entire nontrivial
+range of this pair. All derivative constants remain fixed, and both
+signs of the Poisson modes satisfy these conditions.

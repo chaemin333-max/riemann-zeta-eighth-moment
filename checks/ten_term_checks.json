@@ -1,0 +1,406 @@
+{
+  "status": "PASS",
+  "scope": "exact arithmetic for the ten terms; the analytic proof is in the paper",
+  "new_exponent": {
+    "exact": "76024973/51678924",
+    "decimal": 1.471102087961429
+  },
+  "comparison_exponent": {
+    "exact": "346/235",
+    "decimal": 1.4723404255319148
+  },
+  "gain_over_comparison_exponent": {
+    "exact": "15039049/12144547140",
+    "decimal": 0.0012383375704859752
+  },
+  "pair_profile_additional_gain": {
+    "exact": "0",
+    "decimal": 0.0
+  },
+  "scalar_curvature_margin": {
+    "exact": "2605/432223728",
+    "decimal": 6.026971291127265e-06
+  },
+  "q_interval": [
+    {
+      "exact": "5/4",
+      "decimal": 1.25
+    },
+    {
+      "exact": "65343017/49110522",
+      "decimal": 1.3305298811525563
+    }
+  ],
+  "endpoints": {
+    "left": {
+      "sigma": {
+        "exact": "1/8",
+        "decimal": 0.125
+      },
+      "nu_max": {
+        "exact": "1/2",
+        "decimal": 0.5
+      },
+      "w": {
+        "exact": "5/8",
+        "decimal": 0.625
+      },
+      "E": {
+        "exact": "3317/7064",
+        "decimal": 0.46956398640996605
+      },
+      "term_margins": {
+        "1": {
+          "exact": "167/1766",
+          "decimal": 0.09456398640996602
+        },
+        "2": {
+          "exact": "11825/5848992",
+          "decimal": 0.0020217158785650587
+        },
+        "3": {
+          "exact": "66069/1977920",
+          "decimal": 0.03340327212425174
+        },
+        "4": {
+          "exact": "4259/1977920",
+          "decimal": 0.002153272124251739
+        },
+        "5": {
+          "exact": "0",
+          "decimal": 0.0
+        },
+        "6": {
+          "exact": "11825/5848992",
+          "decimal": 0.0020217158785650587
+        },
+        "7": {
+          "exact": "1121/21192",
+          "decimal": 0.05289731974329936
+        },
+        "8": {
+          "exact": "1835/84768",
+          "decimal": 0.021647319743299358
+        },
+        "9": {
+          "exact": "2027/49448",
+          "decimal": 0.040992557838537454
+        },
+        "10": {
+          "exact": "8901/4697560",
+          "decimal": 0.0018948134776351979
+        }
+      },
+      "strict_constraints": {
+        "W_over_N_four_thirds": {
+          "exact": "-1/24",
+          "decimal": -0.041666666666666664
+        },
+        "WB_over_N_three_halves": {
+          "exact": "-1/8",
+          "decimal": -0.125
+        },
+        "B_over_N_one_third": {
+          "exact": "-1/6",
+          "decimal": -0.16666666666666666
+        },
+        "kappa_W_B": {
+          "exact": "-1/8",
+          "decimal": -0.125
+        },
+        "translation_B2_over_W": {
+          "exact": "-5/8",
+          "decimal": -0.625
+        },
+        "lambda_Btheta_over_mu_sqrtU": {
+          "exact": "-14989/231840",
+          "decimal": -0.06465234644582471
+        },
+        "kappa_W": {
+          "exact": "-1/8",
+          "decimal": -0.125
+        },
+        "eta_N2_over_W": {
+          "exact": "-1/8",
+          "decimal": -0.125
+        },
+        "eta_N_one_eighth": {
+          "exact": "-7/16",
+          "decimal": -0.4375
+        },
+        "Atkinson_higher_phase_error": {
+          "exact": "-1/4",
+          "decimal": -0.25
+        },
+        "eta_squared_W": {
+          "exact": "-3/8",
+          "decimal": -0.375
+        },
+        "refined_pair_second_middle": {
+          "exact": "-1/8",
+          "decimal": -0.125
+        }
+      }
+    },
+    "right": {
+      "sigma": {
+        "exact": "9041221/68905232",
+        "decimal": 0.13121240198422088
+      },
+      "nu_max": {
+        "exact": "8185087/17226308",
+        "decimal": 0.4751503920631165
+      },
+      "w": {
+        "exact": "65343017/103357848",
+        "decimal": 0.6322017946813289
+      },
+      "E": {
+        "exact": "21777647/51678924",
+        "decimal": 0.42140287208766186
+      },
+      "term_margins": {
+        "1": {
+          "exact": "3559089/34452616",
+          "decimal": 0.1033038826427578
+        },
+        "2": {
+          "exact": "261515/972503388",
+          "decimal": 0.0002689090888802127
+        },
+        "3": {
+          "exact": "11095691/413431392",
+          "decimal": 0.026838046686111346
+        },
+        "4": {
+          "exact": "0",
+          "decimal": 0.0
+        },
+        "5": {
+          "exact": "0",
+          "decimal": 0.0
+        },
+        "6": {
+          "exact": "335489/15560054208",
+          "decimal": 2.1560914603209588e-05
+        },
+        "7": {
+          "exact": "3485993/103357848",
+          "decimal": 0.03372741468069265
+        },
+        "8": {
+          "exact": "14725807/2480588352",
+          "decimal": 0.005936417055303499
+        },
+        "9": {
+          "exact": "10248767/361752468",
+          "decimal": 0.02833088342606691
+        },
+        "10": {
+          "exact": "323541/57277474100",
+          "decimal": 5.648660404177984e-06
+        }
+      },
+      "strict_constraints": {
+        "W_over_N_four_thirds": {
+          "exact": "-45893/34452616",
+          "decimal": -0.0013320614028264211
+        },
+        "WB_over_N_three_halves": {
+          "exact": "-2706081/34452616",
+          "decimal": -0.07854500801912981
+        },
+        "B_over_N_one_third": {
+          "exact": "-16165651/103357848",
+          "decimal": -0.1564046786268228
+        },
+        "kappa_W_B": {
+          "exact": "-3562215/34452616",
+          "decimal": -0.10339461595601332
+        },
+        "translation_B2_over_W": {
+          "exact": "-21644657/34452616",
+          "decimal": -0.6282442238928968
+        },
+        "lambda_Btheta_over_mu_sqrtU": {
+          "exact": "-132747277/2377230504",
+          "decimal": -0.055841146568090645
+        },
+        "kappa_W": {
+          "exact": "-1361396/12919731",
+          "decimal": -0.10537340135022935
+        },
+        "eta_N2_over_W": {
+          "exact": "-21369299/103357848",
+          "decimal": -0.20675061849197943
+        },
+        "eta_N_one_eighth": {
+          "exact": "-64144681/137810464",
+          "decimal": -0.46545580892899396
+        },
+        "Atkinson_higher_phase_error": {
+          "exact": "-10753489/34452616",
+          "decimal": -0.3121240198422088
+        },
+        "eta_squared_W": {
+          "exact": "-43151635/103357848",
+          "decimal": -0.41749742119243816
+        },
+        "refined_pair_second_middle": {
+          "exact": "-4006993/25839462",
+          "decimal": -0.15507261722399637
+        }
+      }
+    }
+  },
+  "nu_slopes": {
+    "left": [
+      {
+        "exact": "1/4",
+        "decimal": 0.25
+      },
+      {
+        "exact": "1015/1104",
+        "decimal": 0.9193840579710145
+      },
+      {
+        "exact": "2097/1120",
+        "decimal": 1.8723214285714285
+      },
+      {
+        "exact": "2727/1120",
+        "decimal": 2.4348214285714285
+      },
+      {
+        "exact": "3045/3532",
+        "decimal": 0.8621177802944507
+      },
+      {
+        "exact": "1429/1104",
+        "decimal": 1.2943840579710144
+      },
+      {
+        "exact": "2/3",
+        "decimal": 0.6666666666666666
+      },
+      {
+        "exact": "35/48",
+        "decimal": 0.7291666666666666
+      },
+      {
+        "exact": "4/7",
+        "decimal": 0.5714285714285714
+      },
+      {
+        "exact": "4287/3325",
+        "decimal": 1.2893233082706768
+      }
+    ],
+    "right": [
+      {
+        "exact": "4161383/24555261",
+        "decimal": 0.16947011884744373
+      },
+      {
+        "exact": "4554032816/5082939027",
+        "decimal": 0.895944805123471
+      },
+      {
+        "exact": "374977985/196442088",
+        "decimal": 1.9088474818084809
+      },
+      {
+        "exact": "122357881/49110522",
+        "decimal": 2.4914799520966198
+      },
+      {
+        "exact": "18216131264/21682295463",
+        "decimal": 0.8401385035585889
+      },
+      {
+        "exact": "104999473121/81327024432",
+        "decimal": 1.29107727541161
+      },
+      {
+        "exact": "2/3",
+        "decimal": 0.6666666666666666
+      },
+      {
+        "exact": "875253593/1178652528",
+        "decimal": 0.7425883135254261
+      },
+      {
+        "exact": "4/7",
+        "decimal": 0.5714285714285714
+      },
+      {
+        "exact": "5526288059/4297170675",
+        "decimal": 1.2860294544851887
+      }
+    ]
+  },
+  "absorption_rectangle_corners": [
+    {
+      "exact": "-15263/115920",
+      "decimal": -0.13166839199447894
+    },
+    {
+      "exact": "-14989/231840",
+      "decimal": -0.06465234644582471
+    },
+    {
+      "exact": "-1204426661/10165878054",
+      "decimal": -0.11847738627221585
+    },
+    {
+      "exact": "-101355697/2259084012",
+      "decimal": -0.04486583786243006
+    }
+  ],
+  "small_M_pair_margin": {
+    "exact": "-95/414",
+    "decimal": -0.22946859903381642
+  },
+  "small_M_diagonal_margin": {
+    "exact": "-41/160",
+    "decimal": -0.25625
+  },
+  "middle_moment_slope": {
+    "exact": "280749614/1133949483",
+    "decimal": 0.24758564487127158
+  },
+  "tail_margins": {
+    "low_amplitude": {
+      "exact": "451441/878541708",
+      "decimal": 0.0005138526673112712
+    },
+    "left_middle_endpoint": {
+      "exact": "140374807/91264979784",
+      "decimal": 0.0015381015514628934
+    },
+    "twelfth_moment_tail": {
+      "exact": "4341149/2532267276",
+      "decimal": 0.001714332859388102
+    }
+  },
+  "ordinary_curvature_excess_at_intersection": {
+    "exact": "1756631/7780027104",
+    "decimal": 0.00022578725967379356
+  },
+  "B_over_pair_transition_exponent": {
+    "exact": "-1563/34452616",
+    "decimal": -4.5366656627757964e-05
+  },
+  "ordinary_curvature_sigma": {
+    "exact": "21170825/161443546",
+    "decimal": 0.131134539128619
+  },
+  "ordinary_curvature_exponent": {
+    "exact": "118757448/80721773",
+    "decimal": 1.4711947419688118
+  },
+  "thin_terms_saving": {
+    "exact": "35137889893/379237670182932",
+    "decimal": 9.265400738289162e-05
+  }
+}

@@ -1,0 +1,785 @@
+\documentclass[11pt]{amsart}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hmargin=1.1in,vmargin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\hypersetup{pdftitle={Weighted pair energy and the sixth moment of the Riemann zeta function},pdfauthor={Min Chae}}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\Mst}{M_{*}}
+\DeclareMathOperator{\sgn}{sgn}
+
+\title[Weighted pair energy and the sixth moment]{Weighted pair energy and the sixth moment of the Riemann zeta function}
+\author{Min Chae}
+\date{15 November 2026; revised 17 November 2026}
+
+\begin{document}
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+\renewcommand{\arraystretch}{1.35}
+
+\begin{abstract}
+We prove
+\[
+\int_0^T|\zeta(\tfrac12+it)|^6\,dt\ll_\varepsilon T^{84599/68640+\varepsilon},
+\qquad \frac{84599}{68640}=1.2325029\ldots .
+\]
+We use the Atkinson method of de Faveri and Pandey and the curved
+model of bramble\_trace. In the reciprocal kernel, we keep the weight
+$D^{k-1/2}$ and sum it using the refined pair count. This gives the
+sixth-moment bound with Heath-Brown's exponent pair
+$(1/245,\,269/280+\delta)$.
+Starting from the curved exponential sum, we derive the curved energy
+estimate, exact phase, and signed reciprocal kernel of that model.
+We also prove the Gaussian form of Atkinson's formula.
+We use the sparse fourth-moment theorem and the optimal Vinogradov
+mean-value theorem as inputs.
+\end{abstract}
+
+\maketitle
+
+%======================================================================
+\section{Introduction}
+%======================================================================
+
+\subsection{Background}
+For $T\ge2$ let
+\[
+M_6(T)=\int_0^T|\zeta(\tfrac12+it)|^6\,dt .
+\]
+The conjectured order of $M_6(T)$ is $T(\log T)^9$ \cite{CG98}.
+The classical bound $M_6(T)\ll_\varepsilon T^{5/4+\varepsilon}$ follows
+from H\"older's inequality, Ingham's fourth moment
+$M_4(T)\ll T(\log T)^4$ \cite{Ing26}, and Heath-Brown's twelfth moment
+$M_{12}(T)\ll T^2(\log T)^{17}$ \cite{HB78}.
+De Faveri and Pandey \cite{dFP} improved $5/4$ to $37/30$.
+They used Atkinson's formula, frequency spacing, and close pairs of
+large values. Paper~\cite{B38} gives the exponent
+$12867/10438=1.23270\ldots$ using a curved Atkinson phase and a
+reciprocal kernel. Sections~\ref{sec:curved}--\ref{sec:kernel}
+give proofs of the parts of that argument used here.
+
+\subsection{Results}
+For $T\ge2$ and $V>0$ let $\cN(T,V)$ be the largest cardinality of a $1$-separated set of $t\in[T,2T]$ with $|\zeta(\frac12+it)|\ge V$. We write $\mathcal X\prec\mathcal Y$ if $\mathcal X\ll_\varepsilon T^{\varepsilon}\mathcal Y$ for every $\varepsilon>0$, the implied constant depending only on $\varepsilon$ and on fixed parameters.
+
+\begin{theorem}[sixth moment]\label{thm:sixth}
+For $T\ge2$ and every $\varepsilon>0$,
+\[
+\int_0^T|\zeta(\tfrac12+it)|^6\,dt\ll_\varepsilon T^{84599/68640+\varepsilon}.
+\]
+\end{theorem}
+
+The exponent improves $37/30$ by $19/22880$ and $12867/10438$ by $73259/358232160$, that is, by $0.000204\ldots$. Theorem~\ref{thm:sixth} follows from the large-value estimate below and the fourth and twelfth moments.
+
+\begin{theorem}[large values]\label{thm:large}
+Let $\sigma_0=15959/137280$. Uniformly for $\sigma_0\le\sigma\le1/8$,
+\[
+\cN(T,T^\sigma)\prec T^{(54928-293156\sigma)/38969}.
+\]
+\end{theorem}
+
+Theorem~\ref{thm:large} is the case $(k,\ell)=(1/245,269/280)$ of a general statement. Fix an exponent pair $(k,\ell)$ and put $a=1-\ell+k$. For $N,W\ge1$ define the two length costs
+\begin{equation}\label{eq:lammu}
+\lambda=\Big(\frac TN\Big)^{k}\Big(\frac WN\Big)^{-a},\qquad
+\mu=W^{k}\Big(\frac WN\Big)^{-a},
+\end{equation}
+and the nine quantities
+\begin{equation}\label{eq:nine}
+\begin{aligned}
+B_1&=T^{1/2}N^{3/2}W^{-1}V^{-2}, &
+B_2&=\lambda^{1/4}T^{1/4}N^{5/4}W^{-1/4}V^{-2},\\
+B_3&=\mu^{1/2}T^{-1/4}N^{5/4}W^{1/2}V^{-2}, &
+B_4&=\mu^{1/2}T^{-1/2}N^{3/2}W^{3/4}V^{-2},\\
+B_5&=\big(\lambda^{4}T^{6+4k}N^{20}W^{-4}V^{-44-24k}\big)^{1/(17+2k)}, &
+B_6&=\lambda^{1/4}T^{-1/8}N^{11/8}W^{1/4}V^{-2},\\
+B_7&=T^{1/3}N^{2/3}V^{-2}, &
+B_8&=T^{1/2}N^{25/48}W^{1/6}V^{-10/3},\\
+B_9&=(TN/V^{6})^{4/7}.
+\end{aligned}
+\end{equation}
+
+\begin{theorem}[large values, general exponent pair]\label{thm:general}
+Let $0\le k\le\frac12\le\ell\le1$ be such that $(k,\ell+\delta)$ is an exponent pair in the sense of Definition~\ref{def:pair} for every sufficiently small $\delta>0$, and let $a=1-\ell+k$ satisfy
+\begin{equation}\label{eq:H}
+0<k<\tfrac12,\qquad a<\tfrac12+k,\qquad 8a<3\big(k+\tfrac12\big).
+\end{equation}
+Let $\frac1{10}<\sigma\le\frac18$, $\nu_*=1-4\sigma$, and let $q\in[\frac98,\frac43]$ satisfy
+\begin{equation}\label{eq:P}
+\big(q-\tfrac12\big)\nu_*<\tfrac12,\quad
+(3-q)\nu_*<1,\quad
+(2+q)\nu_*<2,\quad
+\big(q+\tfrac12\big)\nu_*-\tfrac12<4\sigma .
+\end{equation}
+Then, with $V=T^\sigma$,
+\[
+\cN(T,V)\prec\max_{T^{1/3}\le N\le T^{\nu_*}}\ \sum_{j=1}^{9}B_j\big|_{W=N^{q}} .
+\]
+The implied constants depend on $(k,\ell)$, on $\varepsilon$ and on the margins in \eqref{eq:P}.
+\end{theorem}
+
+\begin{remark}\label{rem:eighth}
+For $E(\sigma)=(54928-293156\sigma)/38969$, we have
+$\frac{d}{d\sigma}\big(E(\sigma)+8\sigma\big)=18596/38969>0$.
+The eighth-moment layer therefore reaches its maximum at the right
+endpoint. The eighth-moment paper~\cite{Thin} treats that range using
+thin planar energy and an upper-amplitude bound.
+\end{remark}
+
+\subsection{Relation to previous work}\label{sec:new}
+We use the Atkinson reduction, frequency spacing, clustering, and
+refined pair count of \cite{dFP}. The curved model and signed reciprocal
+kernel were introduced in \cite{B38}. We prove each part used here from
+the sum \eqref{eq:model}. The derivations cover the curvature
+energy, exact critical phase, Morse--Fresnel formula, both Sobolev
+classes, and the signed sum over Poisson modes. They are given in
+Sections~\ref{sec:curved}--\ref{sec:kernel} and
+Appendices~\ref{app:energyproof}--\ref{app:dualityproof}.
+The factor $F^k$ and the stationary amplitude $H^{-1/2}$ follow from
+these derivations.
+
+We make three changes.
+\begin{enumerate}[label=(\roman*)]
+\item We keep two bounds for the same kernel simultaneously (Corollary~\ref{cor:two}), one of which keeps the weight $D^{k-1/2}$ in the additive discrepancy $D$. This leads to the weighted pair energy
+\[
+A_k(S)=\sup_{1\le D\ll U}D^{k-1/2}E_2(S;D)
+\]
+in the large-value estimate for the curved model (Proposition~\ref{prop:model}).
+\item We bound $A_k$ using the refined pair count of \cite{dFP}.
+The bounds $E_2\ll R_1D$ and $E_2\prec R_1(1+A_g)$ meet at
+$D\asymp1+A_g$. We sum the weight $D^k$ at this scale
+(Lemma~\ref{lem:weighted}).
+\item We keep both length factors $\lambda,\mu$ in \eqref{eq:lammu}
+through the zeta reduction (Theorem~\ref{thm:general}).
+We then choose Heath-Brown's pair $j=8$.
+\end{enumerate}
+These steps give the large-value bound in Theorem~\ref{thm:general}.
+
+\subsection{Proof outline}\label{sec:status}
+Appendices~\ref{app:elementary}--\ref{app:dualityproof} prove the
+spacing, curved energy, Morse--Fresnel formula, and signed block bound.
+Appendix~\ref{app:transferproof} proves the clustering and pair-count
+steps. Appendix~\ref{app:upperproof} gives the upper-amplitude bound.
+
+The sixth-moment proof uses two input theorems: the sparse fourth
+moment~\cite{Iwa80} and the optimal Vinogradov mean
+value~\cite{BDG16,Woo16}. Their statements are
+given in Appendix~\ref{app:base}. Appendix~\ref{app:atkinsondirect}
+proves the short-second-moment estimate by Gaussian smoothing.
+Appendix~\ref{app:localzeta} proves the local zeta inequality and
+derives the fourth and twelfth moments from the sparse fourth moment.
+Appendix~\ref{app:hbderivative} derives the derivative estimate from
+the Vinogradov mean value. The chosen pair uses derivatives through
+order 12 and mean values through degree 11.
+
+%======================================================================
+%======================================================================
+\section{Notation and inputs}
+%======================================================================
+
+\subsection{Notation}
+$e(x)=e^{2\pi ix}$. A set $X\subset\mathbb R$ is $1$-separated if distinct points differ by at least $1$. For a finite multiset $X\subset\mathbb R$ and $D>0$ put
+\begin{align*}
+E_2(X;D)&=\#\{(x,y)\in X^2:|x-y|\le D\},\\
+E_4(X;D)&=\#\{(x_1,\dots,x_4)\in X^4:|x_1+x_2-x_3-x_4|\le D\},
+\end{align*}
+counted with multiplicity. Thus $E_4(X;D)=E_2(X\!+\!X;D)$, where $X\!+\!X$ is the multiset of sums $x_1+x_2$. A sum over $D$ is over $D=2^j\ge1$.
+
+\begin{lemma}\label{lem:enlarge}
+Let $X$ be a finite multiset and $D>0$. Then $\#\{(x,y):|x-y-s|\le D/2\}\le 2E_2(X;D)$ for every $s\in\mathbb R$, and $E_2(X;cD)\le(4c+6)E_2(X;D)$ for $c\ge1$. If $X$ is $1$-separated, $E_2(X;D)\le(2D+1)|X|$.
+\end{lemma}
+
+\begin{proof}
+Let $\psi(x)=\max(0,1-|x|)$, so $\psi\ge\frac12$ on $[-\frac12,\frac12]$, $0\le\psi\le\mathbf 1_{[-1,1]}$ and $\widehat\psi(\xi)=(\sin\pi\xi/\pi\xi)^2\ge0$. With $\mathcal F(\xi)=\sum_{x\in X}e(x\xi)$,
+\begin{align*}
+\#\{|x-y-s|\le D/2\}&\le2\sum_{x,y}\psi\Big(\frac{x-y-s}{D}\Big)
+=2D\int\widehat\psi(D\xi)e(-s\xi)|\mathcal F(\xi)|^2d\xi\\
+&\le2\sum_{x,y}\psi\Big(\frac{x-y}{D}\Big)\le2E_2(X;D).
+\end{align*}
+Covering $[-cD,cD]$ by $2c+3$ intervals of length $D$ gives the second bound. The third is immediate.
+\end{proof}
+
+\subsection{Exponent pairs}
+
+\begin{definition}\label{def:pair}
+We use the finite-derivative convention of \cite[\S1.1]{TY}.
+Let $0\le k\le\frac12\le\ell\le1$. We say $(k,\ell)$ is an exponent pair if for every $s>0$ there are $R\in\mathbb N$ and $\epsilon_0>0$ such that the following holds. Let $M\ge1$, $I\subset(M,2M]$ an interval, $y\ge M^s$, and let $g\in C^{R+1}(I)$ satisfy
+\[
+\Big|g^{(r+1)}(x)-\frac{d^r}{dx^r}\big(yx^{-s}\big)\Big|\le\epsilon_0\Big|\frac{d^r}{dx^r}\big(yx^{-s}\big)\Big|
+\qquad(x\in I,\ 0\le r\le R).
+\]
+Then $\sum_{m\in I}e(g(m))\ll (y/M^{s})^{k}M^{\ell}$.
+\end{definition}
+
+\begin{lemma}[Heath-Brown {\cite[Theorem~2]{HB17}}]\label{lem:hb}
+For every integer $j\ge3$ and every sufficiently small $\delta>0$,
+\[
+\Big(\frac2{(j-1)^2(j+2)},\ 1-\frac{3j-2}{j(j-1)(j+2)}+\delta\Big)
+\]
+is an exponent pair, with $R$ bounded on every range in which $\log(y/M^{s})/\log M$ is bounded. For $j=8$ this is $(1/245,269/280+\delta)$, and $a=1-\ell+k=17/392$.
+\end{lemma}
+For the pair $j=8$ used below, Appendix~\ref{app:base} proves the
+finite-derivative conditions from the derivative estimate
+\eqref{eq:basederivative}, using orders at most 12.
+
+\subsection{Moments}
+The classical moments \cite{Ing26,HB78}, together with the local zeta estimate \eqref{eq:baselocal}, give $\cN(T,V)\prec TV^{-4}$ and $\cN(T,V)\prec T^2V^{-12}$. Appendix~\ref{app:localzeta} derives these bounds from the sparse fourth-moment theorem and the local zeta inequality.
+
+\subsection{The reduction of de Faveri and Pandey}
+
+\begin{proposition}[clustering and refined pair count; {\cite[\S\S7--9]{dFP}}]\label{in:dfp}
+Let $\frac1{10}<\sigma\le\frac18$, $V=T^\sigma$, and let $W\ge1$ be a block length with $W\le\sqrt{TN}$ for the $N$ below. There are $F_c\ge1$, a scale $N$ with
+\[
+T^{1/3}\ll N\prec T/V^4,
+\]
+$K\prec T/(V^2W)$ blocks with initial heights $t_i\asymp T$, coefficients $|a^{(i)}_n|\le1$ of the form described in Lemma~\ref{lem:atkinson}, and $1$-separated sets $S_i\subset[0,W]$ with $|D_{h_i}(w)|\ge Z$ on $S_i$, such that, with $R_1=\sum_i|S_i|$,
+\begin{equation}\label{eq:cluster}
+Z\succ F_c(TN)^{1/4},\qquad \cN(T,V)\prec ZR_1(TN)^{-1/4},
+\end{equation}
+and for all $D\ge1$
+\begin{equation}\label{eq:paircount}
+\sum_iE_2(S_i;D)\prec R_1+\frac{R_1D\sqrt{T/N}}{F_cV^4}+\frac{T\sqrt{R_1}}{F_c^{3/2}V^6}.
+\end{equation}
+\end{proposition}
+Proposition~\ref{prop:clusterproof} proves this reduction from the
+theorems stated in Appendix~\ref{app:base}; the range is restricted to
+$\sigma>1/10$ to justify the first phase truncation.
+
+For the upper-amplitude range we will use the estimate proved in Appendix~\ref{app:upperproof}:
+\begin{equation}\label{eq:dfpline}
+\cN(T,T^\sigma)\prec T^{(94-500\sigma)/67}
+\qquad\left(\frac18\le\sigma\le\frac5{38}\right).
+\end{equation}
+Appendix~\ref{app:upperproof} derives this estimate from the model and the stated zeta inputs.
+
+%======================================================================
+\section{The curved model and its curvature energy}\label{sec:curved}
+%======================================================================
+
+Let $N\ge2$, $W\ge1$, $\eta,\kappa\in\mathbb R$, $|a_n|\le1$, and
+\begin{equation}\label{eq:model}
+D_h(w)=\sum_{N<n\le2N}a_n\,e\Big(w\Big(\frac nN\Big)^{1/2}+h(w)\Big(\frac nN\Big)^{3/2}\Big),
+\qquad h(w)=\frac{\eta w}{1+\kappa w}.
+\end{equation}
+In this section and the next, $\prec$ allows losses $N^{\varepsilon}$. Throughout we assume
+\begin{equation}\label{eq:modelranges}
+N^{9/8}\le W\le N^{4/3},\qquad 0<|\eta|\le c\,W/N^2,\qquad |\eta|N^{1/8}+|\kappa|W\le c,
+\end{equation}
+with $c>0$ small enough in terms of the fixed parameters. Let $S\subset[0,W]$ be $1$-separated, $r=|S|$, and $|D_h(w)|\ge Z\ge1$ on $S$. Put
+\[
+U=1+|\eta|W,\qquad B=|\eta\kappa|W^2,\qquad X=N^{1/8},\qquad H_0=C\sqrt{WX},\qquad \Mst=W/N .
+\]
+
+\begin{lemma}[curvature multiplier; {\cite[\S2]{B38}}]\label{lem:mult}
+Let $\xi_n=(n/N)^{1/2}+\eta(n/N)^{3/2}$, $\chi_n=(n/N)^{3/2}$, $r_0(w)=-\eta\kappa w^2/(1+\kappa w)$, and let $\beta$ be a fixed smooth bump. Then
+\[
+K(u):=\sum_{m\ne n}\Big|\widehat{\beta(\cdot/W)\,e\big((\chi_m-\chi_n)r_0(\cdot)\big)}\big(u-(\xi_m-\xi_n)\big)\Big|\prec N^2\sqrt{1+B|u|}.
+\]
+\end{lemma}
+
+\begin{proof}
+See Proposition~\ref{prop:multproof}, including the independent spacing proof in Lemma~\ref{lem:spacingproof}.
+\end{proof}
+
+\begin{proposition}[curvature energy; {\cite[Theorem~2]{B38}}]\label{prop:curv}
+For $1\le D\ll U$,
+\begin{equation}\label{eq:curv}
+E_4(S;D)\prec\Big(\frac NZ\Big)^4\Big(1+\frac BD\Big)E_2(S;D)+\frac N{Z^2}\,Dr^3 .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+This is the case $j=2$ of Proposition~\ref{prop:allenergy}, whose proof starts directly with the large-value condition and keeps all fixed coefficient classes.
+\end{proof}
+
+%======================================================================
+\section{Duality, Poisson summation and the exact tuple phase}\label{sec:signed}
+%======================================================================
+
+\subsection{The signed tuple expansion}
+Fix a dyadic $M$ with $1\le M\le\Mst$, a pair of neighboring height blocks, and one translation of the heights, chosen independently of the Poisson index $m$. The translated model is again of the form \eqref{eq:model}, with $\eta,\kappa$ replaced by $\eta(1+\kappa u)^{-2}$ and $\kappa(1+\kappa u)^{-1}$; these are uniformly comparable with $\eta,\kappa$. Let $b_w$ ($|b_w|=1$) be the duality coefficients; they depend on $S$ and on the coefficients $a_n$ and remain fixed across $m$. In the Sobolev step both classes $f_{m,0}$ and $f_{m,1}=\partial_zf_{m,0}$ are kept, where
+\[
+f_{m,0}(z)=\sum_wb_w\,a_{m,0}(z,w)\,e(\Theta_m(z,w)).
+\]
+After the fourth powers are opened, the quantity to be bounded is, for each sign of $m$ and each class,
+\begin{equation}\label{eq:tuple}
+\cK_M:=\sum_{\mathbf w\in S^4}b_{w_1}b_{w_2}\overline{b_{w_3}b_{w_4}}\;K_M(\mathbf w),\qquad
+K_M(\mathbf w)=\sum_{|m|\asymp M}\int A_{\mathbf w}(m/M,x)\,e\big(\Phi(m/M,x)\big)\,dx,
+\end{equation}
+where $\Phi(t,x)=\sum_{i=1}^4\epsilon_i\Theta_{Mt}(NMtx,w_i)$, $\epsilon=(1,1,-1,-1)$. The absolute value is taken after the inner signed sum over $m$, with the same coefficients $b_w$ for every $m$.
+
+\begin{proposition}[duality and Poisson, with explicit blocks]\label{in:duality}
+For each fixed neighbor, sign and Sobolev class, let $\mathfrak K_M$ be the sum over the height blocks of the absolute values of their signed tuple kernels, as defined in Corollary~\ref{cor:blockconsumer}. Then
+\begin{equation}\label{eq:duality}
+r^2Z^2\prec N^2r+r^{3/4}\sum_{M,h,\pm,\ell}
+N^{7/4}M^{1/2}\mathfrak K_M^{1/4}.
+\end{equation}
+\end{proposition}
+The term $N^2r$ bounds the zero and nonstationary modes. The stationary part has an exact representation.
+\begin{proof}
+Proposition~\ref{prop:dualityproof} derives the block inequality from the sum \eqref{eq:model}. Corollary~\ref{cor:blockconsumer} applies H\"older to the block sum. Each block uses its own translated $Q$.
+\end{proof}
+
+\subsection{The exact critical phase}
+Put $y=Nm$, $\Delta=(z-w)/y$, $\eta_{\rm eff}=\eta/((1+\kappa z)(1+\kappa w))$ and $\tau=\eta_{\rm eff}\Delta^2$.
+
+\begin{lemma}[{\cite[(3.10)--(3.12)]{B38}}]\label{lem:phase}
+
+The critical value of the Poisson phase is
+\[
+\Theta_m(z,w)=\frac{y\Delta^2}{12}\,\Omega(\tau)\big(4-\Omega(\tau)\big),\qquad
+\Omega(\tau)=\frac2{1+\sqrt{1-3\tau}} .
+\]
+In particular
+\[
+\Theta_m(z,w)=\frac{(z-w)^2}{4Nm}+\frac{\eta(z-w)^4}{8(Nm)^3(1+\kappa z)(1+\kappa w)}+O\big(y|\tau|^2\Delta^2\big).
+\]
+\end{lemma}
+\begin{proof}
+Proposition~\ref{prop:exactphaseproof} solves the critical quadratic, identifies its admissible branch, and gives the exact analytic remainder with all needed derivatives.
+\end{proof}
+
+\begin{remark}
+The expansion is consistent with the closed form: $\Omega(\tau)=1+\frac34\tau+O(\tau^2)$, hence $\Omega(4-\Omega)=3+\frac32\tau+O(\tau^2)$. We keep the full remainder in the phase.
+\end{remark}
+
+\begin{lemma}[two-pair differences]\label{lem:twopair}
+Let $f$ be real analytic on a neighborhood of a compact interval $I$. For $v_1,\dots,v_4\in I$,
+\[
+|f(v_1)+f(v_2)-f(v_3)-f(v_4)|\ll_f|v_1+v_2-v_3-v_4|+|v_1^2+v_2^2-v_3^2-v_4^2|,
+\]
+and the same holds, uniformly, after any fixed number of derivatives in parameters on which $f$ depends analytically.
+\end{lemma}
+
+\begin{proof}
+Write $v_1=s/2+\delta$, $v_2=s/2-\delta$. The function $\delta\mapsto f(s/2+\delta)+f(s/2-\delta)$ is even and analytic, so $f(v_1)+f(v_2)=G(s,d)$ with $d=(v_1-v_2)^2$ and $G$ analytic on a neighborhood of the relevant compact set. Let $s'=v_3+v_4$, $d'=(v_3-v_4)^2$. Then $s-s'=P:=v_1+v_2-v_3-v_4$ and
+\[
+d-d'=2Q-(s-s')(s+s'),\qquad Q:=v_1^2+v_2^2-v_3^2-v_4^2,
+\]
+so $|d-d'|\ll|Q|+|P|$. The mean value theorem for $G$ gives the bound; derivatives in parameters are handled identically.
+\end{proof}
+
+\subsection{The tuple phase}
+Let $L=NM$, $t=m/M$,
+\[
+P=w_1+w_2-w_3-w_4,\qquad Q=w_1^2+w_2^2-w_3^2-w_4^2,\qquad F=|Q|/L,\qquad D=1+|P|.
+\]
+On the stationary support all $w_i$ lie in an interval of length $O(L)$ after the translation, so $F\ll NM\le W$. By Lemmas~\ref{lem:phase} and \ref{lem:twopair}, with $z=Nmx$,
+\begin{equation}\label{eq:psi}
+\begin{gathered}
+\Phi(t,x)=\frac{Q}{4Lt}+\psi(t,x),\qquad
+\psi_x=-\frac P2+O\big(|\eta|(F+|P|)\big),\\
+\psi_{xx}=\frac{3\eta Q}{2Nm}-3\eta Px+O\big((|\kappa|L+|\eta|)|\eta|(F+|P|)\big),
+\end{gathered}
+\end{equation}
+with the same control for every fixed number of further derivatives. The explicit mixed-derivative inequalities and their proof are in Proposition~\ref{prop:exactphaseproof}.
+
+\begin{lemma}[Morse--Fresnel; {\cite[\S3]{B38}}]\label{lem:morse}
+
+Let $H=|\eta|F$. If $H\ge1$ and $|P|\ll H$, then
+\[
+\int A_{\mathbf w}(t,x)\,e(\Phi(t,x))\,dx=H^{-1/2}b(t)\,e(S(t)),\qquad
+S(t)=\frac Q{4Lt}+R(t),
+\]
+with $R^{(j)}(t)\ll_j|\eta|F$ and $b^{(j)}(t)\ll_j1$ for every fixed $j$. Here $H$ is fixed as $t$ varies.
+\end{lemma}
+\begin{proof}
+See Lemma~\ref{lem:exactmorse} and Proposition~\ref{prop:tuplemorseproof}.
+\end{proof}
+
+If $H\le1$ the correction $\psi$ can be absorbed into the amplitude. If $|P|\gg1+H$, integration by parts in $x$, repeated a fixed number of times more than the number of $t$-derivatives needed, gives an amplitude decaying like $(D/(1+H))^{-J}$. In both cases the phase is the exact reciprocal $Q/(4Lt)$.
+
+%======================================================================
+\section{The kernel estimate}\label{sec:kernel}
+%======================================================================
+
+\begin{proposition}\label{prop:kernel}
+Let $(k,\ell)$ satisfy the hypotheses of Theorem~\ref{thm:general}, let $\delta>0$ be fixed, and apply Definition~\ref{def:pair} to the pair $(k,\ell+\delta)$. For $M\ge N^{1/24}$, every fixed $J$, each sign of $m$ and each Sobolev class,
+\begin{equation}\label{eq:kernel}
+|K_M(\mathbf w)|\ll M^{1-a+\delta}F^{k}(1+|\eta|F)^{-1/2}\Big(1+\frac D{1+|\eta|F}\Big)^{-J}\qquad(F\ge X),
+\end{equation}
+and $|K_M(\mathbf w)|\ll_J MD^{-J}$ for $F<X$.
+\end{proposition}
+
+\begin{proof}
+\emph{Case $F\ge4M$.} By Lemma~\ref{lem:morse} and the remarks after it, the inner integral equals $(1+H)^{-1/2}$ times an amplitude with bounded $t$-derivatives and decay $(1+D/(1+H))^{-J}$, times $e(S(m/M))$, where $S$ is the exact reciprocal phase plus a correction whose $j$-th derivative is a relative $O_j(|\eta|)$ of that of $Q/(4Lt)$. With $g(m)=-\sgn(Q)S(m/M)$ the first derivative is modeled by $ym^{-2}$, $y=|Q|/(4N)=FM/4$, and $y/M^2=F/(4M)\ge1$. For the fixed exponent pair, Definition~\ref{def:pair} gives a finite derivative order $R$ at $s=2$. The relative errors $O_j(|\eta|)$ for $j\le R+1$ are below its $\epsilon_0$ once the model smallness constant is chosen accordingly. Definition~\ref{def:pair} gives $\sum_{m\in I}e(g(m))\ll(F/M)^kM^{\ell+\delta}=M^{1-a+\delta}F^k$ for every subinterval $I$. Partial summation restores the amplitude. For $j=8$ only derivatives through order 12 are needed, as shown in Appendix~\ref{app:base}.
+
+\emph{Case $X\le F\le4M$.} Here $H\le4|\eta|M\ll W^2/N^3\le N^{-1/3}$, so the phase is the exact reciprocal and the amplitude is smooth. The second-derivative test gives $\ll\sqrt F+M/\sqrt F$. Since $F\le4M$ and $a<\frac12+k$, $\sqrt F\ll F^{k}M^{1/2-k}\le F^kM^{1-a}$. Since $M\le\Mst\le N^{1/3}$, $F\ge N^{1/8}$ and $8a<3(k+\frac12)$, $M^{a}\le N^{a/3}\le N^{(k+1/2)/8}\le F^{k+1/2}$, i.e.\ $M/\sqrt F\le M^{1-a}F^k$.
+
+\emph{Case $F<X$.} Then $H\le|\eta|X=o(1)$, the phase in $x$ has derivative $-P/2+o(D)$, and integration by parts gives $D^{-J}$; summing trivially over $m$ gives $MD^{-J}$.
+\end{proof}
+
+\begin{corollary}[two simultaneous bounds]\label{cor:two}
+For $M\ge N^{1/24}$, $F\ge X$ and every fixed $A$, both
+\begin{align*}
+|K_M(\mathbf w)|&\ll M^{1-a+\delta}(NM)^{k}D^{-1/2}\Big(1+\frac DU\Big)^{-A}
+\qquad\text{and}\\
+|K_M(\mathbf w)|&\ll M^{1-a+\delta}|\eta|^{-k}D^{k-1/2}\Big(1+\frac DU\Big)^{-A}
+\end{align*}
+hold for the same tuple $\mathbf w$.
+\end{corollary}
+
+\begin{proof}
+Let $H=|\eta|F$. Since $F\ll NM\le W$, $1+H\ll U$. If $D\le1+H$, then $(1+H)^{-1/2}\le D^{-1/2}$ and $F^k\ll(NM)^k$ give the first bound, while $F^k(1+H)^{-1/2}=|\eta|^{-k}H^{k}(1+H)^{-1/2}\le|\eta|^{-k}(1+H)^{k-1/2}\le|\eta|^{-k}D^{k-1/2}$ (as $k<\frac12$) gives the second; in this range $1+D/U\asymp1$. If $D>1+H$, then
+\[
+F^k(1+H)^{-1/2}\Big(\frac{1+H}D\Big)^{J}\le\min\Big((NM)^kD^{-1/2},\,|\eta|^{-k}D^{k-1/2}\Big)\Big(\frac{1+H}D\Big)^{J-1/2},
+\]
+and $(1+H)/D\ll(1+D/U)^{-1}$; take $J\ge A+\frac12$.
+\end{proof}
+
+The two bounds are properties of the same kernel; we use each on a different part of the energy (Proposition~\ref{prop:model}). The dependence between $F$ and $P$ is kept.
+
+\begin{lemma}[small $F$]\label{lem:smallF}
+For every fixed $J>3$,
+\[
+\sum_{\substack{\mathbf w\in S^4\\ F<X}}D^{-J}\ll rE_2(S;C\sqrt{LX}),
+\]
+uniformly in all parameters.
+\end{lemma}
+
+\begin{proof}
+Let $b=w_1-w_3$, $c=w_1-w_4$. Then $w_2=P+w_1-b-c$ and
+\[
+Q=2bc+2P(w_1-b-c)+P^2 .
+\]
+If $|P|\le D'$ and $|Q|\le LX$, then $|bc|\ll L(X+D')$ (recall $|w_i|\ll L$ and $D'\ll L$), so $\min(|b|,|c|)\ll\sqrt{L(X+D')}$. Choose the close pair (at most $2E_2(S;C\sqrt{L(X+D')})$ ways), the remaining point among $w_3,w_4$ ($r$ ways), and $w_2$ in an interval of length $O(D')$ ($O(1+D')$ ways). By Lemma~\ref{lem:enlarge}, $E_2(S;C\sqrt{L(X+D')})\ll(1+\sqrt{D'})E_2(S;C\sqrt{LX})$. Summing over dyadic $D'$ against $D'^{-J}$ gives the claim.
+\end{proof}
+
+%======================================================================
+\section{The large-value estimate for the curved model}\label{sec:model}
+%======================================================================
+
+Let $(k,\ell)$ satisfy \eqref{eq:H}, $a=1-\ell+k$, and define, for the model,
+\[
+\lambda_0=|\eta|^{-k}\Mst^{-a},\qquad \mu_0=N^{k}\Mst^{k-a}=W^{k}\Mst^{-a},\qquad
+A_k(S)=\sup_{1\le D\ll U}D^{k-1/2}E_2(S;D).
+\]
+
+\begin{proposition}[strengthened curved large values]\label{prop:model}
+Assume \eqref{eq:modelranges} and the exponent-pair hypothesis. Then
+\begin{equation}\label{eq:modelbound}
+\begin{aligned}
+r\prec{}&\frac{N^2}{Z^2}
++\lambda_0^{1/5}\frac{N^{8/5}W^{3/5}}{Z^{12/5}}A_k(S)^{1/5}
++\mu_0^{1/2}\frac{N^{5/2}W^{3/2}}{Z^5}U^{1/4}\\
+&+\lambda_0^{1/4}B^{1/4}\frac{N^2W^{3/4}}{Z^3}
++\frac{NW^{3/4}}{Z^2}E_2(S;H_0)^{1/4}.
+\end{aligned}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Put
+\[
+\cJ=\max_{M,h,\pm,\ell}\Big(\frac M{\Mst}\Big)^{3}M^{-1}\mathfrak K_M,
+\]
+with the block sum $\mathfrak K_M$ of Corollary~\ref{cor:blockconsumer}. The following energy sums are first taken on translated blocks and then bounded by their global counterparts, as proved in that corollary. Since
+\[
+N^{7/4}M^{1/2}\big(\Mst^3M^{-2}\cJ\big)^{1/4}=N^{7/4}\Mst^{3/4}\cJ^{1/4}=NW^{3/4}\cJ^{1/4},
+\]
+Proposition~\ref{in:duality} gives
+\begin{equation}\label{eq:rJ}
+r^2Z^2\prec N^2r+NW^{3/4}r^{3/4}\cJ^{1/4}.
+\end{equation}
+We bound $\cJ$. Fix $M$.
+
+\emph{Tuples with $F\ge X$, $M\ge N^{1/24}$.} Split the tuples by $D=1+|P|$ into dyadic layers. A layer is contained in $\{|P|\le 2D\}$, of size at most $E_4(S;2D)\ll E_4(S;D)$ by Lemma~\ref{lem:enlarge}. For $D\gg U$ the factor $(1+D/U)^{-A}$ and $E_4(S;D)\ll(D/U)E_4(S;U)$ reduce to $D\asymp U$. For $D\ll U$ insert \eqref{eq:curv}. On the parts $(N/Z)^4E_2(S;D)$ and $(N/Z)^4(B/D)E_2(S;D)$ use the second bound of Corollary~\ref{cor:two}; on $(N/Z^2)Dr^3$ use the first. This choice is legitimate because both bounds hold for every tuple. With Lemma~\ref{lem:enlarge} ($E_2(S;D)\ll rD$) and $k<\frac12$,
+\[
+\sum_D D^{k-1/2}E_2(S;D)\prec A_k(S),\qquad
+B\sum_DD^{k-3/2}E_2(S;D)\ll Br,\qquad
+\sum_{D\ll U}D^{-1/2}Dr^3\ll r^3\sqrt U .
+\]
+Hence these tuples contribute to $\sum_{\mathbf w}|K_M|$ at most
+\[
+M^{1-a+\delta}\Big[|\eta|^{-k}\Big(\frac NZ\Big)^4\big(A_k(S)+Br\big)+(NM)^k\frac N{Z^2}r^3\sqrt U\Big].
+\]
+Multiplying by $(M/\Mst)^3M^{-1}$ and using $3-a>0$, $3-a+k>0$ and $M\le\Mst$:
+\[
+\Big(\frac M\Mst\Big)^3M^{-a}|\eta|^{-k}\le\lambda_0,\qquad
+\Big(\frac M\Mst\Big)^3M^{-a}(NM)^k\le N^k\Mst^{k-a}=\mu_0 .
+\]
+(The loss $M^\delta$ is absorbed in $\prec$ after fixing $\delta$ small.)
+
+\emph{Tuples with $F<X$.} By Proposition~\ref{prop:kernel} and Lemma~\ref{lem:smallF}, with $L=NM\le W$, their contribution to $(M/\Mst)^3M^{-1}\sum|K_M|$ is $\ll rE_2(S;C\sqrt{WX})=rE_2(S;H_0)$.
+
+\emph{$M<N^{1/24}$.} Proposition~\ref{prop:kernel} with the trivial bound in $m$ in place of the exponent pair (i.e.\ the case $k=0$, $a=0$ of the argument of Corollary~\ref{cor:two}) gives $|K_M|\ll MD^{-1/2}(1+D/U)^{-A}$. The weight is $(M/\Mst)^3\le N^{1/8}\Mst^{-3}=:C_M$. Since $\Mst\ge N^{1/8}$, $|\eta|\le1$ and $a<2$,
+\[
+C_M/\lambda_0\le N^{1/8}\Mst^{a-3}\le N^{(a-2)/8}<1,\qquad
+C_M/\mu_0=N^{1/8-k}\Mst^{a-k-3}\le N^{(a-2-9k)/8}<1,
+\]
+and $D^{-1/2}\le D^{k-1/2}$, so these $M$ are covered by the previous bound.
+
+Altogether
+\begin{equation}\label{eq:Jbound}
+\cJ\prec\Big(\frac NZ\Big)^4\lambda_0A_k(S)+\Big(\frac NZ\Big)^4\lambda_0Br+\frac N{Z^2}\mu_0r^3\sqrt U+rE_2(S;H_0).
+\end{equation}
+Insert \eqref{eq:Jbound} into \eqref{eq:rJ}; one of the following holds.
+\begin{itemize}
+\item $r^2Z^2\prec N^2r$: $r\prec N^2Z^{-2}$.
+\item $r^2Z^2\prec NW^{3/4}r^{3/4}(N/Z)\lambda_0^{1/4}A_k^{1/4}$: $r^{5/4}\prec\lambda_0^{1/4}N^2W^{3/4}Z^{-3}A_k^{1/4}$, the second term.
+\item $r^2Z^2\prec NW^{3/4}r^{3/4}(N^{1/4}Z^{-1/2})\mu_0^{1/4}r^{3/4}U^{1/8}$: $r^{1/2}\prec\mu_0^{1/4}N^{5/4}W^{3/4}Z^{-5/2}U^{1/8}$, the third term.
+\item $r^2Z^2\prec NW^{3/4}r^{3/4}(N/Z)\lambda_0^{1/4}B^{1/4}r^{1/4}$: the fourth term.
+\item $r^2Z^2\prec NW^{3/4}r^{3/4}r^{1/4}E_2(S;H_0)^{1/4}$: the fifth term.\qedhere
+\end{itemize}
+\end{proof}
+
+%======================================================================
+\section{Return to the zeta function}\label{sec:return}
+%======================================================================
+
+\subsection{Atkinson's phase and the curved model}
+
+\begin{lemma}\label{lem:atkinson}
+Use the normalization of \cite[(41)]{dFP},
+\[
+f(t,n)=\frac t\pi\left(\operatorname{arsinh}\sqrt{\frac{\pi n}{2t}}+
+\sqrt{\frac{\pi n}{2t}\left(1+\frac{\pi n}{2t}\right)}\right).
+\]
+The constant phase $-1/8$ in the usual cosine form is absorbed into the coefficients. For $n\asymp N\le T^{3/5}$ and $t\asymp T$,
+\[
+f(t,n)=\sqrt{\frac{2nt}\pi}+\frac{\sqrt{2\pi}}{12}\frac{n^{3/2}}{\sqrt t}+r_t(n),\qquad
+|r_t(n)|+N|\partial_nr_t(n)|\ll N^{5/2}T^{-3/2}.
+\]
+For a block starting at $t_0\asymp T$ put
+\[
+w=\sqrt{2N/\pi}\,\big(\sqrt t-\sqrt{t_0}\big),\qquad \eta=-\frac{\pi N}{12t_0},\qquad \kappa=\Big(\frac{2Nt_0}\pi\Big)^{-1/2}.
+\]
+Then the first two terms of $f(t,n)-f(t_0,n)$ equal exactly $w(n/N)^{1/2}+h(w)(n/N)^{3/2}$ with $h(w)=\eta w/(1+\kappa w)$. In particular $|\eta|\asymp N/T$, $|\kappa|\asymp(TN)^{-1/2}$, $U\asymp1+NW/T$ and $B\asymp N^{1/2}W^2T^{-3/2}$.
+\end{lemma}
+
+\begin{proof}
+
+With $x=\sqrt{\pi n/(2t)}$ the phase of Atkinson's formula with the constant phase removed is $2t\operatorname{arsinh}x+\sqrt{2\pi nt+\pi^2n^2}$. Expanding, its $\frac1{2\pi}$-multiple is $\sqrt{2nt/\pi}+\frac{\sqrt{2\pi}}{12}n^{3/2}t^{-1/2}+O(n^{5/2}t^{-3/2})$, with the stated derivative bound. Since $\sqrt t=\sqrt{t_0}+w\sqrt{\pi/(2N)}$, the first term contributes $\sqrt{2n/\pi}\,(\sqrt t-\sqrt{t_0})=w(n/N)^{1/2}$. For the second,
+\[
+\frac{\sqrt{2\pi}}{12}n^{3/2}\Big(\frac1{\sqrt t}-\frac1{\sqrt{t_0}}\Big)
+=-\frac{\sqrt{2\pi}}{12}n^{3/2}\frac{w\sqrt{\pi/(2N)}}{\sqrt{t_0}\big(\sqrt{t_0}+w\sqrt{\pi/(2N)}\big)}
+=-\frac{\pi N}{12t_0}\,\frac{w}{1+\kappa w}\Big(\frac nN\Big)^{3/2}.
+\]
+The last statements follow from $B=|\eta\kappa|W^2$.
+\end{proof}
+
+Lemma~\ref{lem:completionproof} proves the partial-summation and interval-completion steps, with a common Fourier multiplier in $n$. Proposition~\ref{prop:clusterproof} tracks the divisor loss, the selected level set and all spacing classes.
+
+\subsection{The weighted pair energy}
+
+\begin{lemma}\label{lem:weighted}
+In the setting of Proposition~\ref{in:dfp}, assume $\sqrt{T/N}+W\sqrt{N/T}\prec V^4$ and $0<k<\frac12$. Put $A_g=T/(F_c^{3/2}V^6\sqrt{R_1})$. Then
+\[
+\sum_iA_k(S_i)\prec R_1(1+A_g)^{k+1/2}.
+\]
+\end{lemma}
+
+\begin{proof}
+For $D\ll U\asymp1+NW/T$, the middle term of \eqref{eq:paircount} is at most $R_1U\sqrt{T/N}/V^4\prec R_1$ by the assumption. Hence, with Lemma~\ref{lem:enlarge},
+\[
+\sum_iE_2(S_i;D)\prec R_1\min(D,1+A_g)\qquad(1\le D\ll U).
+\]
+Bounding the supremum by the sum over dyadic $D$,
+\begin{align*}
+\sum_iA_k(S_i)&\le\sum_{D\ll U}D^{k-1/2}\sum_iE_2(S_i;2D)\\
+&\prec R_1\Big(\sum_{D\le1+A_g}D^{k+1/2}+(1+A_g)\sum_{D>1+A_g}D^{k-1/2}\Big)\ll R_1(1+A_g)^{k+1/2},
+\end{align*}
+since $k+\frac12>0>k-\frac12$.
+\end{proof}
+
+Lemma~\ref{lem:weighted} sums the weight $D^k$ at $D\asymp1+A_g$, where the two pair-count bounds meet.
+
+\subsection{Proof of Theorem~\ref{thm:general}}
+Let $N$ be as in Proposition~\ref{in:dfp} and $W=N^q$. For $T^{1/3}\le N\le T^{\nu_*}$ the hypotheses \eqref{eq:P} give \eqref{eq:modelranges} with $c\to0$ as $T\to\infty$ (see the dictionary in Table~\ref{tab:cond}), $W\le\sqrt{TN}$, $N\le T^{3/5}$ (as $\sigma>\frac1{10}$), and the assumption of Lemma~\ref{lem:weighted}: $\sqrt{T/N}\le T^{1/3}<V^4$ since $\sigma>\frac1{12}$, and $W\sqrt{N/T}\prec V^4$ by the last condition in \eqref{eq:P}. Each of these quantities is $T^{(\text{affine in }\nu)}$ with positive $\nu$-coefficient, so it suffices to check them at $\nu=\nu_*$. By Lemma~\ref{lem:atkinson}, $\lambda_0\asymp\lambda$ and $\mu_0=\mu$ as in \eqref{eq:lammu}.
+
+Apply Proposition~\ref{prop:model} to each $S_i$ and sum over $i$. We use $K\prec T/(V^2W)$, H\"older's inequality over $i$, \eqref{eq:cluster}, Lemma~\ref{lem:weighted} and \eqref{eq:paircount}. In each case below we bound $R_1$, then $\cN(T,V)\prec ZR_1(TN)^{-1/4}$; the resulting power of $Z$ is negative, so we may insert $Z\succ F_c(TN)^{1/4}$, and the resulting power of $F_c$ is nonpositive, so $F_c\ge1$ may be dropped at the end.
+
+\emph{Term 1.} $R_1\prec KN^2Z^{-2}$, so $\cN\prec KN^{7/4}T^{-1/4}Z^{-1}\prec KN^{3/2}T^{-1/2}\prec B_1$.
+
+\emph{Terms 2 and 5.} By H\"older, $\sum_ir_i\le C^{4/5}\sum_iA_k(S_i)^{1/5}\le C^{4/5}K^{4/5}(\sum_iA_k(S_i))^{1/5}$ with $C=\lambda^{1/4}N^2W^{3/4}Z^{-3}$. By Lemma~\ref{lem:weighted},
+\[
+R_1\prec K\lambda^{1/4}N^2W^{3/4}Z^{-3}(1+A_g)^{(1+2k)/8}.
+\]
+The constant part of $(1+A_g)$ gives $\cN\prec K\lambda^{1/4}N^{7/4}W^{3/4}T^{-1/4}Z^{-2}\prec B_2$. The part $A_g^{(1+2k)/8}$ gives
+\[
+R_1^{(17+2k)/16}\prec K\lambda^{1/4}N^2W^{3/4}Z^{-3}\Big(\frac T{F_c^{3/2}V^6}\Big)^{(1+2k)/8}.
+\]
+Then $\cN\prec ZR_1(TN)^{-1/4}$ carries $Z^{(2k-31)/(17+2k)}$; inserting $Z\succ(TN)^{1/4}$ and $K\prec T/(V^2W)$ and raising to the power $17+2k$ gives
+\[
+\cN^{17+2k}\prec(TN)^{-12}\,K^{16}\lambda^4N^{32}W^{12}\Big(\frac T{V^6}\Big)^{2+4k}=\lambda^4T^{6+4k}N^{20}W^{-4}V^{-44-24k},
+\]
+that is, $\cN\prec B_5$. Here $\lambda$ keeps its full factor $(T/N)^k$ together with its power of $W/N$.
+
+\emph{Terms 3 and 4.} $R_1\prec K\mu^{1/2}N^{5/2}W^{3/2}Z^{-5}U^{1/4}$, so $\cN\prec K\mu^{1/2}U^{1/4}N^{9/4}W^{3/2}T^{-1/4}Z^{-4}\prec K\mu^{1/2}U^{1/4}N^{5/4}W^{3/2}T^{-5/4}$. With $U^{1/4}\ll1+(NW/T)^{1/4}$ this is $\ll B_3+B_4$.
+
+\emph{Term 6.} $R_1\prec K\lambda^{1/4}B^{1/4}N^2W^{3/4}Z^{-3}$, so $\cN\prec K\lambda^{1/4}B^{1/4}N^{5/4}W^{3/4}T^{-3/4}$; with $B^{1/4}\asymp N^{1/8}W^{1/2}T^{-3/8}$ this is $B_6$.
+
+\emph{Terms 7, 8, 9.} By H\"older, $R_1\le NW^{3/4}Z^{-2}K^{3/4}(\sum_iE_2(S_i;H_0))^{1/4}$, and \eqref{eq:paircount} at $D=H_0\asymp W^{1/2}N^{1/16}$ has three terms. The term $R_1$ gives $R_1\prec KN^{4/3}WZ^{-8/3}$ and $\cN\prec KN^{2/3}WT^{-2/3}=B_7$. The term $R_1H_0\sqrt{T/N}/(F_cV^4)$ gives
+\[
+\cN\prec KN^{2/3}WT^{-2/3}\big(H_0\sqrt{T/N}\,V^{-4}\big)^{1/3}=B_8 .
+\]
+The term $T\sqrt{R_1}/(F_c^{3/2}V^6)$ gives $R_1^{7/8}\prec NW^{3/4}Z^{-2}K^{3/4}T^{1/4}V^{-3/2}$, whence
+\[
+\cN\prec(TN)^{-4/7}\big(NW^{3/4}K^{3/4}T^{1/4}V^{-3/2}\big)^{8/7}=B_9 .
+\]
+
+The exponents of $F_c$ in the nine terms are $-1,-2,-4,-4,-2,-2,-5/3,-2,-12/7$. This proves Theorem~\ref{thm:general}. \qed
+
+%======================================================================
+\section{Optimization: proof of Theorem~\ref{thm:large}}\label{sec:optimize}
+%======================================================================
+
+Take $(k,\ell)=(1/245,269/280)$ (Lemma~\ref{lem:hb} with $j=8$), so $a=17/392$. The hypotheses \eqref{eq:H} hold: $a<\frac12+k$ and $8a=17/49<3(k+\frac12)=1.512\ldots$. Write $N=T^\nu$, $W=T^\omega$, $V=T^\sigma$. Then
+\[
+\log_T\lambda=k+(a-k)\nu-a\omega,\qquad \log_T\mu=k\omega-a(\omega-\nu),
+\]
+and $\log_TB_j=e_j(\sigma,\nu,\omega)$ is affine. Put $\nu_*=1-4\sigma$ and
+\[
+\omega(\sigma)=\frac{5(1692769+2461308\sigma)}{15938321},\qquad q(\sigma)=\frac{\omega(\sigma)}{\nu_*},\qquad W=N^{q(\sigma)} .
+\]
+This choice solves $e_4=e_5$ at $\nu=\nu_*$, and there
+\[
+e_4=e_5=E(\sigma):=\frac{54928-293156\sigma}{38969}.
+\]
+The function $q$ is increasing, with $q(\sigma_0)=8714085/7509649$ and $q(1/8)=20004325/15938321$, so $\frac98<q<\frac43$ on $[\sigma_0,\frac18]$. For fixed $q$ in this range every $e_j$ has positive $\nu$-coefficient, so the maximum over $N$ in Theorem~\ref{thm:general} is attained at $\nu=\nu_*$. At $\nu=\nu_*$ each $E-e_j$ is affine in $\sigma$, and Table~\ref{tab:margins} gives its values at both endpoints.
+
+\begin{table}[ht]
+\centering
+\caption{Margins $E(\sigma)-e_j$ at $\nu=\nu_*$.}\label{tab:margins}
+\begin{tabular}{ccc}
+\toprule
+$j$ & $\sigma=\sigma_0$ & $\sigma=1/8$\\
+\midrule
+1 & $301109/3509220$ & $81147/838859$\\
+2 & $22819/5174400$ & $15613/8039920$\\
+3 & $1093427/28073760$ & $1016501/31876642$\\
+4 & $0$ & $0$\\
+5 & $0$ & $0$\\
+6 & $29384059/13756142400$ & $10383337/15619554580$\\
+7 & $15959/205920$ & $24557/467628$\\
+8 & $27213367/673770240$ & $31884151/1530078816$\\
+9 & $4519/80080$ & $3165/77938$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The conditions \eqref{eq:P} and \eqref{eq:modelranges} are verified in Table~\ref{tab:cond}; each quantity is increasing in $\nu$ for fixed $q$ and affine in $\sigma$ at $\nu=\nu_*$.
+
+\begin{table}[ht]
+\centering
+\caption{Parameter conditions: $\log_T$ of each quantity at $\nu=\nu_*$.}\label{tab:cond}
+\begin{tabular}{lccc}
+\toprule
+quantity & $\log_T$ & $\sigma=\sigma_0$ & $\sigma=1/8$\\
+\midrule
+$|\kappa|W$ & $(q-\frac12)\nu-\frac12$ & $-4118359/28073760$ & $-7806313/63753284$\\
+$|\eta|N^2/W$ & $(3-q)\nu-1$ & $-37003/2339480$ & $-2033002/15938321$\\
+$|\eta|N^{1/8}$ & $\frac98\nu-1$ & $-36437/91520$ & $-7/16$\\
+$N^{5/2}T^{-3/2}$ & $\frac52\nu-\frac32$ & $-2231/13728$ & $-1/4$\\
+$\eta^2W$ & $(2+q)\nu-2$ & $-4340377/14036880$ & $-11872317/31876642$\\
+$W\sqrt{N/T}\,V^{-4}$ & $(q+\frac12)\nu-\frac12-4\sigma$ & $-717841/9357920$ & $-7806313/63753284$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The phase formula is exact. The bounds $|\eta|\le cW/N^2$ and $W\le N^{4/3}$ also give $\eta^2W\le c^2$.
+
+Since every margin is uniform on $[\sigma_0,\frac18]$, the constants are uniform in $\sigma$. Theorem~\ref{thm:general} gives $\cN(T,T^\sigma)\prec T^{E(\sigma)}$, which is Theorem~\ref{thm:large}. The intersection with the fourth-moment line is $E(\sigma_0)=1-4\sigma_0$, $\sigma_0=15959/137280$. \qed
+
+\begin{remark}
+On the whole range the active terms are $B_4$ (the growth $U^{1/4}$ of the diagonal) and $B_5$ (the refined pair count). A further improvement needs either control of how many pairs of large values occupy the radius $D\asymp1+A_g$, or additional cancellation in the tuple sum that keeps the product of the four dual coefficients.
+\end{remark}
+
+%======================================================================
+\section{Proof of Theorem~\ref{thm:sixth}}\label{sec:moment}
+%======================================================================
+
+Decompose $[T,2T]$ according to the dyadic size $V=T^\sigma$ of $|\zeta(\frac12+it)|$. The unit intervals meeting $\{t:|\zeta(\frac12+it)|\ge V\}$ split into two classes (even and odd), and choosing one point in each interval of a class gives a $1$-separated set; hence the measure of this set is at most $2\cN(T,V)$. The contribution of the layer $V$ to $\int_T^{2T}|\zeta|^6$ is therefore $\prec V^6\cN(T,V)=T^{6\sigma}\cN(T,T^\sigma)$, and we bound the exponent of this layer.
+\begin{itemize}
+\item $\sigma\le\sigma_0$: by the fourth moment, $1+2\sigma\le1+2\sigma_0=84599/68640$.
+\item $\sigma_0\le\sigma\le\frac18$: by Theorem~\ref{thm:large}, $E(\sigma)+6\sigma$, which decreases (slope $6-293156/38969<0$) from the value $84599/68640$ at $\sigma_0$.
+\item $\frac18\le\sigma\le\frac5{38}$: by Proposition~\ref{prop:curvatureline}, $(94-500\sigma)/67+6\sigma\le327/268<84599/68640$.
+\item $\sigma\ge\frac5{38}$: by the twelfth moment, $2-6\sigma\le23/19<84599/68640$.
+\end{itemize}
+Amplitudes $|\zeta|\le1$ and bounded $t$ contribute $O(T)$. Summing over the $O(\log T)$ layers and over dyadic $T$ proves Theorem~\ref{thm:sixth}. The order of choices is: $\varepsilon$; the exponent-pair loss $\delta$; the numbers of derivatives and integrations by parts; $T_0$. The fixed positive margins of the inactive terms and the fixed negative margins in Table~\ref{tab:cond} absorb all logarithmic and $T^{o(1)}$ losses. \qed
+
+%======================================================================
+\appendix
+\input{appendix_proofs}
+\input{appendix_atkinson}
+\section{Computations}\label{app:check}
+The file \path{checks/exponents.py} checks the nine exponents,
+their intersection, the parameter ranges, and the sixth-moment sum.
+The file \path{checks/identity_checks.py} checks the phase identities.
+These calculations use exact arithmetic.
+
+The file \path{checks/atkinson_checks.py} checks the phase formulas
+and compares the Gaussian identity with numerical integration at two
+values of $T$.
+
+\section*{Use of AI tools}
+AI tools were used for proof search, calculations, and writing.
+
+\begin{thebibliography}{99}
+
+\bibitem[Atk49]{Atk49}
+F.~V. Atkinson, \emph{The mean-value of the Riemann zeta function}, Acta Math. \textbf{81} (1949), 353--376.
+
+\bibitem[SS23]{SS23}
+A.~Simoni\v{c} and V.~V. Starichkova,
+\emph{Atkinson's formula for the mean square of $\zeta(s)$ with an explicit error term},
+arXiv:2105.06821v3 (2022), published 2023.
+
+\bibitem[B38]{B38}
+bramble\_trace (AI agent), \emph{Curved Atkinson phases, reciprocal cancellation and the sixth moment of the Riemann zeta function}, rStation paper~38, version~3, 21 October 2026, \url{https://rstation.ai/problems/riemann_hypothesis/papers/38}.
+
+\bibitem[BDG16]{BDG16}
+J.~Bourgain, C.~Demeter and L.~Guth, \emph{Proof of the main conjecture in Vinogradov's mean value theorem for degrees higher than three}, Ann. of Math. (2) \textbf{184} (2016), 633--682.
+
+\bibitem[CG98]{CG98}
+J.~B. Conrey and A.~Ghosh, \emph{A conjecture for the sixth power moment of the Riemann zeta-function}, Internat. Math. Res. Notices (1998), no.~15, 775--780.
+
+\bibitem[dFP]{dFP}
+A.~de~Faveri and M.~Pandey, \emph{The sixth moment of the Riemann zeta function}, arXiv:2610.01035v1 (2026).
+
+\bibitem[HB78]{HB78}
+D.~R. Heath-Brown, \emph{The twelfth power moment of the Riemann zeta-function}, Quart. J. Math. Oxford Ser. (2) \textbf{29} (1978), 443--462.
+
+\bibitem[HB17]{HB17}
+D.~R. Heath-Brown, \emph{A new $k$-th derivative estimate for exponential sums via Vinogradov's mean value}, Proc. Steklov Inst. Math. \textbf{296} (2017), 88--103; arXiv:1601.04493.
+
+\bibitem[Ing26]{Ing26}
+A.~E. Ingham, \emph{Mean-value theorems in the theory of the Riemann zeta-function}, Proc. London Math. Soc. (2) \textbf{27} (1926), 273--300.
+
+\bibitem[Iwa80]{Iwa80}
+H.~Iwaniec, \emph{Fourier coefficients of cusp forms and the Riemann zeta-function}, S\'eminaire de Th\'eorie des Nombres de Bordeaux (1979--1980), Exp.~No.~18, 36~pp.
+
+\bibitem[TY]{TY}
+T.~S. Trudgian and A.~Yang, \emph{Toward optimal exponent pairs}, Math. Comp. \textbf{94} (2025), 1467--1502, \url{https://doi.org/10.1090/mcom/3993}.
+
+\bibitem[Woo16]{Woo16}
+T.~D. Wooley, \emph{The cubic case of the main conjecture in Vinogradov's mean value theorem}, Adv. Math. \textbf{294} (2016), 532--561.
+
+\bibitem[Thin]{Thin} M.~Chae,
+\emph{Thin planar energy and the eighth moment of the Riemann zeta function},
+17 November 2026, \href{https://github.com/chaemin333-max/riemann-zeta-eighth-moment/blob/main/paper/moments.pdf}{PDF}.
+
+\bibitem[Supp]{Supp} M.~Chae,
+\emph{Additional estimates for zeta moments},
+17 November 2026, \href{https://github.com/chaemin333-max/riemann-zeta-eighth-moment/blob/main/supplement/moments.pdf}{PDF}.
+
+\end{thebibliography}
+
+\end{document}
+

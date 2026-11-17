@@ -1,0 +1,194 @@
+\section{Two steps toward the sparse fourth moment}
+\label{app:iwanieclocal}
+
+This section proves the passage to a central divisor polynomial and
+its first mean-square localization. These are two steps in the
+nonspectral approach of Jutila~\cite{Jut91}. The arithmetic mean-square
+estimate is the additional cited input identified at the end of this
+section. The moment results use \cite[(\ref*{six-eq:basefourth})]{Weighted} as stated.
+
+\begin{proposition}[central divisor shell by contour shifting]
+\label{prop:centralshell}
+Fix $a=1/(8\pi)$ and $b=4/\pi$, and put
+\[
+ D_T(v)=\sum_{aT<n\le bT}\frac{d(n)}{n^{1/2+iv}},\qquad H=\log T.
+\]
+Uniformly for $T\le t\le2T$, with $T$ sufficiently large,
+\begin{equation}\label{eq:centralshell}
+ |\zeta(1/2+it)|^4
+ \ll (\log T)^2\left(1+H\int_{|u|\le H^2}
+                    e^{-u^2/H^2}|D_T(t+u)|^2\,du\right).
+\end{equation}
+All endpoints of the shell and all its coefficients are fixed before
+$t$ varies.
+\end{proposition}
+The proof follows directly from the functional equation.
+\begin{proof}
+Write the proved functional equation as
+$\zeta(s)=\chi(s)\zeta(1-s)$, where
+\[
+ \chi(s)^{-1}=\pi^{1/2-s}
+             \frac{\Gamma(s/2)}{\Gamma((1-s)/2)}.
+\]
+On the critical line, $|\chi(s)|=1$ and
+$\chi(s)^{-1}\zeta(s)^2=|\zeta(s)|^2$.
+We first prove, for every fixed $A>0$,
+\begin{equation}\label{eq:shellGaussian}
+ \int_{\mathbb R}e^{-(v-t)^2/H^2}|\zeta(1/2+iv)|^2\,dv
+ =\int_{\mathbb R}e^{-(v-t)^2/H^2}
+       \chi(1/2+iv)^{-1}D_T(v)\,dv+O_A(T^{-A}).
+\end{equation}
+
+Insert $W(s)=\exp((s-1/2-it)^2/H^2)$ and move its vertical
+integral from $\Re s=1/2$ to $\Re s=2$.
+The only pole in the strip of $\chi(s)^{-1}\zeta(s)^2$ is at $s=1$.
+It is simple, since $\chi(s)^{-1}=-(s-1)/2+O((s-1)^2)$ there.
+Its weighted residue is $O(\exp((1/4-t^2)/H^2))$.
+Euler summation and the gamma bounds give polynomial growth on this
+fixed strip, so horizontal sides vanish. On $\Re s=2$ the absolutely
+convergent series $\zeta(s)^2=\sum d(n)n^{-s}$ may be integrated
+term by term. Denote its $n$th kernel by
+\[
+ K_t(n)=\frac1i\int_{\Re s=2}W(s)\chi(s)^{-1}n^{-s}\,ds.
+\]
+We show
+\begin{equation}\label{eq:shelltail}
+ \sum_{n\notin(aT,bT]}d(n)|K_t(n)|\ll_A T^{-A}.
+\end{equation}
+This justifies discarding the complete complement of the shell.
+The finite shell integrand is holomorphic across the contour shift,
+proving \eqref{eq:shellGaussian}.
+
+Here are uniform details of the kernel estimate. Put $s_0=1/2+it$,
+$q=t/(2\pi)$, and choose $\theta(t)\in\mathbb R$ with
+$\chi(s_0)^{-1}=e^{i\theta(t)}$. In the disk $|z|\le c\sqrt T$,
+with $c>0$ fixed and small, the function
+\[
+ F_t(z)=e^{-i\theta(t)}\chi(s_0+z)^{-1}q^{-z}
+\]
+is holomorphic, has $F_t(0)=1$, and is bounded uniformly in $t,T$.
+For this bound, differentiate
+the Euler-summation formula for $\log\Gamma$ used in
+\cite[Appendix~\ref*{six-app:localzeta}]{Weighted}. On this disk its first derivative gives
+\[
+ (\log\chi^{-1})'(s_0)=\log q+O(T^{-1}),\qquad
+ (\log\chi^{-1})''(s_0+z)=O(T^{-1}).
+\]
+Both gamma arguments stay a distance $\gg T$ from their poles and
+inside fixed sectors away from the negative real axis. The Euler remainder formula continues analytically to the plane cut
+along the negative real axis. Its differentiated remainder integrals
+are bounded here using $|x+z|^2\gg T^2+(x+\Re z)^2$,
+for $x\ge0$ and either gamma argument $z$. This proves the estimates
+also when the real part of an argument is negative. Taylor's integral formula now gives
+$\log F_t(z)=O(|z|/T+|z|^2/T)$.
+Cauchy's formula on this disk gives, for any fixed integer $B$,
+\[
+ F_t(z)=\sum_{j=0}^{B}c_j(t)z^j+
+ O_B\bigl(T^{-(B+1)/2}(1+|z|)^{B+1}\bigr),
+ \qquad c_j(t)\ll_j T^{-j/2},
+\]
+for $|z|\le H^2+2$.
+On the line $\Re z=3/2$ the part $|\Im z|>H^2$ costs
+$O_A(T^{-A}n^{-2})$, by the Gaussian and polynomial gamma growth.
+For the Taylor remainder the cost is
+$O_B(n^{-2}T^{3/2-(B+1)/2}H^{B+2})$.
+Taking $B$ large in terms of $A$ bounds its sum against $d(n)$.
+Each polynomial term is an elementary differentiated Gaussian integral:
+\[
+ K_t(n)=\frac{e^{i\theta(t)-it\log n}}{\sqrt n}
+ \sum_{j=0}^{B}c_j(t)\,\partial_\lambda^j
+       \{\sqrt\pi H e^{-H^2\lambda^2/4}\}
+       +O_A(T^{-A}n^{-2}),
+ \qquad \lambda=\log(q/n).
+\]
+Here the last $A$ can be chosen arbitrarily by increasing $B$.
+For $n\notin(aT,bT]$ we have $|\lambda|\ge\log4$.
+The differentiated Gaussian is at most
+$C_B H^{2B+1}(1+|\lambda|)^B e^{-H^2\lambda^2/4}$.
+Grouping integers into intervals with $|\log(n/q)|$ between
+successive fixed positive multiples, and using
+$\sum_{n\le X}d(n)\ll X\log(2X)$, bounds the leading tail by
+$T^{1/2}H^{O_B(1)}e^{-c_0H^2}$.
+This is $O_A(T^{-A})$ for every fixed $A$, and proves
+\eqref{eq:shelltail}, including the entire large-$n$ tail.
+
+\cite[Proposition~\ref*{six-prop:localzetaproof}]{Weighted}, with $p=2$, bounds the local
+value by $O(\log T)$ times one plus the left side of
+\eqref{eq:shellGaussian}; the Gaussian is bounded below on the
+local interval. Take absolute values on its right, use $|\chi|=1$,
+and square. Cauchy's inequality and
+$\int e^{-u^2/H^2}du=\sqrt\pi H$ prove \eqref{eq:centralshell}
+with the integral over the whole line. Finally
+$|D_T(v)|\ll\sqrt T\log T$ for all real $v$, by the divisor identity.
+The portion $|u|>H^2$ is smaller than any negative power of $T$,
+which proves the stated version.
+\end{proof}
+
+\begin{lemma}[exact short-frequency localization]
+\label{lem:dirichletGallagher}
+Let $b_n$ be any finite complex sequence, let $L\ge1$, let $t_0$ be
+real, and set $h=1/(2L)$. Then
+\begin{equation}\label{eq:shortfrequency}
+ \int_{t_0-L/2}^{t_0+L/2}
+       \left|\sum_n b_n n^{-it}\right|^2dt
+ \ll L^2\int_0^\infty
+       \left|\sum_{x<n\le e^h x}b_n n^{-it_0}\right|^2\frac{dx}{x}.
+\end{equation}
+\end{lemma}
+The inequality keeps every endpoint and every coefficient $b_n$.
+\begin{proof}
+Put
+\[
+ A(y)=\sum_{y<\log n\le y+h}b_n n^{-it_0}.
+\]
+Use the radian Fourier transform $\widehat A(u)=\int A(y)e^{-iuy}dy$.
+Direct integration of each interval gives exactly
+\[
+ \widehat A(u)=e^{iuh/2}\frac{2\sin(uh/2)}u
+                  \sum_n b_n n^{-i(t_0+u)}.
+\]
+For $|u|\le L/2$ the absolute value of the first multiplier is
+at least a fixed positive constant times $h$.
+Plancherel therefore proves the inequality, followed by $x=e^y$.
+To prove this form of Plancherel, first convolve
+the finite step function $A$ with a Gaussian. Fourier inversion for
+the resulting smooth function, followed by Fubini, gives the norm
+identity. Letting the Gaussian width tend to zero gives the step
+function identity by convergence in $L^2$. This proves the stated Plancherel step directly.
+\end{proof}
+
+\subsection{The arithmetic mean-square estimate}
+The preceding two proofs identify the precise arithmetic input.
+The bound to be supplied by the cited mean-square theorem is,
+for disjoint intervals of
+length $L$ in a fixed dilation of $[T,2T]$,
+\begin{equation}\label{eq:dirichletmeansquare}
+ \sum_{r\le R}\int_{I_r}|D_T(v)|^2\,dv
+ \prec RL+T\sqrt{R/L},\qquad \sqrt T\le L\le T.
+\end{equation}
+Indeed, integrate \eqref{eq:centralshell} over the intervals $I_r$.
+Their $H^2$-enlargements have bounded overlap since $L\ge\sqrt T$;
+the Gaussian integration costs only logarithms. Applying
+\eqref{eq:dirichletmeansquare} to boundedly many disjoint classes yields
+\cite[(\ref*{six-eq:basefourth})]{Weighted} with the same exponents.
+For $L$ near $\sqrt T$ one may first cover the intervals by grid cells
+of length $T^\delta L$, with at most $2R$ occupied cells. This costs
+$T^\delta$ and places the length in Jutila's interior range.
+For $L\ge T^{2/3}$, subdividing into lengths comparable to $T^{2/3}$
+gives the required bound $O(RL)$. These two operations explain the
+usual $T^\varepsilon$ endpoint losses while keeping every interval.
+
+In Jutila's Theorem~1, take a single additive twist, $M\asymp T$,
+$f(x,v,y)=-(y+v)\log x/(2\pi)$, and $g(x)=x^{-1/2}$.
+The factor $(G+MG')^2M$ is bounded, $F\asymp T$, $V=L$, and the
+second term of (1.13) becomes $T\sqrt{R/L}$; finitely many dyadic
+pieces cover the fixed shell. His proof of that mean-square estimate
+uses the additive-divisor transformation (Lemma~4), the two simultaneous
+spacing conditions for fractions and their modular inverses (Lemma~3),
+and the double large sieve (Lemma~5). Lemma~3 itself refers to the
+iteration and reflection arguments of Huxley--Watt and to its
+predecessor in Jutila's earlier paper. Those cited arguments give
+the arithmetic off-diagonal estimate in \eqref{eq:dirichletmeansquare}.
+This section gives \eqref{eq:shortfrequency} and
+\eqref{eq:centralshell}; either formulation keeps the stated
+mean-square theorem as its analytic input.

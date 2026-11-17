@@ -1,0 +1,545 @@
+\section{An elementary replacement for both deep exponent pairs}
+\label{app:elementarypair}
+
+We use the spacing, thin-energy and stationary-support bounds proved
+in \cite[Sections 2--3]{Thin}. Here we derive the derivative estimates
+by direct differencing and the upper-amplitude bound from the curved sum.
+
+\begin{theorem}[eighth moment using the sparse fourth moment]
+\label{thm:elementaryeighth}
+Using the sparse-fourth-moment theorem \cite[(\ref*{six-eq:basefourth})]{Weighted}, we obtain
+\[
+ \int_0^T|\zeta(1/2+it)|^8dt
+ \ll_\varepsilon T^{357082/242699+\varepsilon}.
+\]
+\end{theorem}
+The exponent-pair estimates for this statement follow from the
+finite differencing arguments below. The short-second-moment estimate
+is proved in \cite[Appendix~\ref*{six-app:atkinsondirect}]{Weighted}; the sparse fourth moment
+is the cited analytic input.
+
+\begin{lemma}[finite derivative tests from differencing]
+\label{lem:elementaryderivatives}
+Let $2\le d\le5$, let $I$ be an interval of length at most $M\ge2$,
+and suppose $f\in C^d(I)$ with
+$\lambda\le|f^{(d)}|\le A\lambda$. Then
+\[
+ \left|\sum_{m\in I}e(f(m))\right|
+ \ll_{d,A} M\lambda^{1/(2^d-2)}
+   +M^{1-2^{2-d}}\lambda^{-1/(2^d-2)}.
+\]
+Hence, if $|f^{(d)}|\asymp FM^{-d}$ for $d=3,4,5$ and
+$F\ge M$, on any subinterval of a fixed dilation of $(M,2M]$, then
+\begin{equation}\label{eq:elementarypair}
+ \left|\sum_{m\in I}e(f(m))\right|
+ \ll M^{5/6}F^{1/30}.
+\end{equation}
+\end{lemma}
+Thus $(k,\ell)=(1/30,13/15)$, with $a=1-\ell+k=1/6$, gives
+exactly the finite-derivative conditions needed by our reciprocal phases.
+\begin{proof}
+The case $d=2$ is \cite[Lemma~\ref*{six-lem:secondproof}]{Weighted}; its additional constant
+is absorbed since the displayed two terms have sum at least a constant.
+Extend the summand by zero outside $I$ and average
+its first $H$ translates. Cauchy's inequality on their union, of length
+$O(M)$ for $H\le M$, and expansion of the square give
+\[
+ |S|^2\ll M^2/H+\frac MH\sum_{1\le h<H}
+ \left|\sum_{m\in I\cap(I-h)}e(f(m+h)-f(m))\right|.
+\]
+The factor $1-h/H$ in the exact expansion has been bounded by one.
+The differenced $(d-1)$st derivative is the integral of $f^{(d)}$
+over a segment of length $h$, hence has fixed sign and size
+$\asymp h\lambda$ on its interval. Write
+$\alpha=(2^{d-1}-2)^{-1}$ and $\beta=1-2^{3-d}$.
+Induction and the elementary sums of $h^{\pm\alpha}$ yield
+\[
+ |S|^2\ll M^2/H+M^2\lambda^\alpha H^\alpha
+                   +M^{1+\beta}\lambda^{-\alpha}H^{-\alpha}.
+\]
+For $0<\lambda<c$ take an integer
+$H\asymp\lambda^{-\alpha/(1+\alpha)}$, when this is at most $M$.
+Taking square roots gives the statement, since
+$\alpha/(2+2\alpha)=(2^d-2)^{-1}$ and
+$(1+\beta)/2=1-2^{2-d}$.
+If the proposed $H$ exceeds $M$, then
+$\lambda\ll M^{-(2^{d-1}-1)}$, and the second term in the claimed
+bound is at least a constant times $M$: indeed
+$1-2^{2-d}+(2^{d-1}-1)/(2^d-2)\ge1$ for $d\ge3$.
+For $\lambda\ge c$, the first term gives the trivial bound.
+Floors and intervals of length less than two are absorbed by constants.
+This proves the induction directly by differencing.
+
+Put $\tau=\log_MF$. The powers of $M$ from derivative orders $3,4,5$
+are respectively
+\[
+ (\tfrac12+\tfrac\tau6,\ 1-\tfrac\tau6),\qquad
+ (\tfrac57+\tfrac\tau{14},\ \tfrac{29}{28}-\tfrac\tau{14}),\qquad
+ (\tfrac56+\tfrac\tau{30},\ \tfrac{25}{24}-\tfrac\tau{30}).
+\]
+Both entries are at most $5/6+\tau/30$ on, respectively,
+$[1,5/2]$, $[5/2,25/8]$, and $[25/8,5]$.
+For $\tau\ge5$ the desired bound is trivial. These intervals cover
+all $F\ge M$. The argument uses the scale $M$ even on shorter
+subintervals, so partial summation gives the same estimate for the
+fixed smooth amplitudes in our kernel. \cite[Proposition~\ref*{six-prop:exactphaseproof}]{Weighted}
+and \cite[Proposition~\ref*{six-prop:tuplemorseproof}]{Weighted} give the required derivatives
+with relative error $O_d(|\eta|)$, for these finitely many orders.
+\end{proof}
+
+
+\section{The thin-energy input and the ten terms}\label{sec:thininput}
+We use the curved model of \cite[Section 3]{Weighted}.
+The integer-chord count, planar energy, and stationary support are
+proved in \cite[Sections 2--3]{Thin}. The weighted thin-energy bound
+is \cite[Proposition~\ref*{p-prop:pairprofile}]{Thin}, with proof in
+\cite[Appendix~\ref*{p-app:pairproof}]{Thin} of that paper.
+These statements hold for $0<k<1/2$ on the stated model ranges.
+We use them with the pair proved in Section~\ref{app:elementarypair}.
+
+\begin{proposition}[the ten terms with two finite-derivative pairs]
+\label{prop:tentermreturn}
+Suppose $(k_p,\ell_p)$ and $(k_d,\ell_d)$ satisfy the finite-derivative
+kernel conditions, and set $a_p=1-\ell_p+k_p$, $a_d=1-\ell_d+k_d$,
+\[
+ \lambda=(T/N)^{k_p}(W/N)^{-a_p},\quad
+ \mu=W^{k_d}(W/N)^{-a_d},\quad \theta=k_p+1/2.
+\]
+In addition to the phase and reduction conditions of \cite{Weighted} assume
+\cite[(\ref*{p-eq:thinrange})]{Thin} when $B\ge1$, and
+$\lambda B^\theta\le\mu\sqrt U$.
+Then the large-value bound for the zeta function consists of the eight terms
+$B_1,B_2,B_3,B_4,B_5,B_7,B_8,B_9$ in \cite[(\ref*{six-eq:nine})]{Weighted}, with $k_p$
+in the pair terms and the above $\lambda,\mu$, and the two new terms
+\begin{equation}\label{eq:newcurvatureterms}
+ B_6^{(0)}=\lambda^{1/4}T^{1/16}N^{21/16}V^{-2},\qquad
+ B_{10}=\left(\lambda^2T^{1/2+2k_p}N^{21/2}
+                         V^{-16-12k_p}\right)^{1/(8+k_p)}.
+\end{equation}
+\end{proposition}
+All terms refer to the same large-value set and the same clustering.
+\begin{proof}
+Apply \cite[Lemma~\ref*{p-lem:thincompatibility}]{Thin} before the signed $m$ estimate
+in each fixed block of \cite[Proposition~\ref*{six-prop:dualityproof}]{Weighted}.
+For $D\le B$ use \cite[(\ref*{p-eq:pairprofile})]{Thin}; for $D>B$ the factor $1+B/D$
+in \cite[Proposition~\ref*{six-prop:allenergy}]{Weighted} is bounded.
+The simultaneous kernel bounds of \cite[Corollary~\ref*{six-cor:two}]{Weighted} therefore give
+\[
+ \cJ\prec (N/Z)^4\lambda(A_{k_p}(S)+\mathcal C_{k_p}(S;B))
+       +(N/Z^2)\mu r^3\sqrt U+rE_2(S;H_0),
+ \qquad H_0=C\sqrt{WN^{1/8}}.
+\]
+The diagonal in \cite[(\ref*{p-eq:pairprofile})]{Thin} is absorbed by the stated
+$\lambda B^\theta$ condition. When $B<1$ omit $\mathcal C_{k_p}$.
+Both signs of $m$, both Sobolev classes, and all fixed neighbors
+are summed as in \cite[Corollary~\ref*{six-cor:blockconsumer}]{Weighted}; their inner
+blocks partition the set $S$.
+
+The same thin-energy estimate also covers the small modes.
+Their pointwise weight is $D^{-1/2}\le D^{k_p-1/2}$ and their
+prefactor divided by $\lambda$ is at most $N^{(a_p-2)/8}$.
+This is smaller than one for the pairs used here.
+The small-mode diagonal comparison has exponent
+$(a_d-2-9k_d)/8<0$. Thus the same energy and absorption apply.
+The $F<X$ portion keeps the bound $rE_2(S;H_0)$ in its
+local coordinates; the zero mode, nonstationary pair modes and
+completion keep their bounds from \cite{Weighted}. The dual coefficients
+remain fixed across $m$.
+
+Let $R_1$ be the total number of selected points, $F_c$ the
+cluster multiplicity, and $K\prec T/(V^2W)$ the number of classes.
+\cite[Proposition~\ref*{six-prop:pairproof}]{Weighted} and the middle-term absorption of
+\cite[Lemma~\ref*{six-lem:weighted}]{Weighted}
+give simultaneously, for all $1\le H\ll U$,
+\[
+ \sum_iE_2(S_i;H)\prec R_1\min(H,C_g),\quad
+ C_g=1+A_g,\quad A_g=T/(F_c^{3/2}V^6\sqrt{R_1}).
+\]
+Hence $\sum_iA_{k_p}(S_i)\prec R_1C_g^\theta$ and
+\[
+ \sum_i\mathcal C_{k_p}(S_i;B)
+ \prec R_1\sqrt B\sum_{H\lesssim B}H^{k_p-1}\min(H,C_g)
+ \ll R_1\sqrt B\min(B,C_g)^{k_p}.
+\]
+The last dyadic sum is evaluated below and above $H=C_g$; both
+geometric sums are bounded at this transition. This is a simultaneous
+bound on the same classes.
+
+The branch of
+$r^2Z^2\prec N^2r+NW^{3/4}r^{3/4}\cJ^{1/4}$ given by the term with
+$\lambda$, summed by H\"older, gives
+\[
+ R_1\prec K\lambda^{1/4}N^2W^{3/4}Z^{-3}
+                 (C_g^\theta+\sqrt B C_g^{k_p})^{1/4}.
+\]
+The first part gives $B_2,B_5$. In the second part use
+$B\asymp N^{1/2}W^2T^{-3/2}$ and the clustering bounds
+$\cN(T,V)\prec ZR_1(TN)^{-1/4}$, $Z\succ F_c(TN)^{1/4}$.
+The constant part of $C_g$ gives $F_c^{-2}B_6^{(0)}$.
+For its other part, first move $R_1^{-k_p/8}$ to the left:
+\[
+ R_1^{1+k_p/8}\prec K\lambda^{1/4}N^2W^{3/4}Z^{-3}B^{1/8}
+                         (T F_c^{-3/2}V^{-6})^{k_p/4}.
+\]
+Raise the resulting count to the power $8+k_p$.
+Its $Z$ power is $k_p-16<0$, so the lower bound for $Z$ gives
+exactly $B_{10}$ in \eqref{eq:newcurvatureterms} and cluster power
+$((k_p-16)-3k_p)/(8+k_p)=-2$.
+The remaining branches are the unchanged diagonal and small-$F$
+calculations in \cite[Section~\ref*{six-sec:return}]{Weighted}; they give the other six listed
+terms with nonpositive cluster powers. This proves the proposition.
+\end{proof}
+
+\section{The sixth-power upper-amplitude line}
+\label{app:upperthree}
+
+\begin{proposition}\label{prop:upperthree}
+Using the proved estimate \cite[(\ref*{six-eq:baseatkinson})]{Weighted} and assuming only
+\cite[(\ref*{six-eq:basefourth})]{Weighted},
+\[
+ \cN(T,T^\sigma)\prec T^{E_{\mathrm{up}}(\sigma)},\qquad
+ E_{\mathrm{up}}(\sigma)=\frac{242-1340\sigma}{157},\qquad
+ \frac{31801}{242699}\le\sigma\le\frac9{68}.
+\]
+\end{proposition}
+This proves the line $(242-1340\sigma)/157$ quoted in
+\cite[Section 1]{Thin}, on the stated range, from the displayed inputs.
+\begin{proof}
+The model estimate is the case $k=3$ of \cite[Theorem 5.1]{dFP}, whose
+index $k$ is our $j$ below;
+we prove it here using our exact oscillatory integral identities.
+We first give the analytic estimate for the straight model
+$D_0(w)=\sum a_ne(w\xi_n)$, keeping its cubic frequency term.
+Assume $N\le W\le N^{4/3}$ and $|\eta|N^2\ll W$.
+Then $U=1+|\eta|W\ll(W/N)^2$ and $\eta^2W\ll1$.
+The signed-block proof in \cite[Appendix~\ref*{six-app:dualityproof}]{Weighted} works with
+H\"older exponent $2j$, for any fixed $j\ge2$. Its external factor
+before the tuple integral is
+\[
+ N^{3/2+1/(2j)}M^{1/2}r_b^{1-1/(2j)}
+\]
+in a block with $r_b$ outer points. This follows directly by replacing
+four by $2j$ in that proof: the factors are
+$N^{3/2}M^{-1/2}(Mr_b)^{1-1/(2j)}(NM)^{1/(2j)}$.
+The same two Sobolev classes suffice; their derivative amplitudes
+remain bounded. The dual coefficients $b_w$ remain unchanged.
+
+For the straight model, the exact critical phase from
+\cite[Proposition~\ref*{six-prop:exactphaseproof}]{Weighted}, with $\kappa=0$, is
+\[
+ \Theta_m(z,w)=\frac{(z-w)^2}{4Nm}
+          +\frac{\eta(z-w)^4}{8(Nm)^3}+\mathcal R_m(z,w).
+\]
+On the stationary support, all normalized derivatives of $\mathcal R$
+are $O_j(\eta^2N|m|)$. Since $N|m|\ll W$ and $\eta^2W\ll1$,
+its exponential can be included in a bounded-derivative amplitude.
+This step keeps the remainder exactly inside the amplitude.
+Write $P=\sum\epsilon_iw_i$, $\Delta_h=\sum\epsilon_iw_i^h$ for
+the $2j$ tuple, with $j$ positive and $j$ negative signs.
+Set $z=Nmx$. Discard only the phase independent of $x$ after taking
+the absolute value of this individual integral. The remaining phase is
+\[
+ -\frac12\left(P+\frac{\eta\Delta_3}{N^2m^2}\right)x
+       +\frac{3\eta\Delta_2}{4Nm}x^2-\frac{\eta P}{2}x^3.
+\]
+All $w_i$ are in a fixed translated block of length $O(NM)$.
+If $|P|\gg U$, its first derivative dominates all the other terms;
+repeated integration by parts gives rapid decay. If $|P|\lesssim U$,
+the cubic term has bounded derivatives because
+$|\eta P|\ll|\eta|+\eta^2W\ll1$, so it too is absorbed exactly
+into the amplitude.
+
+For a quadratic $\alpha x+\beta x^2$ on this fixed compact support,
+the integral bound is $O((1+|\alpha|+|\beta|)^{-1/2})$.
+Indeed, if $|\beta|$ is a fixed fraction of $|\alpha|+|\beta|$,
+use the second derivative integral estimate; otherwise the first
+derivative is bounded away from zero and one integration by parts
+suffices. Thus, with $c_3=\eta\Delta_3/N^2$,
+\[
+ |I_m|\ll (1+|P+c_3/m^2|)^{-1/2}.
+\]
+For $|P|\ge1$, either $|c_3|/M^2$ lies outside a fixed comparison range around $|P|$, in
+which case the right side is $O(|P|^{-1/2})$ on each of a bounded
+number of intervals, or
+$|(P+c_3/m^2)'|\asymp|P|/M$.
+In the latter case monotonicity and integration between consecutive
+integers give
+\[
+ \sum_{|m|\asymp M}|I_m|\ll 1+M/\sqrt{|P|}.
+\]
+This also follows by splitting at the possible zero and comparing the
+remaining terms with the integral of
+$(1+(|P|/M)|x-x_0|)^{-1/2}$.
+For $|P|\le1$ the bound $O(M)$ suffices.
+Both signs of $m$ have the same estimates. Taking absolute values
+here gives the required bound by summing the individual integral estimates.
+
+Put
+$J_{2j}=\sum_{1\le D\lesssim U}D^{-1/2}E_{2j}(S;CD)$.
+The block tuple sum is bounded by
+$(M+\sqrt U)J_{2j}$, including the $O(1)$ term above; tails with
+$D>U$ have arbitrarily fast decay. Sum the disjoint inner blocks
+and apply H\"older to their outer cardinalities.
+As $\sqrt U\ll W/N=:\Mst$,
+\[
+ M^{j}(M+\sqrt U)\ll \Mst^{j+1}\quad(1\le M\lesssim\Mst).
+\]
+The full duality bound, including all small modes, is hence
+\[
+ r^2Z^2\prec N^2r+
+ NW^{1/2+1/(2j)}r^{1-1/(2j)}J_{2j}^{1/(2j)}.
+\]
+This accounts explicitly for the endpoint $1$ in the $m$ sum.
+
+Use $j=3$. \cite[Proposition~\ref*{six-prop:allenergy}]{Weighted} with $B=0$ gives
+\[
+ J_6\prec (N/Z)^8 A_0(S)+(N/Z^2)r^5\sqrt U,
+ \qquad A_0(S)=\sup_D D^{-1/2}E_2(S;D).
+\]
+Solving the two branches of the preceding inequality gives
+\[
+ r\prec N^2/Z^2+N^2W^{4/7}Z^{-20/7}A_0(S)^{1/7}
+                  +N^{7/2}W^2Z^{-7}U^{1/4}.
+\]
+Summing the same $K$ classes as in the zeta transfer, and using
+$\sum A_0(S_i)\prec R_1C_g^{1/2}$, now gives
+\[
+ R_1\prec K\left(N^2/Z^2+
+ N^{7/3}W^{2/3}Z^{-10/3}C_g^{1/12}
+ +N^{7/2}W^2Z^{-7}U^{1/4}\right).
+\]
+
+We explain why this straight model applies to the curved sum
+in this range. In a height block the difference is
+$r_0(w)(n/N)^{3/2}$. If
+$B\asymp N^{1/2}W^2T^{-3/2}\ll1$, its exponential has bounded
+variation in $n/N$. Abel summation followed by
+\cite[Lemma~\ref*{six-lem:completionproof}]{Weighted} therefore gives the straight model,
+with the same summed large-value bound and $Z\succ F_c(TN)^{1/4}$.
+The summed lower bound selects one common Fourier index, followed
+by the selected set and its amplitude level. The clustering proof only requires
+$1/10<\sigma<1/6$ and the parameter conditions verified below;
+it is therefore valid on the present interval as well.
+
+Substitute $K\prec T/(V^2W)$ and use
+$\cN(T,V)\prec ZR_1(TN)^{-1/4}$.
+The four terms, before expanding $U$, are
+\begin{align*}
+ A_1&=T^{1/2}N^{3/2}W^{-1}V^{-2},&
+ A_2&=T^{1/6}N^{3/2}W^{-1/3}V^{-2},\\
+ A_3&=T^{-3/4}N^{7/4}WV^{-2}(1+NW/T)^{1/4},&
+ A_4&=(T^6N^{36}W^{-8}V^{-60})^{1/25}.
+\end{align*}
+Their cluster powers are respectively
+$-1,-7/3,-6,-58/25$, all nonpositive. For example, the $A_g$ branch
+has $R_1^{25/24}$ on the left. Raising the resulting count to the power $25$
+produces
+\[ Z^{-55}(TN)^{-25/4}K^{24}N^{56}W^{16}T^2F_c^{-3}V^{-12}. \]
+Insertion of the lower bound for $Z$ proves $A_4$
+and its stated multiplicity power.
+
+Put $\nu_*=1-4\sigma$, $\omega_3=(68+184\sigma)/157$, and
+$W=N^{q_3}$ with $q_3=\omega_3/\nu_*$. The five exponents
+(after expanding $A_3$) at $\nu=\nu_*$ are
+\[
+ 2-8\sigma-\omega_3,\quad 5/3-8\sigma-\omega_3/3,\quad
+ 1-9\sigma+\omega_3,\quad 1-10\sigma+5\omega_3/4,\quad
+ (42-204\sigma-8\omega_3)/25.
+\]
+The last two equal $E_{\mathrm{up}}$; the first three are smaller throughout the
+stated interval. This follows by evaluating their affine differences
+at the endpoints: at $\sigma=31801/242699$ the three differences
+are $14072/242699$, $139/728097$, $3796/242699$; at $9/68$ they are
+$1/17$, $0$, $1/68$.
+All five exponents have positive $\nu$ slopes for fixed $q_3$ on the
+whole interval, so every $T^{1/3}\le N\prec T^{\nu_*}$ is covered.
+Also $9/8<q_3<4/3$ and the exponents of $T$ in
+\[
+ N/T^{3/5},\quad N^{1/2}W^2/T^{3/2},\quad W/N^{4/3},\quad
+ |\eta|N^2/W,\quad |\kappa|W,\quad\eta^2W,\quad
+ W\sqrt{N/T}V^{-4}
+\]
+are strictly negative at both endpoints and throughout all shorter
+lengths. The exact values are recorded in the accompanying rational
+check; they are affine at $\nu_*$ and have the appropriate monotonicity
+in $\nu$. The first pair-count middle term is bounded by
+$T^{1/3}<V^4$. Small logarithmic excesses in $N$ fit inside these
+strict margins. This proves the asserted line from the two zeta inputs.
+\end{proof}
+
+\raggedbottom
+\section{All amplitudes with the elementary pair}
+\label{app:elementaryassembly}
+
+We complete the proof of Theorem~\ref{thm:elementaryeighth} and
+record exactly the cost of avoiding deep exponent pairs.
+Use $k_p=k_d=1/30$, $a_p=a_d=1/6$, as proved in
+Lemma~\ref{lem:elementaryderivatives}. For $N=T^\nu$, $W=T^\omega$,
+write
+$\tilde\lambda=\log_T\lambda=k_p+(a_p-k_p)\nu-a_p\omega$ and
+$\tilde\mu=\log_T\mu=a_d\nu+(k_d-a_d)\omega$.
+The ten exponents in Proposition~\ref{prop:tentermreturn} are
+\begin{equation}\label{eq:tencosts}
+\begin{aligned}
+ e_1&=1/2+3\nu/2-\omega-2\sigma,&
+ e_2&=\tilde\lambda/4+1/4+5\nu/4-\omega/4-2\sigma,\\
+ e_3&=\tilde\mu/2-1/4+5\nu/4+\omega/2-2\sigma,&
+ e_4&=\tilde\mu/2-1/2+3\nu/2+3\omega/4-2\sigma,\\
+ e_5&=\frac{4\tilde\lambda+6+4k_p+20\nu-4\omega-(44+24k_p)\sigma}{17+2k_p},&
+ e_6&=\tilde\lambda/4+1/16+21\nu/16-2\sigma,\\
+ e_7&=1/3+2\nu/3-2\sigma,&
+ e_8&=1/2+25\nu/48+\omega/6-10\sigma/3,\\
+ e_9&=4(1+\nu-6\sigma)/7,&
+ e_{10}&=\frac{2\tilde\lambda+1/2+2k_p+21\nu/2-(16+12k_p)\sigma}{8+k_p}.
+\end{aligned}
+\end{equation}
+Define $\omega(\sigma)$ and $E(\sigma)$ by affine interpolation between
+\[
+ (\sigma_L,\omega_L,E_L)=(1/8,5/8,481/1024),\qquad
+ (\sigma_R,\omega_R,E_R)=\frac1{242699}(31801,153305,102674).
+\]
+At the right endpoint $e_4=e_5=E_{\mathrm{up}}(\sigma_R)=E_R$.
+For every length take $W=N^{q(\sigma)}$, where
+$q=\omega(\sigma)/(1-4\sigma)$. Then
+$5/4\le q\le30661/23099<4/3$.
+Every exponent in \eqref{eq:tencosts} has positive $\nu$ slope
+throughout this interval. At $\nu_*=1-4\sigma$ its difference from
+$E(\sigma)$ is affine. Here are the endpoint margins, in term order:
+\[
+\begin{array}{c|cc}
+ i&E_L-e_i(\sigma_L)&E_R-e_i(\sigma_R)\\\hline
+1&97/1024&24989/242699\\
+2&31/15360&1112/3640485\\
+3&33/1024&26101/970796\\
+4&1/1024&0\\
+5&0&0\\
+6&31/15360&4261/29123880\\
+7&163/3072&25139/728097\\
+8&67/3072&77921/11649552\\
+9&295/7168&1586/54803\\
+10&465/246784&7410/58490459
+\end{array}
+\]
+Thus $\cN(T,T^\sigma)\prec T^{E(\sigma)}$ on this entire interval,
+provided the model conditions hold. We verify them explicitly.
+The endpoint exponents are
+\[
+\begin{array}{c|cc}
+ \text{ratio}&\sigma_L&\sigma_R\\\hline
+ W/N^{4/3}&-1/24&-2065/728097\\
+ WB/N^{3/2}&-1/8&-39257/485398\\
+ B/N^{1/3}&-1/6&-114568/728097\\
+ |\kappa|WB&-1/8&-25483/242699\\
+ B^2/W&-5/8&-152687/242699\\
+ \lambda B^\theta/(\mu\sqrt U)&-1/15&-6656/117435\\
+ |\kappa|W&-1/8&-832/7829\\
+ |\eta|N^2/W&-1/8&-49519/242699\\
+ |\eta|N^{1/8}&-7/16&-902137/1941592\\
+ N^{5/2}T^{-3/2}&-1/4&-75311/242699\\
+ \eta^2W&-3/8&-101103/242699\\
+ W\sqrt{N/T}V^{-4}&-1/8&-37501/242699
+\end{array}
+\]
+Except for the absorption ratio, these exponents increase with $\nu$
+for fixed $q$, or are $(q-4/3)\nu<0$.
+For absorption with $B\ge1$, one has $U\asymp T^{\nu+\omega-1}$;
+indeed $B\ge1$ and $\nu\le1/2$ imply $\nu+\omega-1>0$.
+The exponent of the ratio is bilinear on
+$(q,\nu)\in[5/4,30661/23099]\times[1/3,1/2]$.
+Its four corner values are
+$-2/15,-1/15,-41432/346485,-3190/69297$, all negative.
+The small-$M$ comparisons in Proposition~\ref{prop:tentermreturn}
+are negative, and $1/3-4\sigma_L<0$ bounds the other middle pair term.
+This proves all length and phase conditions with fixed margins.
+
+For the low-amplitude range, the proof of
+\cite[Proposition~\ref*{six-prop:curvatureline}]{Weighted} extends verbatim down to
+$\sigma_c=27/232$, where
+$1-4\sigma_c=(94-500\sigma_c)/67$.
+Its four displayed margins remain nonnegative on
+$[\sigma_c,5/38]$, its five displayed parameter exponents remain strictly
+negative, and $9/8<q\le4/3$ there. Hence for
+$\sigma\le\sigma_c$ use $M_4\prec T$, and for
+$\sigma_c\le\sigma\le1/8$ use that curvature-only line.
+Their eighth-moment contribution is at most $T^{197/134+\varepsilon}$:
+$1+4\sigma$ increases up to the first intersection and
+$(94-500\sigma)/67+8\sigma$ increases up to $1/8$.
+Both classical moments used here follow from the single sparse input
+by \cite[Proposition~\ref*{six-prop:momentbaseproof}]{Weighted}.
+
+On $[1/8,\sigma_R]$, $E(\sigma)+8\sigma$ increases and reaches
+\[
+ E_R+8\sigma_R=\frac{357082}{242699}.
+\]
+On $[\sigma_R,9/68]$ use Proposition~\ref{prop:upperthree}.
+Its eighth-moment line has slope $-84/157<0$.
+For $|\zeta|\ge T^{9/68}$ use
+$|\zeta|^8\le T^{-4(9/68)}|\zeta|^{12}$ and $M_{12}\prec T^2$,
+giving exponent $25/17$. The margins below the exponent
+$357082/242699$ for the low range, left middle endpoint, and twelfth-moment tail are
+respectively
+\[
+ 37285/32521666,\qquad 389973/248523776,\qquad 2919/4125883.
+\]
+To pass from separated counts to measure, partition the height axis
+into unit cells and select one point above the threshold from each
+occupied cell. Three residue classes give separated sets, so their
+occupied measure is bounded by three times the separated count.
+Use a finite amplitude mesh with all the displayed intersections as
+endpoints; the lower-edge count and upper-edge eighth power cost at
+most the preassigned $T^\varepsilon$ loss. Below unit amplitude use
+the interval length; above $T^{9/68}$ use the preceding integral
+inequality directly. Sum dyadic heights, including bounded heights.
+This proves Theorem~\ref{thm:elementaryeighth} on the entire range.
+
+\begin{remark}[comparison with the eighth-moment paper]
+The main result of \cite{Thin} has exponent $76024973/51678924$. It uses
+a Bourgain-derived pair $(k_p,a_p)=(13/414,34/207)$, a Heath-Brown pair
+$(k_d,a_d)=(1/56,31/280)$, and the upper-amplitude line
+\cite[(\ref*{p-eq:upper})]{Thin} of de Faveri and Pandey.
+The ten-term proof also applies to those pairs. Replacing the pairs by
+Lemma~\ref{lem:elementaryderivatives} and the line by
+Proposition~\ref{prop:upperthree} costs exactly
+\[
+ \frac{357082}{242699}-\frac{76024973}{51678924}
+ =\frac{2428617641}{12542423175876}=0.000193632251\ldots .
+\]
+This theorem uses fewer cited theorems at the displayed cost.
+At the intersection used here, the thin-energy bound obtained from
+$E_2(S;H)\ll rH$ gives the result: its
+curvature exponent lies below $E_R$ by $494/3640485$.
+\cite[Proposition~\ref*{p-prop:pairprofile}]{Thin} also gives the bound using the full pair profile.
+\end{remark}
+
+\subsection{A sixth-moment consequence}
+\begin{corollary}[sixth moment from curvature energy]
+\label{cor:curvaturesixth}
+Assume only the sparse-fourth-moment estimate \cite[(\ref*{six-eq:basefourth})]{Weighted}
+among the cited inputs of this paper. Then
+\[
+ M_6(T)\ll_\varepsilon T^{143/116+\varepsilon}.
+\]
+\end{corollary}
+This proof uses the directly proved curvature-energy estimates.
+\begin{proof}
+Section~\ref{app:elementaryassembly} verifies the extension of
+\cite[Proposition~\ref*{six-prop:curvatureline}]{Weighted} to $\sigma_c=27/232$,
+including every length and model condition. The already proved
+Atkinson estimate is its other zeta input. For $\sigma\le\sigma_c$,
+the fourth moment gives $1+2\sigma\le143/116$. On
+$[\sigma_c,5/38]$ the sixth-moment line is
+\[
+ (94-500\sigma)/67+6\sigma=(94-98\sigma)/67.
+\]
+It decreases from $143/116$. For $\sigma\ge5/38$, the twelfth moment
+bounds the contribution by $T^{23/19+\varepsilon}$.
+Both classical moments follow from the same cited input
+\cite[(\ref*{six-eq:basefourth})]{Weighted}. The same separated-count and dyadic assembly
+as in Section~\ref{app:elementaryassembly} completes the proof.
+The cost relative to the sixth-moment exponent of \cite{Weighted} is exactly
+\[
+ \frac{143}{116}-\frac{84599}{68640}=\frac{509}{1990560}.
+\]
+This alternative uses fewer cited theorems at the displayed
+exact exponent cost.
+\end{proof}

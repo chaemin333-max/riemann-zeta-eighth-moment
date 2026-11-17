@@ -1,0 +1,320 @@
+\section{The needed Atkinson bound by Gaussian smoothing}
+\label{app:atkinsondirect}
+
+This appendix proves \eqref{eq:baseatkinson} by Gaussian smoothing.
+We start from Atkinson's dissection of the double Dirichlet series
+\cite{Atk49,SS23}. Gaussian integration is performed before estimating
+the resulting Fourier integrals. This avoids the divisor-error integrals
+needed to recover the full unsmoothed formula. The zeta functional
+equation and elementary gamma facts used in Appendix~\ref{app:localzeta}
+remain available; the dissection and its continuation are supplied here.
+
+\begin{proposition}[short second moment]
+\label{prop:atkinsondirect}
+Let $\epsilon>0$, $T\ge2$, and
+$T^\epsilon\le G\le T^{1/2-\epsilon}$. With the exact phase
+\[
+ f(T,n)=\frac T\pi\left(\operatorname{arsinh}\sqrt{\frac{\pi n}{2T}}
+       +\sqrt{\frac{\pi n}{2T}\left(1+\frac{\pi n}{2T}\right)}\right)
+\]
+and $S_T(\Delta,N)=\sum_{N<n\le N+\Delta}(-1)^nd(n)e(f(T,n))$,
+\[
+ \int_{T-G}^{T+G}|\zeta(1/2+it)|^2dt
+ \ll_\epsilon G\log T+
+ G\sum_{\substack{N\text{ dyadic}\\T^{1/3}\le N\le
+ T G^{-2}(\log T)^{1+\epsilon}}}
+ (TN)^{-1/4}\max_{0\le\Delta\le N}|S_T(\Delta,N)|.
+\]
+Fixed endpoint conventions and bounded initial values of $T$ change
+only the implied constant.
+\end{proposition}
+
+\subsection{Continuation of the dissection}
+Put $q=u+v$. Initially for $\Re u,\Re v>1$,
+\[
+ \zeta(u)\zeta(v)=\zeta(q)+F(u,v)+F(v,u),\qquad
+ F(u,v)=\sum_{m,n\ge1}n^{-u}(n+m)^{-v}.
+\]
+For $\Re v>-1$, define the continued tail by
+\[
+ R_v(n)=\zeta(v,n+1)-\frac{n^{1-v}}{v-1}+\frac12n^{-v},
+\]
+where the expression at $v=1$ is interpreted after removing its pole.
+Integrate $x^{-v}$ over each
+unit interval twice by parts. The elementary periodic Bernoulli
+polynomial $B_2(\{x\})=\{x\}^2-\{x\}+1/6$ gives
+\begin{equation}\label{eq:EulerR}
+ R_v(n)=\frac v{12}n^{-v-1}
+   -\frac{v(v+1)}2\int_n^\infty B_2(\{x\})x^{-v-2}\,dx.
+\end{equation}
+One can first sum to an integer $K$ with $\Re v>1$ and then let
+$K\to\infty$; the displayed integral continues the result to
+$\Re v>-1$. In particular, on closed substrips,
+\[
+ |R_v(n)|\ll (1+|v|)^2n^{-\Re v-1}.
+\]
+It follows by locally uniform convergence that
+\begin{equation}\label{eq:Fcontinue}
+ F(u,v)=\frac{\zeta(q-1)}{v-1}-\frac12\zeta(q)
+                              +\sum_{n\ge1}n^{-u}R_v(n)
+\end{equation}
+is meromorphic for $\Re q>0$, $\Re v>-1$. This continues the
+dissection in the region also satisfying $\Re u>-1$.
+The gamma integral gives
+\[
+ \int_0^\infty y^{-u}(1+y)^{-v}dy
+       =\frac{\Gamma(1-u)\Gamma(q-1)}{\Gamma(v)}
+\]
+when both integrals converge. This follows directly from the double
+integral defining the two gamma factors, with variables $x+y$ and
+$x/(x+y)$; it then continues meromorphically.
+Set
+\[
+ G(u,v)=F(u,v)-\frac{\Gamma(1-u)\Gamma(q-1)}{\Gamma(v)}\zeta(q-1).
+\]
+Let $v=1-u+\delta$ and let $\delta\to0$.
+Use $\zeta(1+\delta)=\delta^{-1}+\gamma+O(\delta)$,
+$\zeta(\delta)=-1/2-\tfrac12\log(2\pi)\delta+O(\delta^2)$,
+and $\Gamma(\delta)=\delta^{-1}-\gamma+O(\delta)$.
+The zeta constants follow from Euler summation and the functional
+equation proved in Appendix~\ref{app:localzeta}; expanding its gamma
+factor at zero gives $\zeta'(0)=-\log(2\pi)/2$.
+The poles in $\delta$ cancel. Writing $\psi=\Gamma'/\Gamma$ gives
+\begin{equation}\label{eq:Gexplicit}
+ \mathcal G(u):=G(u,1-u)
+ =\frac1{2u}-\gamma+\frac12\log(2\pi)-\frac12\psi(1-u)
+                      +\sum_{n\ge1}n^{-u}R_{1-u}(n).
+\end{equation}
+The last series converges locally uniformly for $\Re u<2$ and is
+$O((1+|\Im u|)^2)$ on each closed vertical strip to the left of $1$.
+Thus $\mathcal G$ is meromorphic on $\Re u<1$, with sole pole
+$u=0$, of residue $1/2$. Combining the two gamma quotients in the
+dissection yields, for $0<\Re u<1$,
+\begin{equation}\label{eq:exactdissection}
+ \zeta(u)\zeta(1-u)=
+ \tfrac12\{\psi(u)+\psi(1-u)\}+2\gamma-\log(2\pi)
+                         +\mathcal G(u)+\mathcal G(1-u).
+\end{equation}
+Indeed the gamma terms have constant coefficient
+$\tfrac12(\psi(u)+\psi(1-u))+\gamma-\log(2\pi)$ and
+pole $-1/\delta$; the term $\zeta(1+\delta)$ adds $1/\delta+\gamma$.
+This also checks the normalization of the main term.
+
+\subsection{A Fourier representation on the left line}
+For $-1<\Re u<0$ and initially $\Re q>2$, apply Poisson summation
+to the even extension of $y^{-u}(1+y)^{-v}$ on the positive half-line,
+at mesh $1/m$. Its value at zero is zero. The Fourier series is
+absolutely convergent: a split at reciprocal frequency followed by
+two integrations by parts gives decay $O(k^{\Re u-1})$.
+The periodized function is continuous, so its absolutely convergent
+Fourier series evaluates to it. Summing over $m$ gives
+\[
+ G(u,v)=2\sum_{m,k\ge1}m^{1-q}
+       \int_0^\infty y^{-u}(1+y)^{-v}\cos(2\pi kmy)\,dy.
+\]
+Grouping $n=km$ replaces the coefficient by
+$\sum_{m\mid n}m^{1-q}$. This identity continues to
+$-1<\Re u<0$, $\Re v>1$, $\Re q>0$: at zero the integral has
+Fourier size $O(n^{\Re u-1})$, and at infinity two integrations by
+parts contribute $O(n^{-2})$. The divisor coefficient is
+$\ll_\delta n^{\max(0,1-\Re q)+\delta}$, so the grouped series
+converges locally uniformly exactly on closed smaller regions of
+these inequalities. Bounds for the coefficients follow directly from
+the divisor sum; the elementary $d(n)\ll_\delta n^\delta$ follows
+by separating the finitely many primes below $2^{1/\delta}$ in the
+prime factorization. Analytic continuation therefore permits $q=1$.
+We obtain
+\begin{equation}\label{eq:leftG}
+ \mathcal G(u)=\sum_{n\ge1}d(n)H(u,n),\qquad
+ H(u,n)=2\int_0^\infty y^{-u}(1+y)^{u-1}\cos(2\pi ny)\,dy.
+\end{equation}
+At infinity the integral is an ordinary improper oscillatory integral.
+For $\Re u=-a$, $0<a<1$, the same split at $1/n$ and two integrations
+by parts give
+$|H(u,n)|\ll_a(1+|u|)^2 n^{-1-a}$.
+This bound justifies integration against a Gaussian and summation
+in $n$ on that vertical line. The Fourier bound used
+above can be seen in the same way: on $[0,1/n]$ integrate the
+absolute value; on $[1/n,1]$ integrate twice, bounding the second
+derivative by a constant times $(1+|u|+|v|)^2y^{-\Re u-2}$;
+on $[1,\infty)$ the differentiated amplitude is integrable.
+All boundary terms have the same stated sizes.
+
+\subsection{An exact smoothed identity}
+Let $w_T(t)=\exp(-(t-T)^2/G^2)$ and
+$W_T(u)=\exp((u-1/2-iT)^2/G^2)$.
+In the integral of $\mathcal G(1/2+it)$ shift the vertical line from
+$1/2$ to $-a$. Formula \eqref{eq:Gexplicit} gives polynomial growth;
+the horizontal sides tend to zero by Gaussian decay. The sole crossed
+residue contributes $\pi W_T(0)$. On the left line use
+\eqref{eq:leftG}, and evaluate the elementary Gaussian Fourier integral:
+\[
+ \frac1i\int_{\Re u=-a}W_T(u)e^{uL}\,du
+   =\sqrt\pi G\exp(L/2+iTL-G^2L^2/4),\qquad L>0.
+\]
+For example substitute $u=-a+it$, complete the square, and shift the
+entire Gaussian contour; its horizontal sides again vanish.
+In the other term of \eqref{eq:exactdissection} substitute $u\mapsto1-u$;
+this gives the conjugate expression with center $-T$.
+Thus, with $L(y)=\log((1+y)/y)$,
+\begin{equation}\label{eq:exactGaussian}
+\begin{split}
+ \int_{\mathbb R}|\zeta(1/2+it)|^2w_T(t)dt
+ &=\int_{\mathbb R}
+   \{\Re\psi(1/2+it)+2\gamma-\log(2\pi)\}w_T(t)dt\\
+ &\quad+4\sqrt\pi G\Re\sum_{n\ge1}d(n)\mathcal I_n(T,G)
+       +2\pi\Re W_T(0),\\
+ \mathcal I_n(T,G)&=\int_0^\infty
+ \frac{e^{-G^2L(y)^2/4}}{\sqrt{y(1+y)}}e^{iTL(y)}
+                                    \cos(2\pi ny)\,dy.
+\end{split}
+\end{equation}
+The exchanges follow from the following explicit tail bounds:
+first truncate the $y$ integral, perform the Gaussian integral, and
+then use one integration by parts on its tail. The tail before
+Gaussian integration is $O((1+|u|)/(nY))$ for $y\ge Y\ge1$,
+which is integrable in $u$ against the Gaussian. Summation and the
+$u$ integral were interchanged using the absolutely summable
+bound following \eqref{eq:leftG}.
+After Gaussian integration the Fourier amplitude is flat at $y=0$,
+and its differentiated amplitudes are integrable at infinity. Two
+integrations by parts show absolute summability of the final $n$ series
+for each fixed $T,G$. This also verifies the final identity directly.
+
+The first integral in \eqref{eq:exactGaussian} is $O(G\log T)$:
+$\Re\psi(1/2+it)=O(\log(2+|t|))$ by the gamma estimate
+proved in Appendix~\ref{app:localzeta}. Also
+$|W_T(0)|=\exp((1/4-T^2)/G^2)$ is negligible.
+It remains to estimate the kernels $\mathcal I_n$, keeping their phases.
+
+\subsection{Stationary and nonstationary terms}
+For $1\le n\le T$ let $a>0$ be defined by
+\[
+ \frac{a^2}{1+a}=\frac{2\pi n}{T},\qquad Y=Ta,\qquad b=Ga.
+\]
+Here $a$ belongs to a fixed bounded interval,
+$Y\asymp\sqrt{nT}$, and $b^2\asymp G^2n/T$.
+Put $y=x/a$ and split the cosine into its two exponentials.
+Their phases divided by $Y$ and common amplitude are
+\[
+ \varphi_\pm(x,a)=a^{-1}\log(1+a/x)\pm x/(1+a),\qquad
+ A(x,a,b)=\frac{\exp[-b^2\{a^{-1}\log(1+a/x)\}^2/4]}
+                    {\sqrt{x(x+a)}}.
+\]
+These expressions extend smoothly to $a=0$ for $x$ bounded away
+from zero. The plus phase has its unique critical point at $x=1$,
+with $\varphi_+''(1,a)=(2+a)/(1+a)^2$; the minus phase has none.
+Choose a fixed smooth cutoff $\chi$ supported in $[1/2,2]$ and equal
+to one on $[3/4,3/2]$.
+
+Apply the exact Morse--Fresnel identity of Lemma~\ref{lem:exactmorse}
+to $\chi A e^{iY\varphi_+}$. Replace the scale $Y$ by $Y/(2\pi)$
+to pass from the lemma's $e$ notation to the radian phase. It gives an exact, complex coefficient $c(T,G,n)$ with
+\begin{equation}\label{eq:stationaryAtkinson}
+ \int\chi(x)A(x,a,b)e^{iY\varphi_+(x,a)}dx
+    =e^{i(2\pi f(T,n)-\pi n)}c(T,G,n),
+\end{equation}
+where
+\begin{equation}\label{eq:Atkinsonsymbol}
+ |c|+n|\partial_nc|\ll(Tn)^{-1/4},\qquad
+ |c|\ll(Tn)^{-1/4}e^{-c_1G^2n/T}.
+\end{equation}
+Here and below $c_1>0$ denotes a fixed decay constant.
+To verify all uniform bounds, on the support of $\chi$ the function
+$a^{-1}\log(1+a/x)$ is bounded above and below by positive constants.
+Every fixed $x$, $a\partial_a$, and $b\partial_b$ derivative of the
+amplitude is bounded by a polynomial in $b$ times $e^{-c_2b^2}$,
+hence by $C_j e^{-c_3b^2}$. The Morse substitution and its inverse
+have uniformly bounded derivatives on this fixed compact set.
+In the Fourier form of the exact Fresnel identity, both parameter
+derivatives and $Y\partial_Y$ are bounded by finitely many Fourier
+moments of this amplitude, proving the same bounds for $Y^{1/2}c$.
+Finally
+$n\partial_na/a=(1+a)/(2+a)$, and the logarithmic derivatives of
+$Y$ and $b$ are the same bounded number. This proves
+\eqref{eq:Atkinsonsymbol}, including its variation bound. The phase
+at $x=1$ is
+$T\log(1+a)+Ta/(1+a)=2\pi f(T,n)-\pi n$, exactly.
+
+The omitted parts cost $O(Y^{-1})$, uniformly in $G$. Here is a
+first-derivative proof that also handles both improper endpoints.
+Write $t_x=x(x+a)$. For the lower nonstationary part of the plus
+phase the absolute amplitude divided by the phase derivative is
+\[
+ \frac1Y\frac{\sqrt{t_x}}{1-t_x/(1+a)}
+           \exp[-G^2\log(1+a/x)^2/4],\qquad x\le3/4.
+\]
+All three positive factors increase with $x$, and their value at
+$3/4$ is $O(Y^{-1})$. Its total variation is therefore $O(Y^{-1})$.
+For $x\ge3/2$ the rational factor becomes
+$\sqrt{t_x}/(t_x/(1+a)-1)$, which decreases to zero, while the
+Gaussian factor increases to one. The variation of their product
+is at most the sum of the two variations, again $O(Y^{-1})$.
+The cutoff transition intervals have the same bound. For the minus
+phase the rational factor is $\sqrt{t_x}/(1+t_x/(1+a))$; it is
+unimodal, vanishes at both ends, and has bounded maximum.
+Its product with the increasing Gaussian has bounded variation.
+One integration by parts proves the claimed $O(Y^{-1})$ bounds in
+all cases; endpoint terms vanish. Hence
+\begin{equation}\label{eq:kernelAtkinson}
+ \mathcal I_n(T,G)=\tfrac12(-1)^ne(f(T,n))c(T,G,n)
+                           +O((nT)^{-1/2}),\qquad 1\le n\le T.
+\end{equation}
+The sum of the errors against $d(n)$ is $O(\log T)$, since the
+divisor identity $d(n)=\sum_{ab=n}1$ gives
+$\sum_{n\le X}d(n)n^{-1/2}\ll\sqrt X\log(2X)$.
+
+All $n>T$ cost $O(\log T/T)$.
+Take a fixed smooth partition at $y=1$, with its lower piece supported
+in $y\le2$. On this piece the amplitude and its first two derivatives,
+including those of $e^{iTL(y)}$, have integrable absolute values
+$\ll (1+T)^2(1+G)^C e^{-c_4G^2}$.
+This follows near zero by substituting $s=\log(1/y)$: every resulting
+power of $1/y$ becomes an exponential in $s$, dominated by
+$e^{-G^2s^2/4}$; on $[1/2,2]$ use $L(y)\ge\log(3/2)$.
+Two integrations by parts against $\cos(2\pi ny)$ bound this piece
+by $O_\epsilon(n^{-2})$ for $G\ge T^\epsilon$.
+On the upper piece $y\ge1$, the phases
+$TL(y)\pm2\pi ny$ have first derivative of modulus $\gg n$
+and higher derivatives $O_j(Ty^{-j-1})$.
+For $j=1,2$ the common amplitude has derivative
+$O_j(y^{-1-j})$, uniformly in $G$: each Gaussian derivative gives
+powers of $G/y$ times $e^{-c(G/y)^2}$, which are bounded.
+Two integrations by parts therefore cost
+$O(n^{-2}(1+T/n+(T/n)^2))=O(n^{-2})$.
+After the first integration all required derivatives are integrable and the
+boundary term tends to zero. Finally
+$\sum_{n>T}d(n)n^{-2}\ll\log T/T$, again by the divisor identity.
+
+\subsection{Truncation and the partial sums}
+Substitute \eqref{eq:kernelAtkinson} in \eqref{eq:exactGaussian}.
+The nonstationary terms, the diagonal gamma integral, and the residue
+are all within $O_\epsilon(G\log T)$.
+For $n>TG^{-2}(\log T)^{1+\epsilon}$ the exponential estimate in
+\eqref{eq:Atkinsonsymbol} makes the stationary contribution smaller
+than any fixed negative power of $T$ after summing $n\le T$.
+For $n\le2T^{1/3}$ the trivial divisor bound in mean gives
+\[
+ \sum_{n\le2T^{1/3}}d(n)(Tn)^{-1/4}\ll\log T.
+\]
+On each remaining dyadic interval, Abel summation and
+\eqref{eq:Atkinsonsymbol} give
+\[
+ \left|\sum_{N<n\le N'}(-1)^nd(n)e(f(T,n))c(T,G,n)\right|
+ \ll (TN)^{-1/4}\max_{0\le\Delta\le N}|S_T(\Delta,N)|,
+ \qquad N'\le2N.
+\]
+All coefficients and the phase are those of the sums $S_T(\Delta,N)$.
+The center remains the height $T$ throughout. Finally $w_T(t)\ge e^{-1}$ for $|t-T|\le G$.
+Positivity bounds the requested short integral by $e$ times the full
+Gaussian integral. This proves Proposition~\ref{prop:atkinsondirect}
+and hence \eqref{eq:baseatkinson}.
+
+\begin{remark}
+The proof establishes the Gaussian-smoothed upper-bound consequence
+used in this paper. Attribution for the
+dissection and the short-second-moment approach remains with
+Atkinson~\cite{Atk49}, Heath-Brown~\cite{HB78} and Ivi\'c. The advantage here is that smoothing
+precedes the Fourier-integral estimates, allowing the needed input
+to follow from the displayed dissection and kernel estimates.
+\end{remark}

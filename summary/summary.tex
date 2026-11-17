@@ -1,0 +1,205 @@
+\documentclass[10pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[a4paper,margin=21mm]{geometry}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\hypersetup{pdftitle={Thin planar energy for the curved Atkinson sum: a two-page summary},pdfauthor={Min Chae}}
+\externaldocument[six-]{../sixth-moment/moments}[../sixth-moment/moments.pdf]
+\externaldocument[p-]{../paper/moments}[../paper/moments.pdf]
+\setlength{\emergencystretch}{2em}
+\newtheorem*{chordlemma}{Lemma A}
+\newtheorem*{energyprop}{Proposition B}
+\newtheorem*{supportlemma}{Lemma C}
+\newtheorem*{resulttheorem}{Theorem D}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\cR}{\mathcal R}
+\title[Thin planar energy: summary]{Thin planar energy for the curved Atkinson sum:\\ a two-page summary}
+\author{Min Chae}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+This note states the three new estimates of the eighth-moment
+paper~\cite{Thin} with their hypotheses, and the result they give.
+The proofs are in \cite[Sections~\ref*{p-sec:geometry}
+and~\ref*{p-sec:thinsupport}]{Thin}, four pages. The supporting
+paper~\cite{Weighted} proves the reductions used around them.
+
+\subsection*{Setting}
+Let $N\ge2$, $W\ge1$, $\eta,\kappa$ real, $|a_n|\le1$, and
+$e(x)=e^{2\pi ix}$. The curved Atkinson sum of \cite{B38} is
+\[
+ D_h(w)=\sum_{N<n\le2N}a_n\,e\bigl(\xi_nw+\chi_nr_0(w)\bigr),\quad
+ \xi_n=\Bigl(\frac nN\Bigr)^{1/2}+\eta\Bigl(\frac nN\Bigr)^{3/2},\quad
+ \chi_n=\Bigl(\frac nN\Bigr)^{3/2},\quad
+ r_0(w)=-\frac{\eta\kappa w^2}{1+\kappa w}.
+\]
+For $\zeta(1/2+it)$ with $t$ in a block near $t_0\asymp T$, Atkinson's
+phase gives this sum with $w=\sqrt{2N/\pi}\,(\sqrt t-\sqrt{t_0})$,
+$|\eta|\asymp N/T$ and $|\kappa|\asymp(TN)^{-1/2}$
+\cite[Lemma~\ref*{six-lem:atkinson}]{Weighted}.
+Put $B=|\eta\kappa|W^2$. Let $S\subset[0,W]$ be $1$-separated, $r=|S|$,
+and $|D_h(w)|\ge Z\ge1$ on $S$. For tuples in $S$ write
+\[
+ P=w_1+w_2-w_3-w_4,\qquad
+ \cR=r_0(w_1)+r_0(w_2)-r_0(w_3)-r_0(w_4).
+\]
+$E_2(S;H)$ counts ordered pairs with $|w_1-w_2|\le H$, and $E_4(S;H)$
+counts ordered quadruples with $|P|\le H$. The thin energy
+$E_4^\flat(S;D)$ counts ordered quadruples with $|P|\le D$ and
+$|\cR|\le C_0$, for a fixed constant $C_0$.
+Write $\mathcal X\prec\mathcal Y$ when
+$\mathcal X\ll_\varepsilon T^\varepsilon\mathcal Y$.
+Let $\cN(T,V)$ be the largest size of a $1$-separated set in $[T,2T]$
+on which $|\zeta(1/2+it)|\ge V$.
+The estimates use the range
+\begin{equation}\label{eq:range}
+ 1\le B\ll N^{1/3},\qquad N\le W\ll N^{4/3},\qquad
+ WB\ll N^{3/2},\qquad |\kappa|WB\le T^{-\delta_0},
+\end{equation}
+with $0<|\eta|\le cW/N^2$ and $|\eta|N^{1/8}+|\kappa|W\le c$, for a fixed
+$\delta_0>0$ and a small fixed $c>0$.
+
+The known curved energy bound
+\cite[Proposition~\ref*{six-prop:curv}]{Weighted} is
+$E_4(S;D)\prec(N/Z)^4(1+B/D)E_2(S;D)+(N/Z^2)Dr^3$.
+Its factor $1+B/D$ comes from the curvature $r_0$. In the zeta problem
+$B\asymp1$ at $|\zeta|=T^{1/8}$ for the longest sums, and $B\ge1$ is the range
+that decides the eighth moment.
+
+\subsection*{Integer chords}
+\begin{chordlemma}[{\cite[Lemma~\ref*{p-lem:chordreproof}]{Thin}}]
+For real $\beta$ and $c_1/B\le|\alpha|\le C_1$, the number of
+ordered integer pairs $m\ne n$, $m,n\asymp N$, with
+\[
+ |\xi_n-\xi_m-\alpha|\le C_2/W,\qquad
+ |\chi_n-\chi_m-\beta|\le C_2/B
+\]
+is at most
+$C\bigl(N^2/(WB|\alpha|)+N^{2/3}/(B|\alpha|^{2/3})+\sqrt{N/|\alpha|}+1\bigr)$.
+Under \eqref{eq:range} this is $O(N^2/(WB|\alpha|))$. For
+$|\alpha|\ll1/B$ the count is $O(N^2/W)$.
+\end{chordlemma}
+The first condition fixes $n$ for each $m$. The second coordinate is
+monotone in $m$ with derivative $\asymp\alpha/N$, so $m$ lies in an interval
+of length $\ll N/(B|\alpha|)$. The second-derivative test counts the
+near-integer values on this interval. The one-coordinate spacing bound
+of~\cite{dFP} is $O(N^2/W)$; the gain is the factor $1/(B|\alpha|)$.
+
+\subsection*{Thin planar energy}
+\begin{energyprop}[{\cite[Propositions~\ref*{p-prop:planarreproof}
+and~\ref*{p-prop:pairprofile}]{Thin}}]
+For $1\le D\lesssim B$, with dyadic sums,
+\[
+ Z^2E_4^\flat(S;D)\prec NDr^3+
+ N^2\sum_{D\lesssim H\lesssim B}\frac DH\sqrt{E_2(S;CH)E_4(S;CH)}.
+\]
+For $0<k<1/2$, $\theta=k+\tfrac12$ and
+$\mathcal C_k(S;B)=\sqrt B\sum_{1\le H\lesssim B}H^{k-1}E_2(S;CH)$,
+\[
+ \sum_{1\le D\lesssim B}D^{k-1/2}E_4^\flat(S;D)
+ \prec(N/Z)^4\,\mathcal C_k(S;B)+(N/Z^2)\,r^3B^\theta
+ \ll B^{k+1/2}\bigl((N/Z)^4r+(N/Z^2)r^3\bigr).
+\]
+\end{energyprop}
+The same weighted sum of the ordinary energy $E_4(S;D)$ has $B$ in place
+of $B^{k+1/2}$ in the first term. For the proof, write
+$D_h(w)=\mathcal D(w,r_0(w))$ with
+$\mathcal D(x,y)=\sum a_ne(\xi_nx+\chi_ny)$. In a thin tuple the fourth
+point lies near the sum of the other three in both coordinates. A local
+reproduction formula for $|\mathcal D|^2$ and expansion of the square
+lead to the values of
+$\mathcal F(u,v)=\sum_{w\in S}e(wu+r_0(w)v)$ at the chords
+$(\xi_n-\xi_m,\chi_n-\chi_m)$. Lemma A bounds their density, and
+Cauchy's inequality between the second and fourth moments of
+$\mathcal F$ on a rectangle of widths $1/H$ gives the first display. The
+second follows by inserting the curved energy bound and summing $D$.
+
+\subsection*{Stationary compatibility}
+Duality and Poisson summation in $n$ lead to sums over integers $m\ne0$
+and to the phase $\Theta_m(z,w)$, the critical value of
+$(z-w)\sqrt u+(h(z)-h(w))u^{3/2}-Nmu$ with $h(w)=\eta w/(1+\kappa w)$
+\cite[Lemma~\ref*{six-lem:phase}]{Weighted}. The set $S$ is cut into
+blocks, each translated to the origin.
+\begin{supportlemma}[{\cite[Lemma~\ref*{p-lem:thincompatibility}]{Thin}}]
+In a fixed translated block let $y=Nm$, $L\asymp|y|$,
+$N\le L\ll W$. For a tuple on the stationary supports write
+$\Phi(x)=\sum_{i=1}^4\epsilon_i\Theta_m(Lx,w_i)$, $\epsilon=(1,1,-1,-1)$.
+Then, when $|P|\lesssim B$,
+\[
+ |\cR|\ll|\kappa|L\,|\Phi'(x)|+|\kappa|W|P|.
+\]
+Hence the tuples with $|\cR|>C_0$ have $|\Phi'|\gg T^{\delta_0}B$, and
+repeated integration by parts in $x$ makes their part smaller than any
+fixed negative power of $T$. A block translation by $u_0$ changes $\cR$
+by $(\eta-\eta_{u_0})P=O(B^2/W)$, with
+$\eta_{u_0}=\eta(1+\kappa u_0)^{-2}$.
+\end{supportlemma}
+For the proof, $G(w)=\partial_z\Theta_m(z,w)$ has
+$G''=6\eta\rho\,y^{-2}(1+O(|\eta|+|\kappa|W))$ at the critical point
+$\rho\asymp1$, and $r_0''(w)=-2\eta\kappa/(1+\kappa w)^3$. Both second
+derivatives have a fixed sign. The second difference of a function over
+two pairs with equal sums is an integral of its second derivative
+against one nonnegative weight. So the equal-sum differences satisfy
+$|\Delta r_0|\ll|\kappa|L^2|\Delta G|$, and $\Phi'=L\sum\epsilon_iG(w_i)$.
+Lemma C lets the kernel of \cite{Weighted} use the thin energy of
+Proposition B in place of the ordinary energy.
+
+\subsection*{Result}
+\begin{resulttheorem}[{\cite[Theorems~\ref*{p-thm:largeeighth}
+and~\ref*{p-thm:eighth}]{Thin}}]
+Let $\sigma_R=9041221/68905232=0.131212\ldots$, and let $E$ be the
+affine function with $E(1/8)=3317/7064$ and
+$E(\sigma_R)=21777647/51678924$. For $1/8\le\sigma\le\sigma_R$,
+\[
+ \cN(T,T^\sigma)\prec T^{E(\sigma)}.
+\]
+Consequently
+\[
+ \int_0^T|\zeta(1/2+it)|^8\,dt\ll_\varepsilon T^{p+\varepsilon},\qquad
+ p=\frac{76024973}{51678924}=1.4711020\ldots.
+\]
+\end{resulttheorem}
+The first part uses Lemma A, Proposition B and Lemma C with the two
+exponent pairs of \cite[Section~1]{Thin} and the clustering reduction of
+\cite[Section~4]{Thin}. For the second part, below $1/8$ we use
+\cite[Theorem 1.3]{dFP} and the fourth moment. On $[\sigma_R,13/98]$ we
+use \cite[Theorem 9.1 with $k=4$]{dFP}, and above $13/98$ the twelfth
+moment.
+
+The classical exponent is $3/2$. Theorems 1.3 and 9.1 of~\cite{dFP},
+summed over amplitudes, give $988/671=1.4724292\ldots$.
+At $\sigma_R$ two terms equal $E(\sigma_R)$: the diagonal term and the
+pair-count term. The thin curvature term lies below $E(\sigma_R)$ by
+$2605/432223728$. The same term with the ordinary curvature factor lies
+above it by $1756631/7780027104$.
+With the ordinary curvature term in place of the thin terms, the same
+exponents give $118757448/80721773=1.4711947\ldots$; the thin terms save
+$0.0000926\ldots$.
+
+\subsection*{Inputs and checks}
+The cited theorems are Atkinson's formula, Iwaniec's sparse
+fourth-moment theorem, the exponent pair of Bourgain, the derivative
+estimate of Heath-Brown, and Theorems 1.3 and 9.1 of~\cite{dFP}.
+The repository contains scripts that check the exponents, the
+intersection and the parameter ranges in exact rational arithmetic.
+AI tools were used for proof search, calculations, and writing.
+
+\begin{thebibliography}{9}
+\bibitem{Thin} M.~Chae, \emph{Thin planar energy and the eighth moment
+of the Riemann zeta function}, 17 November 2026,
+\href{https://github.com/chaemin333-max/riemann-zeta-eighth-moment/blob/main/paper/moments.pdf}{PDF}.
+\bibitem{Weighted} M.~Chae, \emph{Weighted pair energy and the sixth
+moment of the Riemann zeta function}, supporting paper,
+17 November 2026, \href{https://github.com/chaemin333-max/riemann-zeta-eighth-moment/blob/main/sixth-moment/moments.pdf}{PDF}.
+\bibitem{dFP} A.~de Faveri and M.~Pandey, \emph{The sixth moment of the
+Riemann zeta function}, arXiv:2610.01035v1 (2026).
+\bibitem{B38} bramble\_trace (AI agent), \emph{Curved Atkinson phases,
+reciprocal cancellation and the sixth moment of the Riemann zeta
+function}, rStation paper 38, v3, 21 October 2026,
+\url{https://rstation.ai/problems/riemann_hypothesis/papers/38}.
+\end{thebibliography}
+\end{document}

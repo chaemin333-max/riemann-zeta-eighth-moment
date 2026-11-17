@@ -1,0 +1,944 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[a4paper,hmargin=27mm,vmargin=24mm]{geometry}
+\numberwithin{equation}{section}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\hypersetup{pdftitle={Thin planar energy and the eighth moment of the Riemann zeta function},pdfauthor={Min Chae}}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\cN}{\mathcal N}
+\externaldocument[six-]{../sixth-moment/moments}[../sixth-moment/moments.pdf]
+\title[Thin planar energy and the eighth moment]{Thin planar energy and the eighth moment of the Riemann zeta function}
+\author{Min Chae}
+\date{17 November 2026}
+\begin{document}
+\raggedbottom
+\begin{abstract}
+We prove an upper bound for the eighth moment of the Riemann zeta
+function with exponent $76024973/51678924=1.471102087961429\ldots$.
+We count integer chords using both coordinates and the length of their
+common interval. This gives a thin planar energy bound for the curved
+Atkinson model. We then use the stationary condition for the same four
+points. The curvature term changes from $B$ to $B^{k+1/2}$.
+We combine this bound with the $k=4$ large-value estimate of de Faveri
+and Pandey. The resulting exponent improves $346/235$ by
+$15039049/12144547140$.
+\end{abstract}
+\maketitle
+
+\section{Result and inputs}
+Let $\cN(T,V)$ be the largest cardinality of a $1$-separated subset of
+$[T,2T]$ on which $|\zeta(1/2+it)|\ge V$. Throughout $e(x)=e^{2\pi ix}$.
+Write $\mathcal X\prec\mathcal Y$ when
+$\mathcal X\ll_\varepsilon T^\varepsilon\mathcal Y$ for every fixed
+positive $\varepsilon$.
+Our main result is the following.
+\begin{theorem}[eighth moment]\label{thm:eighth}
+For $T\ge2$ and every $\varepsilon>0$,
+\begin{equation}\label{eq:moments}
+\int_0^T|\zeta(1/2+it)|^8\,dt
+ \ll_\varepsilon T^{p+\varepsilon},\qquad
+ p=\frac{76024973}{51678924}.
+\end{equation}
+\end{theorem}
+Theorem~\ref{thm:eighth} follows from the next large-value estimate,
+the bound \eqref{eq:upper} of de Faveri and Pandey, and the fourth and
+twelfth moments.
+\begin{theorem}[large values]\label{thm:largeeighth}
+Let $\sigma_R=9041221/68905232$, and let $E$ be the affine function with
+\[
+ E(1/8)=\frac{3317}{7064},\qquad
+ E(\sigma_R)=\frac{21777647}{51678924}.
+\]
+For $1/8\le\sigma\le\sigma_R$,
+\[
+ \cN(T,T^\sigma)\prec T^{E(\sigma)}.
+\]
+\end{theorem}
+We use the theorems listed below and the geometric estimates proved
+in Sections~\ref{sec:geometry} and \ref{sec:thinsupport}.
+Section~\ref{sec:parameters} proves Theorem~\ref{thm:largeeighth}, and
+Section~\ref{sec:eighth} proves Theorem~\ref{thm:eighth}.
+
+De Faveri and Pandey~\cite{dFP} give the short-second-moment reduction,
+frequency-spacing bound, and refined pair count.
+The curved model and reciprocal kernel were introduced in~\cite{B38}.
+The supporting paper~\cite{Weighted} derives every part used here from
+the curved exponential sum. Its
+Sections~\ref*{six-sec:curved}--\ref*{six-sec:kernel} and
+Appendices~\ref*{six-app:energyproof}--\ref*{six-app:dualityproof}
+give the energy, phase, Morse--Fresnel, and signed block proofs.
+Section~\ref{sec:thinsupport} recalls the objects used from that paper.
+Here we prove an integer-chord bound and a thin planar energy bound.
+We use the stationary condition to apply this energy bound to the kernel.
+
+The classical eighth-moment exponent is $3/2$. De Faveri--Pandey's
+Theorems 1.3 and 9.1 imply $988/671$ by amplitude summation.
+Combining their $k=3$ line with the curved bound proved in
+\cite[Proposition~\ref*{six-prop:curvatureline}]{Weighted}, from
+\cite[Theorem 6]{B38}, gives $346/235$:
+the two lines $(242-1340\sigma)/157$ and $(94-500\sigma)/67$ meet at
+$\sigma=91/705$. Summing over all amplitudes gives this exponent.
+The difference from \eqref{eq:moments} is
+\begin{equation}\label{eq:gain}
+\frac{346}{235}-\frac{76024973}{51678924}
+ =\frac{15039049}{12144547140}>0.
+\end{equation}
+At the intersection used below, the scalar thin-energy bound has a
+margin of $2605/432223728$. Proposition~\ref{prop:pairprofile}
+also keeps the full pair profile, the function $H\mapsto E_2(S;H)$
+defined below. Both bounds give the exponent in \eqref{eq:moments}.
+
+The reduction uses Atkinson's short-second-moment formula~\cite{Atk49}
+and Iwaniec's sparse fourth-moment theorem~\cite[Theorem~4]{Iwa80} in
+the form \cite[(\ref*{six-eq:basefourth})]{Weighted}; see
+also~\cite{Jut91}. For disjoint intervals $I_j\subset[T,2T]$ of common
+length $Y$, $\sqrt T\le Y\le T$, the latter gives
+\[
+ \sum_{j=1}^J\int_{I_j}|\zeta(1/2+it)|^4dt
+ \prec JY+T\sqrt{J/Y}.
+\]
+The supporting paper proves the local value inequality, the clustering
+step, and the Gaussian form of Atkinson's formula. It also derives the
+fourth and twelfth moments from the sparse fourth-moment theorem.
+
+The two exponent pairs used for the kernel are
+\[
+ (k_p,\ell_p)=(13/414,359/414),\qquad
+ (k_d,\ell_d)=(1/56,127/140),
+\]
+with arbitrarily small exponent losses absorbed into $T^\varepsilon$.
+The first is $A^2(13/84,55/84)$, two van der Corput $A$-steps applied to
+the pair of Bourgain~\cite{Bou17}; the second is the case $j=5$ of the
+family of Heath-Brown~\cite{HB17}, stated in
+\cite[Lemma~\ref*{six-lem:hb}]{Weighted}.
+Appendix~\ref{app:finitepairs} checks the finite-derivative conditions
+on the exact reciprocal phase using~\cite{TY}.
+
+For the upper-amplitude range we use de Faveri--Pandey
+\cite[Theorem 9.1 with $k=4$]{dFP}:
+\begin{equation}\label{eq:upper}
+\cN(T,T^\sigma)\prec T^{E_{\mathrm{dFP}}(\sigma)},\qquad
+ E_{\mathrm{dFP}}(\sigma)=\frac{454-2564\sigma}{279},\qquad
+ \frac{175}{1448}\le\sigma\le\frac{13}{98}.
+\end{equation}
+Below $\sigma=1/8$, \cite[Theorem 1.3]{dFP} and the fourth moment give
+an eighth-moment layer exponent at most $25/17$. Here the layer exponent
+at $\sigma$ is the exponent of $T^{8\sigma}\cN(T,T^\sigma)$.
+
+For a finite set $S$ of real numbers,
+$E_2(S;H)$ counts ordered pairs with $|w_1-w_2|\le H$,
+and $E_4(S;H)$ counts ordered quadruples with
+$|w_1+w_2-w_3-w_4|\le H$, including repetitions.
+In the notation of Section~\ref{sec:geometry},
+the scalar thin-energy estimate that suffices for \eqref{eq:moments} is
+\begin{equation}\label{eq:scalar}
+\sum_{D\lesssim B}D^{k-1/2}E_4^\flat(S;D)
+ \prec B^{k+1/2}\bigl((N/Z)^4|S|+(N/Z^2)|S|^3\bigr).
+\end{equation}
+The sums over $D$ and $H$ below are dyadic.
+
+\section{Integer chords and thin planar energy}\label{sec:geometry}
+
+The curved sum of \cite[(\ref*{six-eq:model})]{Weighted} has real
+parameters $\eta,\kappa$, coefficients $|a_n|\le1$, and the form
+\[
+ D_h(w)=\sum_{n\sim N}a_n e(\xi_n w+\chi_n r_0(w)),\quad
+ \xi_n=\sqrt{n/N}+\eta(n/N)^{3/2},\quad \chi_n=(n/N)^{3/2},
+\]
+\[
+ r_0(w)=-\frac{\eta\kappa w^2}{1+\kappa w},\quad
+ B=|\eta\kappa|W^2,\quad U=1+|\eta|W.
+\]
+The subscript refers to $h(w)=\eta w/(1+\kappa w)$:
+the phase $\xi_nw+\chi_nr_0(w)$ equals
+$w(n/N)^{1/2}+h(w)(n/N)^{3/2}$.
+Here \(S\subset[0,W]\) is $1$-separated, \(r=|S|\), and
+\(|D_h(w)|\ge Z\) on $S$, with $Z\ge1$. All energies count ordered tuples including
+repetitions. The thin fourth energy imposes both
+\[
+ |w_1+w_2-w_3-w_4|\le D,\qquad
+ |r_0(w_1)+r_0(w_2)-r_0(w_3)-r_0(w_4)|\le C_0
+\]
+for a fixed positive constant \(C_0\). Its fixed value contributes only fixed constants to the estimates.
+
+We use \(0<k<1/2\), \(B\ge1\),
+\begin{equation}\label{eq:modelrange}
+N^{9/8}\le W\ll N^{4/3},\quad B\ll N^{1/3},\quad WB\ll N^{3/2},
+ \quad |\kappa|WB\le T^{-\delta_0},
+\end{equation}
+and $0<|\eta|\le cW/N^2$, $|\eta|N^{1/8}+|\kappa|W\le c$, for a fixed
+$\delta_0>0$ and a sufficiently small fixed $c>0$.
+The curved energy and signed kernel are proved in the supporting
+paper~\cite{Weighted}.
+
+Write $\phi(x)=\sqrt x+\eta x^{3/2}$, $\chi(x)=x^{3/2}$,
+$\xi_n=\phi(n/N)$, and $\chi_n=\chi(n/N)$.
+The counting estimate uses the range
+\begin{equation}\label{eq:thinrange}
+ 1\le B\ll N^{1/3},\qquad N\le W\ll N^{4/3},\qquad
+ WB\ll N^{3/2},\qquad |\kappa|WB\le T^{-\delta_0},
+\end{equation}
+as well as the smallness assumptions on $\eta$ and $\kappa$ stated after
+\eqref{eq:modelrange}.
+All constants below are uniform for $|\eta|$ sufficiently small.
+The case $B<1$ uses the curved energy estimate
+\eqref{eq:ordinaryenergy}; its factor $1+B/H$ is bounded there.
+
+\begin{lemma}[integer chords, keeping the interval length]
+\label{lem:chordreproof}
+For real $\beta$ and $c_1/B\le|\alpha|\le C_1$, the number of off-diagonal ordered
+integer pairs $m,n\asymp N$ satisfying
+\[
+ |\xi_n-\xi_m-\alpha|\le C_2/W,\qquad
+ |\chi_n-\chi_m-\beta|\le C_2/B
+\]
+is at most
+\[
+ C\left(\frac{N^2}{WB|\alpha|}
+       +\frac{N^{2/3}}{B|\alpha|^{2/3}}
+       +\sqrt{\frac N{|\alpha|}}+1\right).
+\]
+Under \eqref{eq:thinrange} this is $O(N^2/(WB|\alpha|))$.
+For smaller centers, $|\alpha|\ll1/B$, the count is $O(N^2/W)$.
+This bound also excludes $m=n$.
+\end{lemma}
+\begin{proof}
+By symmetry let $\alpha>0$ and set
+$g(x)=\phi^{-1}(\phi(x)+\alpha)$ on a fixed positive enlargement
+of the relevant interval. The computation in
+the one-coordinate spacing lemma
+\cite[Lemma~\ref*{six-lem:spacingproof}]{Weighted} gives $|g''|\asymp\alpha$.
+Moreover, since
+\[
+ (\chi'/\phi')(x)=\frac{3x}{1+3\eta x},\qquad
+ (\chi'/\phi')'(x)=\frac3{(1+3\eta x)^2},
+\]
+the derivative of $\chi(g(x))-\chi(x)$ is positive and
+$\asymp\alpha$. The first condition fixes $n$ to within $O(N/W)$
+of $Ng(m/N)$. Its error in the second coordinate is $O(1/W)$,
+absorbed in $O(1/B)$. Thus the possible $m$ lie in an interval of
+length $\mathcal L\ll N/(B\alpha)$.
+
+Here is a direct near-integer bound on this interval. Set
+$b=C N/W+(\alpha/N)^{1/3}$. If $b$ is bounded below by a fixed
+positive constant, the trivial $O(\mathcal L+1)$ bound is sufficient.
+Otherwise periodize a smooth nonnegative bump of width $b$, majorizing
+the interval $\|x\|\le C N/W$. Its Fourier coefficients satisfy
+$|c_h|\ll_A b(1+b|h|)^{-A}$. The second derivative of
+$Ng(m/N)$ has size $\alpha/N$. The second-derivative test
+\cite[Lemma~\ref*{six-lem:secondproof}]{Weighted}, on
+this interval of length $\mathcal L$, bounds the count by
+\[
+ \mathcal L b+
+ \mathcal L\sqrt{\alpha/N}\,b^{-1/2}
+       +\sqrt{N/\alpha}\,b^{1/2}+1
+ \ll (N/W)\mathcal L+\mathcal L(\alpha/N)^{1/3}
+                       +\sqrt{N/\alpha}+1.
+\]
+Each $m$ allows $O(1)$ integers $n$; substituting $\mathcal L$ proves
+the formula. The ratios of the second and third terms to the first
+are at most constants times
+$WN^{-4/3}|\alpha|^{1/3}$ and
+$WBN^{-3/2}|\alpha|^{1/2}$. The constant term is also absorbed.
+For the remaining centers use
+\cite[Lemma~\ref*{six-lem:spacingproof}]{Weighted} with
+$d=C/W$ and $W\ll N^{4/3}$. The exact diagonal was excluded throughout.
+\end{proof}
+
+For $S\subset[0,W]$ as in the model, let $r=|S|$ and put
+\[
+ \mathcal F(u,v)=\sum_{w\in S}e(wu+r_0(w)v),\quad
+ P=w_1+w_2-w_3-w_4,\quad \mathcal R=r_0(w_1)+r_0(w_2)-r_0(w_3)-r_0(w_4).
+\]
+Let $E_4^\flat(S;D)$ count $|P|\le D$, $|\mathcal R|\le C_0$, with
+ordered tuples and repetitions, where $C_0$ is any fixed constant.
+
+\begin{proposition}[planar energy]
+\label{prop:planarreproof}
+For $1\le D\lesssim B$,
+\begin{equation}\label{eq:planarenergy}
+ Z^2 E_4^\flat(S;D)\prec NDr^3+
+ N^2\sum_{D\lesssim H\lesssim B}\frac DH
+             \sqrt{E_2(S;CH)E_4(S;CH)}.
+\end{equation}
+The sum is dyadic; constant enlargements and rapidly decreasing
+endpoint weights are included in $\lesssim$.
+\end{proposition}
+\begin{proof}
+Extend the curved sum to
+$\mathcal D(x,y)=\sum a_ne(\xi_nx+\chi_ny)$.
+Its Fourier support lies in a fixed rectangle. Take a Schwartz function
+whose Fourier transform equals one there. Fourier inversion gives an
+exact reproduction formula; Cauchy with its absolute kernel gives
+\[
+ |\mathcal D(x_0,y_0)|^2
+ \ll\iint |\mathcal D(x,y)|^2
+ (1+|x-x_0|)^{-A}(1+|y-y_0|)^{-A}\,dx\,dy.
+\]
+For each triple of points, denote its lifted sum by $(t,s)$.
+The eligible fourth points satisfy $|w-t|\le D$ and
+$|r_0(w)-s|\le C_0$. Their $w$ coordinates are $1$-separated.
+Summing the preceding kernels over them is bounded by
+$C\psi_1((x-t)/D)\psi_2(y-s)$, with fixed positive smooth functions
+$\psi_1,\psi_2$ of sufficiently fast decay. The pointwise bound has constant prefactor; the integral of the majorant is $O(D)$.
+One can take sufficiently high powers of $(1+x^2)^{-1}$, so their
+Fourier transforms decrease faster than any prescribed polynomial.
+
+Open the square of $\mathcal D$ and sum over the three centers. The diagonal
+is $O(NDr^3)$. In an off-diagonal term the Fourier integral is
+$D\widehat{\psi_1}(D\alpha)\widehat{\psi_2}(\beta)$, multiplied by
+$\mathcal F(\alpha,\beta)^2\overline{\mathcal F(\alpha,\beta)}$, where
+$(\alpha,\beta)=(\xi_n-\xi_m,\chi_n-\chi_m)$.
+Thus the remaining absolute contribution is at most
+\[
+ CD\sum_{m\ne n}|\mathcal F(\xi_n-\xi_m,\chi_n-\chi_m)|^3
+                      (1+D|\xi_n-\xi_m|)^{-A}.
+\]
+This step keeps the bounded coefficients $a_n$ through the squared expansion.
+
+The Fourier support of $\mathcal F$ has widths $O(W)$ and $O(B)$.
+Reproduction and H\"older bound its cubed value by $WB$ times a
+Schwartz average of $|\mathcal F|^3$ at widths $1/W,1/B$.
+On $|\alpha|\asymp1/H$, $1\le H\le B$,
+Lemma~\ref{lem:chordreproof} bounds the resulting point density by
+$O(N^2H)$. Also $|\beta|\asymp|\alpha|$, since both $\phi'$ and
+$\chi'$ are bounded above and away from zero. The corresponding
+integrals therefore lie in a rectangle of widths $O(1/H)$.
+For $|\alpha|\ll1/B$ the one-coordinate bound gives density
+$O(N^2B)$ on a rectangle of widths $O(1/B)$, the same expression
+at $H=B$.
+
+For $j=1,2$ we have
+\[
+ H^2\iint_{|u|,|v|\le C/H}|\mathcal F(u,v)|^{2j}du\,dv
+ \ll E_{2j}(S;C'H).
+\]
+To verify this last statement, majorize the rectangle by a product of
+sufficiently rescaled even powers of $\sin(\pi x)/(\pi x)$.
+These are nonnegative, positive on the required compact interval,
+and have nonnegative compactly supported Fourier transforms.
+Expansion of $|\mathcal F|^{2j}$ restricts both tuple discrepancies to $O(H)$;
+dropping the transverse restriction gives the statement, with every
+coefficient nonnegative. Cauchy between $j=1$ and $j=2$ now bounds
+the $|\mathcal F|^3$ integral by
+$O(H^{-2}\sqrt{E_2(S;CH)E_4(S;CH)})$.
+Multiplying by $DN^2H$ gives \eqref{eq:planarenergy}.
+
+Here is the treatment of the smooth tails in this calculation.
+For $H<D$ the factor $(1+D/H)^{-A}$ is kept, and monotonicity
+bounds both energies by their values at $CD$; the geometric sum is
+bounded by the $H\asymp D$ term. Enlarging a Fourier rectangle by
+$2^b$ changes a moment bound by at most a fixed power of $2^b$:
+apply \cite[Lemma~\ref*{six-lem:enlarge}]{Weighted} to the multiset of $j$-fold sums and
+scale the rectangle. The Schwartz weight has an arbitrarily large
+fixed decay power. Choose it larger than these enlargement powers
+and then sum $b$. Regions away from the frequency difference support
+are handled by exactly the same reproduction weights. This bounds the entire complement, including both endpoint shells.
+\end{proof}
+
+
+Define
+\[
+ \mathcal C_k(S;B)=
+ \sqrt B\sum_{1\le H\lesssim B}^{\rm dyadic}
+                  H^{k-1}E_2(S;CH),\qquad \theta=k+\tfrac12.
+\]
+\begin{proposition}[weighted thin energy]\label{prop:pairprofile}
+For the model and ranges above, we have
+\begin{equation}\label{eq:pairprofile}
+\boxed{
+ \sum_{1\le D\lesssim B}^{\rm dyadic}
+       D^{k-1/2}E_4^\flat(S;D)
+ \prec (N/Z)^4\mathcal C_k(S;B)
+            +(N/Z^2)r^3 B^\theta.}
+\end{equation}
+\end{proposition}
+Appendix~\ref{app:pairproof} proves this bound from
+Proposition~\ref{prop:planarreproof}. The estimate with
+$E_2(S;H)\ll rH$ gives \eqref{eq:scalar}.
+
+\section{The thin support of the kernel}
+\label{app:support}\label{sec:thinsupport}
+
+We recall the objects of the supporting paper used from here on; see
+\cite[Section~\ref*{six-sec:signed} and
+Appendix~\ref*{six-app:dualityproof}]{Weighted}.
+Duality and Poisson summation in $n$ replace the large-value condition
+on $S$ by sums over nonzero integers $m$, the Poisson modes, in dyadic
+ranges $|m|\asymp M$ with $1\le M\le M_*=W/N$. Put $L=NM$.
+The dual coefficients $b_w$ have modulus one, satisfy
+$b_wD_h(w)=|D_h(w)|$, and are the same for every $m$.
+The set $S$ is cut into blocks of length $CL$. A block is translated by
+its origin $u_0$; the translated sum has the same form with parameters
+$\eta_{u_0},\kappa_{u_0}$ given in the proof below. Each block is paired
+with itself and its two adjacent blocks; these are the three neighbor
+classes.
+For $y=Nm$, the function $\Theta_m(z,w)$ is the critical value of the
+phase
+\[
+ (z-w)\sqrt u+(h(z)-h(w))u^{3/2}-yu,
+\]
+given exactly in \cite[Lemma~\ref*{six-lem:phase}]{Weighted}.
+The two Sobolev classes are the dual sum
+$f_{m,0}(z)=\sum_wb_wa_{m,0}(z,w)e(\Theta_m(z,w))$, with a smooth
+amplitude $a_{m,0}$, and its derivative
+$f_{m,1}=\partial_zf_{m,0}$. For a tuple $\mathbf w=(w_1,\ldots,w_4)$
+and $\epsilon=(1,1,-1,-1)$, the kernel is
+\[
+ K_M(\mathbf w)=\sum_{|m|\asymp M}\int A_{\mathbf w}(m/M,x)\,
+ e\Bigl(\sum_{i=1}^4\epsilon_i\Theta_m(Nmx,w_i)\Bigr)dx,
+\]
+with a smooth amplitude $A_{\mathbf w}$ of bounded derivatives
+\cite[(\ref*{six-eq:tuple})]{Weighted}. The stationary support is the
+set of $(z,w)$ with $(z-w)/(Nm)$ in a fixed compact subinterval of
+$(0,\infty)$.
+
+\begin{lemma}[stationary compatibility and fixed translations]
+\label{lem:thincompatibility}
+In a fixed translated block let $y=Nm$, $L\asymp|y|$, $N\le L\ll W$.
+For a tuple on the stationary supports, write
+$\Phi(x)=\sum_{i=1}^4\epsilon_i\Theta_m(Lx,w_i)$.
+Then, when $|P|\lesssim B$,
+\begin{equation}\label{eq:thincompatibility}
+ |\mathcal R|\ll |\kappa|L|\Phi'(x)|+|\kappa|W|P|.
+\end{equation}
+Hence the part with $|\mathcal R|>C_0$ is negligible to an arbitrary
+fixed negative power of $T$ after all sums. The remaining tuples,
+including those in translated blocks, belong to the thin
+energy $E_4^\flat$ with a fixed enlarged $C_0$.
+\end{lemma}
+\begin{proof}
+In the square-root variable $\rho=\sqrt u$ the pair phase is
+\[
+ (z-w)\rho+\eta\left(\frac z{1+\kappa z}
+                    -\frac w{1+\kappa w}\right)\rho^3-y\rho^2.
+\]
+Its critical point is positive, $\rho\asymp1$. Put
+$\varpi=z/(1+\kappa z)-w/(1+\kappa w)$,
+$\eta_v=\eta/(1+\kappa v)^2$,
+$\gamma_v=1+3\eta_v\rho^2$, and
+$y_*=2y-6\eta\varpi\rho$.
+For $G(w)=\partial_z\Theta_m(z,w)$, implicit differentiation gives
+$\rho_w=-\gamma_w/y_*$ and $G'=-\gamma_z\gamma_w/y_*$.
+Differentiating once more gives exactly
+\[
+ G''=\frac{6\eta_z\rho\gamma_w^2+12\gamma_z\eta_w\rho\gamma_w}{y_*^2}
+       +\frac{6\gamma_z\eta\varpi\gamma_w^2}{y_*^3}
+       +\frac{6\kappa\gamma_z\eta_w\rho^2}{(1+\kappa w)y_*}.
+\]
+The critical equation implies
+$\varpi=2y\rho(1+O(|\eta|+|\kappa|W))$ and
+$y_*=2y(1+O(|\eta|))$. Therefore, for either sign of $m$,
+\[
+ G'=-\frac1{2y}+O(|\eta|/L),\qquad
+ G''=\frac{6\eta\rho}{y^2}
+                     (1+O(|\eta|+|\kappa|W)).
+\]
+In particular $G''$ has a fixed sign and size $\asymp|\eta|/L^2$.
+The case $\eta\kappa=0$ has $B=0$ and uses the ordinary energy bound.
+
+Replace $w_4$ by $w_4+P$ only for this comparison, so that the two
+pairs have equal sums. Since $B\ll L$, a fixed positive enlargement
+of the critical support contains the entire comparison interval.
+For two pairs $\bar w\pm h_1,\bar w\pm h_2$, $h_1\ge h_2\ge0$, the
+fundamental theorem of calculus gives
+\[
+ f(\bar w+h_1)+f(\bar w-h_1)-f(\bar w+h_2)-f(\bar w-h_2)
+       =\int_{h_2}^{h_1}\int_{\bar w-v}^{\bar w+v}f''(s)\,ds\,dv.
+\]
+The weight is nonnegative and the same for $r_0$ and $G$.
+As $r_0''(w)=-2\eta\kappa/(1+\kappa w)^3$, their equal-sum
+differences satisfy
+$|\Delta_{\rm eq}r_0|\ll|\kappa|L^2|\Delta_{\rm eq}G|$.
+Undoing the replacement costs $O(|P|/L)$ in $G$ and
+$O(|\eta\kappa|W|P|)$ in $r_0$. Since
+$\Phi'=L\sum\epsilon_iG(w_i)$, this proves
+\eqref{eq:thincompatibility}.
+
+We now use the derivative lower bound to estimate the complement.
+The equal-sum square discrepancy is exactly
+\[
+ Q_* =\sum\epsilon_iw_i^2-2w_4P-P^2
+      =2(w_1-w_3)(w_3-w_2).
+\]
+The same integral identity and the displayed $G''$ bounds give
+\[
+ \Phi'=-LP/(2y)+O(|\eta P|)+c(x)\eta Q_*/L,
+ \qquad 0<c_-\le c(x)\le c_+.
+\]
+All fixed higher $x$ derivatives have size
+$O_j(|P|+|\eta Q_*|/L)$, by the same implicit equation on the
+fixed compact critical support. If $|\mathcal R|>C_0$, then
+\eqref{eq:thincompatibility} and $|\kappa|WB\le T^{-\delta_0}$ imply
+$|\Phi'|\gg(|\kappa|L)^{-1}\gg T^{\delta_0}B$.
+Thus $|\eta Q_*|/L$ dominates $1+|P|$, and is comparable to
+$|\Phi'|$. These bounds hold at every $x$ of the support, and the
+higher derivatives of $\Phi$ are $O_j(|\eta Q_*|/L)$. Hence $J$
+integrations by parts in $x$, with the
+bounded-derivative amplitudes $A_{\mathbf w}$, give
+$O_J((T^{\delta_0}B)^{-J})$. This is an arbitrary fixed negative
+power of $T$. All parameters, modes, and tuple counts are polynomial
+in $T$. Choose the number of integrations large enough to bound their sums.
+We bound this complement at each $m$ and then sum.
+
+Finally the fixed block translation by $u_0$ uses
+$\eta_{u_0}=\eta(1+\kappa u_0)^{-2}$ and
+$\kappa_{u_0}=\kappa(1+\kappa u_0)^{-1}$.
+Its residual satisfies the exact identity
+$\mathcal R_{u_0}=\mathcal R+(\eta-\eta_{u_0})P$.
+For $|u_0|\ll W$ and $|P|\lesssim B$ the difference is
+$O(B^2/W)\ll N^{-1/3}$ by \eqref{eq:thinrange}.
+Thus all translated thin tuples belong to the thin energy
+$E_4^\flat$ of $S$ at a fixed enlarged width. The translation is
+independent of $m$; the dual coefficients $b_w$ do not change in this
+comparison.
+\end{proof}
+
+\section{Signed kernels and the global pair count}
+
+Use the pairs specified in Section 1. With $a=1-\ell+k$ for each pair,
+\[
+ (k_p,a_p)=(13/414,34/207),\quad (k_d,a_d)=(1/56,31/280),
+\]
+\[
+ \lambda=(T/N)^{k_p}(W/N)^{-a_p},\quad
+ \mu=W^{k_d}(W/N)^{-a_d},\quad \theta=k_p+\tfrac12.
+\]
+We use the following kernel bounds. With $M_*=W/N$ and $L=NM$ as in
+Section~\ref{sec:thinsupport}, put, after each fixed block translation,
+$P=\sum\epsilon_iw_i$, $Q=\sum\epsilon_iw_i^2$,
+$D=1+|P|$, $F=|Q|/(NM)$, and $X=N^{1/8}$, where
+$\epsilon=(1,1,-1,-1)$. The exact kernel $K_M(\mathbf w)$ is the signed
+sum over one dyadic family of nonzero Poisson modes of the fourth-power
+oscillatory integral, with the dual coefficients $b_w$ kept outside
+that sum. The supporting paper
+\cite[Corollary~\ref*{six-cor:two}]{Weighted} proves simultaneously,
+for $F\ge X$, $M\ge N^{1/24}$, and every fixed $A$,
+\[
+ |K_M(\mathbf w)|\prec M^{1-a}(NM)^kD^{-1/2}(1+D/U)^{-A},
+ \qquad
+ |K_M(\mathbf w)|\prec M^{1-a}|\eta|^{-k}
+                           D^{k-1/2}(1+D/U)^{-A}.
+\]
+Both bounds hold for the same amplitudes and every tuple, with $(k,a)$
+equal to either of the two pairs. A layer can therefore use the smaller scalar
+kernel bound before applying a nonnegative energy estimate.
+Let $\mathfrak K_M$ be the sum of $|K_M|$ over all tuples and all
+inner blocks, for one fixed sign of $m$, neighbor class, and Sobolev class.
+The quantity used here is
+\[
+ \mathcal J=\max_{M,\,\mathrm{classes}}
+       (M/M_*)^3M^{-1}\mathfrak K_M.
+\]
+The finite classes are kept in the signed duality
+\cite[Proposition~\ref*{six-prop:dualityproof}]{Weighted}. Since
+$3-a_p>0$ and $3-a_d+k_d>0$, the outer weights give respectively
+$|\eta|^{-k_p}M_*^{-a_p}\asymp\lambda$ and
+$N^{k_d}M_*^{k_d-a_d}=\mu$. For the zeta function,
+\cite[Lemma~\ref*{six-lem:atkinson}]{Weighted} gives
+$|\eta|\asymp N/T$ and $|\kappa|\asymp(TN)^{-1/2}$.
+
+Put \(A_{k_p}(S)=\sup_{1\le D\ll U}D^{k_p-1/2}E_2(S;D)\).
+Lemma~\ref{lem:thincompatibility}, the signed-block calculation in the
+proof of \cite[Proposition~\ref*{six-prop:model}]{Weighted}, and
+\eqref{eq:pairprofile} give
+\begin{equation}\label{eq:J}
+\mathcal J\prec
+ (N/Z)^4\lambda\{A_{k_p}(S)+\mathcal C_{k_p}(S;B)\}
+ +(N/Z^2)\mu r^3\sqrt U+rE_2(S;H_0),
+\end{equation}
+where \(H_0=C\sqrt{WN^{1/8}}\). We require the absorption
+\(\lambda B^\theta\le\mu\sqrt U\) when \(B\ge1\); the diagonal term of
+\eqref{eq:pairprofile} is then absorbed in the term with $\mu$.
+For \(D>B\), the ordinary curvature multiplier is bounded and contributes
+to \(A_{k_p}\) and the diagonal term. When \(B<1\), omit
+\(\mathcal C_{k_p}\) and use the pair term \(A_{k_p}\).
+
+The thin support condition is the same for every $m$.
+In each fixed translated block,
+Lemma~\ref{lem:thincompatibility} gives
+\[
+ |\mathcal R|\ll|\kappa|L|\Phi'(x)|+|\kappa|W|P|.
+\]
+On the region \(D\le B,\ |\mathcal R|>C_0\), repeated integration by parts
+gives any fixed negative power of $T$. Here \(|\kappa|WB\) has a fixed
+negative exponent. Translating a block changes the residual by
+\[
+ \mathcal R_{u_0}-\mathcal R=(\eta-\eta_{u_0})P,\qquad
+ |\mathcal R_{u_0}-\mathcal R|\ll B^2/W\ll1.
+\]
+After a fixed enlargement of \(C_0\), the tuples of every such block
+belong to the thin energy $E_4^\flat$ of $S$. The block partitions,
+both signs of $m$, and both Sobolev classes
+are summed with the same dual coefficients $b_w$ as before.
+
+The small modes, $M<N^{1/24}$, can also use \eqref{eq:pairprofile}: it
+is an inequality for the same set $S$ for each fixed $k$. Their pointwise weight is \(D^{-1/2}\le
+D^{k_p-1/2}\), and the ratio of their prefactor to \(\lambda\) is
+at most \(N^{(a_p-2)/8}<1\), since their normalized prefactor is bounded by $N^{1/8}M_*^{-3}$. Their diagonal is therefore absorbed by
+the same condition as \eqref{eq:J}. The tuples with \(F<X\) keep the
+bound \(rE_2(S;H_0)\) of \cite[Lemma~\ref*{six-lem:smallF}]{Weighted},
+including for small modes.
+The same thin-energy bound covers small $M$.
+The zero mode, nonstationary pair modes, completion, and
+remaining tails are bounded in
+\cite[Proposition~\ref*{six-prop:dualityproof} and
+Lemma~\ref*{six-lem:completionproof}]{Weighted}.
+
+Let $V=T^\sigma$. The clustering reduction
+\cite[Proposition~\ref*{six-prop:clusterproof}]{Weighted}, valid here for
+$1/10<\sigma\le5/38$, gives a length $N$ with
+$T^{1/3}\ll N\prec T/V^4$, a cluster multiplicity $F_c\ge1$, and
+$K\prec T/(V^2W)$ classes. Class $i$ has a curved sum of the form in
+Section~\ref{sec:geometry} and a $1$-separated set $S_i\subset[0,W]$ on
+which this sum has modulus at least $Z$. They satisfy
+$Z\succ F_c(TN)^{1/4}$ and
+$\cN(T,V)\prec ZR_1(TN)^{-1/4}$, with $R_1=\sum_i|S_i|$.
+Its pair count is
+\[
+ \sum_iE_2(S_i;H)\prec R_1+
+ \frac{R_1H\sqrt{T/N}}{F_cV^4}+
+ \frac{T\sqrt{R_1}}{F_c^{3/2}V^6}.
+\]
+The bound $E_2(S_i;H)\ll|S_i|H$ for $1$-separated sets is available on
+the same classes. For $H\lesssim U$,
+the middle term is absorbed using
+$\sqrt{T/N}<V^4$ and $W\sqrt{N/T}<V^4$.
+Hence the sets $S_i$ satisfy
+simultaneously
+\begin{equation}\label{eq:pairbound}
+\sum_i E_2(S_i;H)\prec R_1\min(H,C_g),\quad
+ C_g=1+A_g,\quad A_g=\frac{T}{F_c^{3/2}V^6\sqrt{R_1}},
+ \qquad 1\le H\ll U.
+\end{equation}
+The middle term of the pair count is absorbed under the same parameter
+conditions. Thus, keeping all the $H$ values and all the sets,
+\begin{equation}\label{eq:profileglobal}
+\begin{split}
+ \sum_i\mathcal C_{k_p}(S_i;B)
+ &\prec R_1\sqrt B
+          \sum_{H\lesssim B}H^{k_p-1}\min(H,C_g)\\
+ &\ll_{k_p}R_1\sqrt B\,\min(B,C_g)^{k_p}
+ \le R_1\sqrt B\,C_g^{k_p}.
+\end{split}
+\end{equation}
+For \(H\le C_g\), sum \(H^{k_p}\); above \(C_g\), sum
+\(C_gH^{k_p-1}\). Both are dominated by the transition.
+By \cite[Lemma~\ref*{six-lem:weighted}]{Weighted}, the pair functional
+satisfies \(\sum_i A_{k_p}(S_i)\prec R_1C_g^\theta\).
+This proves \eqref{eq:profileglobal}.
+
+\section{The zeta large-value bound}
+
+The signed-block inequality \cite[(\ref*{six-eq:rJ})]{Weighted}, with
+all blocks summed, is
+\[
+ r^2Z^2\prec N^2r+NW^{3/4}r^{3/4}\mathcal J^{1/4}.
+\]
+Take the branch of this inequality given by the term of \eqref{eq:J}
+with $\lambda$, and sum it over the same $K$ classes, using
+\(K\prec T/(V^2W)\). H\"older and
+\eqref{eq:pairbound}--\eqref{eq:profileglobal} give
+\begin{equation}\label{eq:sourceR}
+R_1\prec K\lambda^{1/4}N^2W^{3/4}Z^{-3}
+       \{C_g^\theta+\sqrt B C_g^{k_p}\}^{1/4}.
+\end{equation}
+The other branches of the duality inequality give the diagonal
+and small-$F$ terms of the supporting paper without change. The
+\(C_g^\theta\) part of \eqref{eq:sourceR} gives the terms \(B_2,B_5\)
+below. The curvature part is
+\begin{equation}\label{eq:curvR}
+R_1\prec K\lambda^{1/4}N^2W^{3/4}Z^{-3}
+                        B^{1/8}(1+A_g)^{k_p/4}.
+\end{equation}
+Use the clustering bounds
+\(\mathcal N(T,V)\prec ZR_1(TN)^{-1/4}\) and
+\(Z\succ F_c(TN)^{1/4}\).
+The constant in \eqref{eq:curvR} gives
+\begin{equation}\label{eq:B6}
+B_6^{(0)}=B_2\cdot B^{1/8}
+     =\lambda^{1/4}T^{1/16}N^{21/16}V^{-2}.
+\end{equation}
+The \(A_g^{k_p/4}\) part gives
+\[
+ R_1^{1+k_p/8}\prec
+ K\lambda^{1/4}N^2W^{3/4}Z^{-3}B^{1/8}
+       \left(\frac{T}{F_c^{3/2}V^6}\right)^{k_p/4}.
+\]
+Raise to \(8+k_p\) after applying the same clustering bound.
+The $Z$ exponent is \(k_p-16<0\); substituting its lower bound, and
+then $K$ and $B$, yields
+\begin{equation}\label{eq:B10}
+\boxed{
+ B_{10}=
+ \left(\lambda^2T^{1/2+2k_p}N^{21/2}
+                         V^{-16-12k_p}\right)^{1/(8+k_p)}.}
+\end{equation}
+Before dropping multiplicities, both \eqref{eq:B6} and \eqref{eq:B10} carry \(F_c^{-2}\).
+For \eqref{eq:B10} the numerator exponent is
+\((k_p-16)-3k_p=-16-2k_p=-2(8+k_p)\).
+Every other cluster exponent remains nonpositive.
+
+The terms of \cite[(\ref*{six-eq:nine})]{Weighted} used here, with
+$k=k_p$ and the above $\lambda,\mu$, are
+\[
+\begin{aligned}
+B_1&=T^{1/2}N^{3/2}W^{-1}V^{-2},&
+B_2&=\lambda^{1/4}T^{1/4}N^{5/4}W^{-1/4}V^{-2},\\
+B_3&=\mu^{1/2}T^{-1/4}N^{5/4}W^{1/2}V^{-2},&
+B_4&=\mu^{1/2}T^{-1/2}N^{3/2}W^{3/4}V^{-2},\\
+B_5&=(\lambda^4T^{6+4k_p}N^{20}W^{-4}V^{-44-24k_p})^{1/(17+2k_p)},\\
+B_7&=T^{1/3}N^{2/3}V^{-2},&
+B_8&=T^{1/2}N^{25/48}W^{1/6}V^{-10/3},\\
+B_9&=(TN/V^6)^{4/7}.&&
+\end{aligned}
+\]
+
+The full bound keeps \(B_1,B_2,B_3,B_4,B_5,B_7,B_8,B_9\) and adds
+\eqref{eq:B6} and \eqref{eq:B10} in place of the term $B_6$ of
+\cite[(\ref*{six-eq:nine})]{Weighted}. There are ten terms.
+Keeping $B_2$ also handles $B<1$.
+
+Explicitly, let \(V=T^\sigma,N=T^\nu,W=T^\omega\) and set
+\(\tilde\lambda=\log_T\lambda=k_p+(a_p-k_p)\nu-a_p\omega\),
+\(\tilde\mu=\log_T\mu=a_d\nu+(k_d-a_d)\omega\). The exponents
+\(e_i=\log_TB_i\) of the ten terms, with \(e_6\) for \(B_6^{(0)}\), are
+\begin{equation}\label{eq:costs}
+\begin{aligned}
+e_1&=1/2+3\nu/2-\omega-2\sigma,\\
+e_2&=\tilde\lambda/4+1/4+5\nu/4-\omega/4-2\sigma,\\
+e_3&=\tilde\mu/2-1/4+5\nu/4+\omega/2-2\sigma,\\
+e_4&=\tilde\mu/2-1/2+3\nu/2+3\omega/4-2\sigma,\\
+e_5&=\{4\tilde\lambda+6+4k_p+20\nu-4\omega-(44+24k_p)\sigma\}/(17+2k_p),\\
+e_6&=\tilde\lambda/4+1/16+21\nu/16-2\sigma,\\
+e_7&=1/3+2\nu/3-2\sigma,\\
+e_8&=1/2+25\nu/48+\omega/6-10\sigma/3,\\
+e_9&=4(1+\nu-6\sigma)/7,\\
+e_{10}&=\{2\tilde\lambda+1/2+2k_p+21\nu/2-(16+12k_p)\sigma\}/(8+k_p).
+\end{aligned}
+\end{equation}
+The factor \((T/N)^{k_p}\) in $\lambda$ and both powers of $W/N$
+remain present.
+
+\section{Choice of parameters}\label{sec:parameters}
+
+At $\nu=1-4\sigma$, solve $e_4=e_5=E_{\mathrm{dFP}}(\sigma)$. This gives
+\begin{equation}\label{eq:contact}
+\sigma_R=\frac{9041221}{68905232},\quad
+ \omega_R=\frac{65343017}{103357848},\quad
+ E_R=\frac{21777647}{51678924},\quad
+ q_R=\frac{65343017}{49110522}<\frac43.
+\end{equation}
+The exponent $E_R+8\sigma_R$ is $p$ in \eqref{eq:moments}. The two
+active terms are the diagonal term $e_4$ and the pair-count term $e_5$.
+The exponent of the scalar thin-curvature term is
+$e_2+(k_p+1/2)\log_T(B)/4$; its margin at \eqref{eq:contact} is
+$2605/432223728>0$. The exponent of the ordinary curvature term,
+$e_2+\log_T(B)/4$, has the positive excess
+\begin{equation}\label{eq:ordinaryexcess}
+e_{6,\mathrm{ordinary}}-E_R
+ =\frac{1756631}{7780027104}>0.
+\end{equation}
+The thin-energy bound controls this term at the intersection.
+The pair-profile bound gives the same final exponent.
+
+For comparison, put the ordinary curvature exponent $e_2+\log_T(B)/4$ in
+place of $e_6$ and $e_{10}$. At $\nu=1-4\sigma$ the least value over
+$\omega$ of the largest exponent then meets $E_{\mathrm{dFP}}$ at
+$\sigma=21170825/161443546$, and the eighth-moment exponent is
+\[
+ \frac{118757448}{80721773}=1.4711947\ldots.
+\]
+The thin-energy terms save
+$35137889893/379237670182932=0.0000926\ldots$ from this value.
+
+At the left endpoint use
+\((\sigma_L,\omega_L,E_L)=(1/8,5/8,3317/7064)\). Here $B\asymp1$ and $e_5=E_L$ at the longest length.
+Interpolate $\omega$ and $E$ affinely between the endpoints and, at
+every $N$, take \(W=N^{q(\sigma)}\), with
+\(q(\sigma)=\omega(\sigma)/(1-4\sigma)\).
+The $q$ values lie in \([5/4,q_R]\). Each of the ten exponents has strictly
+positive $\nu$ slope throughout this interval. Therefore the worst length
+is \(\nu=1-4\sigma\); at that endpoint every exponent is affine in $\sigma$.
+Table~\ref{tab:margins} records the exact margins, also written to
+\path{checks/ten_term_checks.json}. The affine argument above proves the
+bound for every length and amplitude.
+
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{c cc}
+\toprule
+Term & $E_L-e_i(\sigma_L)$ & $E_R-e_i(\sigma_R)$\\
+\midrule
+1 & $\dfrac{167}{1766}$ & $\dfrac{3559089}{34452616}$ \\[5pt]
+2 & $\dfrac{11825}{5848992}$ & $\dfrac{261515}{972503388}$ \\[5pt]
+3 & $\dfrac{66069}{1977920}$ & $\dfrac{11095691}{413431392}$ \\[5pt]
+4 & $\dfrac{4259}{1977920}$ & $0$ \\[5pt]
+5 & $0$ & $0$ \\[5pt]
+6 & $\dfrac{11825}{5848992}$ & $\dfrac{335489}{15560054208}$ \\[5pt]
+7 & $\dfrac{1121}{21192}$ & $\dfrac{3485993}{103357848}$ \\[5pt]
+8 & $\dfrac{1835}{84768}$ & $\dfrac{14725807}{2480588352}$ \\[5pt]
+9 & $\dfrac{2027}{49448}$ & $\dfrac{10248767}{361752468}$ \\[5pt]
+10 & $\dfrac{8901}{4697560}$ & $\dfrac{323541}{57277474100}$ \\[5pt]
+\bottomrule
+\end{tabular}
+\caption{Exact margins for the ten terms.}\label{tab:margins}
+\end{table}
+The script \path{checks/check_ten_terms.py} also verifies at both ends
+the strict constraints
+\[
+ W<N^{4/3},\quad WB<N^{3/2},\quad B<N^{1/3},
+ \quad |\kappa|WB<1,\quad
+ \lambda B^\theta<\mu\sqrt U
+\]
+in exponents of $T$, using
+\(|\eta|\asymp N/T,\ |\kappa|\asymp(TN)^{-1/2}\).
+All the phase, cutoff, and middle pair-absorption constraints of the
+supporting paper have strict margins. For smaller $\nu$ their exponents
+decrease, except that of \(W/N^{4/3}\), which is strictly negative for
+every positive $\nu$ because the whole $q$ interval lies below \(4/3\).
+For the diagonal absorption, check the whole rectangle
+\((q,\nu)\in[5/4,q_R]\times[1/3,1/2]\); its exponent is
+bilinear and negative at every corner.
+Small permissible excesses in \(N\prec T^{1-4\sigma}\) are assigned
+to these margins before allocating the final $\varepsilon$.
+This proves Theorem~\ref{thm:largeeighth}.
+
+
+Further energy bounds and the two active terms are discussed in
+\cite[Section 5]{Supp}.
+
+\section{The eighth moment}\label{sec:eighth}
+
+Below $\sigma=1/8$, \cite[Theorem 1.3]{dFP} and the
+fourth moment give layer exponent at most $25/17<p$.
+On $[1/8,\sigma_R]$, Theorem~\ref{thm:largeeighth} applies and
+$E(\sigma)+8\sigma$ increases to $p$.
+On $[\sigma_R,13/98]$, \eqref{eq:upper} gives slope $-332/279<0$.
+For $\sigma\ge13/98$, the twelfth moment gives the tail exponent
+$2-4(13/98)=72/49<p$. Bounded amplitudes are bounded by the fourth moment.
+
+Fix $\varepsilon$ first, then a finite amplitude mesh including all endpoints.
+Use the lower-edge count and upper-edge eighth power in each cell,
+paying the preassigned mesh loss. The passage from separated counts to
+measure \cite[Section~\ref*{six-sec:moment}]{Weighted},
+all dyadic height blocks, and bounded heights give \eqref{eq:moments}.
+All cluster multiplicities, Poisson signs, fixed Sobolev classes,
+completion costs, and partial-sum endpoints are kept
+in this argument.
+
+
+
+\appendix
+\section{Proof of the weighted thin-energy bound}\label{app:pairproof}
+
+The curved energy estimate
+\cite[Proposition~\ref*{six-prop:curv}]{Weighted} is
+\begin{equation}\label{eq:ordinaryenergy}
+ E_4(S;H)\prec (N/Z)^4(1+B/H)E_2(S;CH)
+                  +(N/Z^2)H r^3.
+\end{equation}
+Insert \eqref{eq:ordinaryenergy} into \eqref{eq:planarenergy}, keeping \(E_2\).
+The off-diagonal terms are at most
+\[
+ (N/Z)^4\sum_{H\gtrsim D}\frac DH
+               \sqrt{1+B/H}\,E_2(S;CH)
+\]
+and
+\[
+ \frac{N^{5/2}}{Z^3}r^{3/2}
+ \sum_{H\gtrsim D}\frac D{\sqrt H}\sqrt{E_2(S;CH)}.
+\]
+After multiplication by \(D^{k-1/2}\), sum $D$ first. The dyadic identity
+\[
+ \sum_{1\le D\lesssim H}D^{k+1/2}\ll_k H^{k+1/2}
+\]
+and \(\sqrt{1+B/H}\ll\sqrt{B/H}\) for \(H\lesssim B\) turn the
+first expression into \((N/Z)^4\mathcal C_k(S;B)\).
+The second becomes
+\[
+ \frac{N^{5/2}}{Z^3}r^{3/2}
+       \sum_{H\lesssim B}H^k\sqrt{E_2(S;CH)}.
+\]
+Weighted Cauchy gives exactly
+\[
+\begin{split}
+ \left(\sum_{H\lesssim B}H^k\sqrt{E_2(S;CH)}\right)^2
+ &\le
+ \left(\sqrt B\sum_H H^{k-1}E_2(S;CH)\right)
+ \left(B^{-1/2}\sum_H H^{k+1}\right)\\
+ &\ll_k \mathcal C_k(S;B)\,B^\theta.
+\end{split}
+\]
+Hence the mixed term is the geometric mean, up to constants, of
+\((N/Z)^4\mathcal C_k(S;B)\) and \((N/Z^2)r^3B^\theta\).
+It is absorbed by their sum. The diagonal in \eqref{eq:planarenergy}, summed with the same
+weight, is the latter term. This proves \eqref{eq:pairprofile}.
+
+The discarded tails in \eqref{eq:planarenergy} have factors
+\((1+D/H)^{-A}\) or the analogous enlargement factors. For fixed $k$,
+choosing $A$ sufficiently large gives the same dyadic power sums.
+Thus \eqref{eq:pairprofile} counts every tuple in its thin region.
+
+The scalar bound \eqref{eq:scalar} follows from \eqref{eq:pairprofile} by \(E_2(S;CH)\ll rH\):
+\(\mathcal C_k\ll rB^\theta\). Equation \eqref{eq:pairprofile} gives a smaller bound when the pair counts are smaller.
+
+
+\input{appendix_derivative_conditions}
+
+\section*{Computations}
+The scripts in \path{checks/} check the rational identities, endpoint
+bounds, and parameter ranges.
+
+\section*{Use of AI tools}
+AI tools were used for proof search, calculations, and writing.
+
+\begin{thebibliography}{99}
+\bibitem{dFP} A.~de Faveri and M.~Pandey,
+\emph{The sixth moment of the Riemann zeta function},
+arXiv:2610.01035v1 (2026), \url{https://arxiv.org/abs/2610.01035v1}.
+\bibitem{B38} bramble\_trace (AI agent),
+\emph{Curved Atkinson phases, reciprocal cancellation and the sixth moment
+of the Riemann zeta function}, rStation paper 38, v3, 21 October 2026,
+\url{https://rstation.ai/problems/riemann_hypothesis/papers/38}.
+\bibitem{Bou17} J.~Bourgain,
+\emph{Decoupling, exponential sums and the Riemann zeta function},
+J. Amer. Math. Soc. \textbf{30} (2017), 205--224,
+\url{https://doi.org/10.1090/jams/860}.
+\bibitem{HB17} D.~R. Heath-Brown,
+\emph{A new $k$-th derivative estimate for exponential sums via
+Vinogradov's mean value}, Proc. Steklov Inst. Math. \textbf{296} (2017),
+88--103; arXiv:1601.04493.
+\bibitem{Iwa80} H.~Iwaniec,
+\emph{Fourier coefficients of cusp forms and the Riemann zeta-function},
+S\'eminaire de Th\'eorie des Nombres de Bordeaux (1979--1980),
+Exp.~No.~18, 36~pp.
+\bibitem{Jut91} M.~Jutila,
+\emph{Mean value estimates for exponential sums with applications to
+$L$-functions}, Acta Arith. \textbf{57} (1991), 93--114,
+\url{https://doi.org/10.4064/aa-57-2-93-114}.
+\bibitem{Atk49} F.~V. Atkinson,
+\emph{The mean-value of the Riemann zeta function},
+Acta Math. \textbf{81} (1949), 353--376.
+\bibitem{TY} T.~S. Trudgian and A.~Yang,
+\emph{Toward optimal exponent pairs},
+Math. Comp. \textbf{94} (2025), 1467--1502,
+\url{https://doi.org/10.1090/mcom/3993}.
+\bibitem{Weighted} M.~Chae,
+\emph{Weighted pair energy and the sixth moment of the Riemann zeta function}, supporting paper,
+15 November 2026, revised 17 November 2026; \href{https://github.com/chaemin333-max/riemann-zeta-eighth-moment/blob/main/sixth-moment/moments.pdf}{PDF}.
+\bibitem{Supp} M.~Chae,
+\emph{Additional estimates for zeta moments},
+17 November 2026, \href{https://github.com/chaemin333-max/riemann-zeta-eighth-moment/blob/main/supplement/moments.pdf}{PDF}.
+\end{thebibliography}
+\end{document}

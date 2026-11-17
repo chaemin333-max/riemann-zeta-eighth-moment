@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the eighth-moment paper below."
+title: "Thin planar energy and the sixth and eighth moments of the Riemann zeta function: papers and exact checks"
+type: software
+authors:
+  - family-names: Chae
+    given-names: Min
+version: "1.0.0"
+repository-code: "https://github.com/chaemin333-max/riemann-zeta-eighth-moment"
+url: "https://github.com/chaemin333-max/riemann-zeta-eighth-moment"
+date-released: 2026-11-17
+license:
+  - CC-BY-4.0
+  - MIT
+keywords:
+  - Riemann zeta function
+  - moments
+  - large values
+  - additive energy
+  - exponential sums
+preferred-citation:
+  type: unpublished
+  title: "Thin planar energy and the eighth moment of the Riemann zeta function"
+  authors:
+    - family-names: Chae
+      given-names: Min
+  year: 2026
+  month: 11
+  notes: "Preprint, 17 November 2026."
+  url: "https://github.com/chaemin333-max/riemann-zeta-eighth-moment"
+references:
+  - type: unpublished
+    title: "Weighted pair energy and the sixth moment of the Riemann zeta function"
+    authors:
+      - family-names: Chae
+        given-names: Min
+    year: 2026
+    month: 11
+    notes: "Preprint, 15 November 2026, revised 17 November 2026."
+  - type: unpublished
+    title: "Additional estimates for zeta moments"
+    authors:
+      - family-names: Chae
+        given-names: Min
+    year: 2026
+    month: 11
+    notes: "Supplement, 17 November 2026."

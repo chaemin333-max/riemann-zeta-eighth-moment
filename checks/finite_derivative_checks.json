@@ -1,0 +1,207 @@
+{
+  "status": "PASS",
+  "scope": "Affine endpoint comparisons for the stated analytic derivative input",
+  "pair": [
+    "1/56",
+    "127/140"
+  ],
+  "maximum_derivative_order": 7,
+  "classical_interval": [
+    "1",
+    "2"
+  ],
+  "classical_checks": [
+    {
+      "tau": "1",
+      "classical_cost": "2/3",
+      "margin": "101/420"
+    },
+    {
+      "tau": "2",
+      "classical_cost": "5/6",
+      "margin": "11/120"
+    }
+  ],
+  "derivative_intervals": [
+    [
+      3,
+      "2",
+      "5/2"
+    ],
+    [
+      4,
+      "5/2",
+      "17/5"
+    ],
+    [
+      5,
+      "17/5",
+      "13/3"
+    ],
+    [
+      6,
+      "13/3",
+      "37/7"
+    ],
+    [
+      7,
+      "37/7",
+      "31/5"
+    ]
+  ],
+  "endpoint_checks": [
+    {
+      "derivative_order": 3,
+      "tau": "2",
+      "target_exponent": "37/40",
+      "three_costs": [
+        "5/6",
+        "5/6",
+        "7/9"
+      ],
+      "margins": [
+        "11/120",
+        "11/120",
+        "53/360"
+      ]
+    },
+    {
+      "derivative_order": 3,
+      "tau": "5/2",
+      "target_exponent": "523/560",
+      "three_costs": [
+        "11/12",
+        "5/6",
+        "13/18"
+      ],
+      "margins": [
+        "29/1680",
+        "169/1680",
+        "1067/5040"
+      ]
+    },
+    {
+      "derivative_order": 4,
+      "tau": "5/2",
+      "target_exponent": "523/560",
+      "three_costs": [
+        "7/8",
+        "11/12",
+        "43/48"
+      ],
+      "margins": [
+        "33/560",
+        "29/1680",
+        "4/105"
+      ]
+    },
+    {
+      "derivative_order": 4,
+      "tau": "17/5",
+      "target_exponent": "19/20",
+      "three_costs": [
+        "19/20",
+        "11/12",
+        "103/120"
+      ],
+      "margins": [
+        "0",
+        "1/30",
+        "11/120"
+      ]
+    },
+    {
+      "derivative_order": 5,
+      "tau": "17/5",
+      "target_exponent": "19/20",
+      "three_costs": [
+        "23/25",
+        "19/20",
+        "233/250"
+      ],
+      "margins": [
+        "3/100",
+        "0",
+        "9/500"
+      ]
+    },
+    {
+      "derivative_order": 5,
+      "tau": "13/3",
+      "target_exponent": "29/30",
+      "three_costs": [
+        "29/30",
+        "19/20",
+        "137/150"
+      ],
+      "margins": [
+        "0",
+        "1/60",
+        "4/75"
+      ]
+    },
+    {
+      "derivative_order": 6,
+      "tau": "13/3",
+      "target_exponent": "29/30",
+      "three_costs": [
+        "17/18",
+        "29/30",
+        "257/270"
+      ],
+      "margins": [
+        "1/45",
+        "0",
+        "2/135"
+      ]
+    },
+    {
+      "derivative_order": 6,
+      "tau": "37/7",
+      "target_exponent": "241/245",
+      "three_costs": [
+        "41/42",
+        "29/30",
+        "593/630"
+      ],
+      "margins": [
+        "11/1470",
+        "5/294",
+        "187/4410"
+      ]
+    },
+    {
+      "derivative_order": 7,
+      "tau": "37/7",
+      "target_exponent": "241/245",
+      "three_costs": [
+        "47/49",
+        "41/42",
+        "992/1029"
+      ],
+      "margins": [
+        "6/245",
+        "11/1470",
+        "101/5145"
+      ]
+    },
+    {
+      "derivative_order": 7,
+      "tau": "31/5",
+      "target_exponent": "1",
+      "three_costs": [
+        "103/105",
+        "41/42",
+        "704/735"
+      ],
+      "margins": [
+        "2/105",
+        "1/42",
+        "31/735"
+      ]
+    }
+  ],
+  "trivial_length_threshold": "31/5",
+  "interval_argument": "Each of the three cost differences is affine in tau",
+  "analytic_input": "Heath-Brown Theorem 1; rederived in the supporting paper, Appendix H"
+}
