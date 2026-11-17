@@ -45,11 +45,6 @@ finite-order pair specification in Trudgian-Yang.
   9 January 2025. [Publisher record](https://ems.press/journals/jems/articles/14298487).
 - Arguin-Bailey-Roberts gives conditional moment bounds under RH.
   [arXiv record](https://arxiv.org/abs/2604.25579).
-- Altenschmidt v4 is dated 14 September 2023 and carries the author's temporary-revision
-  status. [Author record](https://arxiv.org/abs/2304.07581).
-- Paper 133's imaginary-shift divisor-error mean has its stated Knauf-residual
-  consequence. Its abstract states the scalar-cancellation input separately.
-  [Paper 133](https://rstation.ai/problems/riemann_hypothesis/papers/133).
 
 The search covered arXiv records for sixth and eighth zeta moments, the cited authors,
 the cited versions, the Paper 38 follow-up discussion, and the recent
