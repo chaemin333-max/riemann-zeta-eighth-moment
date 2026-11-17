@@ -1,24 +1,6 @@
-# License
+MIT License
 
-Copyright (c) 2026 Min Chae.
-
-This repository has two parts with different licenses.
-
-## Papers and documentation: CC BY 4.0
-
-The files in `paper/`, `sixth-moment/`, `supplement/`, `summary/` and `docs/`,
-and `README.md`, are licensed under the Creative Commons Attribution 4.0
-International License (SPDX identifier `CC-BY-4.0`).
-
-You may copy, redistribute and adapt this material for any purpose, provided
-that you give appropriate credit, provide a link to the license, and indicate
-if changes were made. The full license text is at
-<https://creativecommons.org/licenses/by/4.0/legalcode>.
-
-## Code: MIT License
-
-The files in `checks/` and the `Makefile` are licensed under the MIT License
-(SPDX identifier `MIT`).
+Copyright (c) 2026 Min Chae
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -272,9 +272,12 @@ Citation metadata is in [CITATION.cff](CITATION.cff).
 
 ## License
 
+Copyright (c) 2026 Min Chae.
+
 The papers, the supplement, the summary and the documentation are licensed under
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The code in `checks/` and
-the `Makefile` are licensed under the MIT License. See [LICENSE.md](LICENSE.md).
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); the full text is in [LICENSE](LICENSE).
+The code in `checks/` and the `Makefile` are licensed under the MIT License; the text is in
+[checks/LICENSE](checks/LICENSE).
 
 ## Further documents
 
