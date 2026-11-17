@@ -5,14 +5,20 @@ Min Chae. Preprints, 17 November 2026.
 This repository contains two papers, a supplement, a two-page summary, and
 exact-arithmetic checks.
 
-| Result | Exponent | Decimal | Where | Cited theorems it rests on |
-|---|---|---|---|---|
-| $\int_0^T \lvert\zeta(\tfrac12+it)\rvert^8\,dt \ll T^{p_8+\varepsilon}$ | $76024973/51678924$ | 1.4711021 | Eighth-moment paper, Theorem 1.1 | sparse fourth moment; Vinogradov mean value; Bourgain's exponent pair; de Faveri–Pandey Theorems 1.3 and 9.1 (case $k=4$) |
-| $\int_0^T \lvert\zeta(\tfrac12+it)\rvert^6\,dt \ll T^{p_6+\varepsilon}$ | $84599/68640$ | 1.2325029 | Supporting paper, Theorem 1.1 | sparse fourth moment; Vinogradov mean value |
-| Eighth moment, fewer cited theorems | $357082/242699$ | 1.4712957 | Supplement, Theorem 1.1 | sparse fourth moment |
-| Sixth moment, fewer cited theorems | $143/116$ | 1.2327586 | Supplement, Corollary 4.2 | sparse fourth moment |
+$$
+\int_0^T \lvert\zeta(1/2+it)\rvert^8 dt \ll_\varepsilon T^{p+\varepsilon},
+\qquad p=\frac{76024973}{51678924}=1.4711020\ldots
+$$
 
-All four start from Atkinson's dissection of $\zeta(u)\zeta(v)$.
+| Result | Exponent | Decimal | Where |
+|---|---|---|---|
+| Eighth moment | $76024973/51678924$ | 1.4711021 | Eighth-moment paper, Theorem 1.1 |
+| Sixth moment | $84599/68640$ | 1.2325029 | Supporting paper, Theorem 1.1 |
+| Eighth moment from the sparse fourth moment | $357082/242699$ | 1.4712957 | Supplement, Theorem 1.1 |
+| Sixth moment from the sparse fourth moment | $143/116$ | 1.2327586 | Supplement, Corollary 4.2 |
+
+All four start from Atkinson's dissection of $\zeta(u)\zeta(v)$. The cited theorems for each
+result are listed in the table [Which cited theorem each result needs](#which-cited-theorem-each-result-needs).
 
 ## How these compare with earlier bounds
 
